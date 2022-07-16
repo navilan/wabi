@@ -1,0 +1,20 @@
+session_name: 'wm'
+windows:
+- options:
+    automatic-rename: 'off'
+  layout: even-vertical
+  panes:
+  - name: spacebar
+    shell_command: spacebar -c ~/.config/spacebar/spacebarrc
+  - name: yabai
+    shell_command: yabai -c ~/.config/yabai/yabairc
+  - name: skhd
+    shell_command: skhd -c ~/.config/skhd/skhdrc
+  start_directory: /Users/navilan/.nixpkgs
+  window_name: wm
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+  start_directory: /Users/navilan/.nixpkgs
+  window_name: cfg

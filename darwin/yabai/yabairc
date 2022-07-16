@@ -1,0 +1,140 @@
+#!/usr/bin/env sh
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+
+# debug logs
+yabai -m config debug_output on
+
+# Create / Manage spaces
+sh "$HOME/.bin/spacer.sh"
+
+#########################################################################
+# LAYOUT                                                                #
+#########################################################################
+
+# Use bspwm like binary splits
+yabai -m config layout bsp
+
+# do not equalize size of children and parents
+yabai -m config auto_balance off
+
+# make the new split slightly smaller than the parent
+yabai -m config split_ratio 0.5
+
+# split to right and down
+yabai -m config window_placement second_child
+
+# floating windows are always on top
+yabai -m config window_topmost off
+
+# padding between screen edges and windows
+yabai -m config top_padding 0
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+
+# padding between different windows
+yabai -m config window_gap 6
+
+#########################################################################
+# MOUSE SUPPORT                                                         #
+#########################################################################
+
+# set mouse interaction modifier key
+yabai -m config mouse_modifier fn
+
+# make focus and mouse follow each other
+yabai -m config mouse_follows_focus on
+yabai -m config focus_follows_mouse off
+
+# move and resize windows using mouse
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+
+#########################################################################
+# WINDOWS APPEARANCE                                                    #
+#########################################################################
+
+# show shadows for floating windows only
+yabai -m config window_shadow float
+
+# render all unfocus windows with 90% opacity
+yabai -m config window_opacity off
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.98
+
+# borders
+yabai -m config window_border on
+yabai -m config window_border_width 4
+yabai -m config active_window_border_color 0x00444444
+yabai -m config normal_window_border_color 0x00444444
+yabai -m config insert_feedback_color 0xb2ebdbb2
+
+# external bar
+if which spacebar >/dev/null; then
+  SPACEBAR_HEIGHT=$(spacebar -m config height)
+  yabai -m config external_bar all:"$SPACEBAR_HEIGHT":0
+fi
+
+
+#########################################################################
+# SPACE LAYOUTS                                                          #
+#########################################################################
+yabai -m config --space s1  layout bsp
+yabai -m config --space s2  layout stack
+yabai -m config --space s3  layout stack
+yabai -m config --space s4  layout bsp
+yabai -m config --space s5  layout bsp
+yabai -m config --space s6  layout bsp
+yabai -m config --space s7  layout bsp
+yabai -m config --space s8  layout bsp
+yabai -m config --space s9  layout bsp
+yabai -m config --space s10 layout bsp
+
+#########################################################################
+# WINDOW DEDICATED SPACE RULES                                          #
+#########################################################################
+
+yabai -m rule --add app="VSCodium" space=s2
+yabai -m rule --add app="Alacritty" space=s3
+yabai -m rule --add app="alacritty" space=s3
+yabai -m rule --add app="Slack" space=s5
+yabai -m rule --add app="monday.com" space=s6
+yabai -m rule --add app="Firefox" space=s1
+yabai -m rule --add app="Safari" space=s4
+yabai -m rule --add app="Fantastical" space=s7
+
+# Floats
+yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="The Unarchiver" manage=off
+yabai -m rule --add app="Calculator" manage=off
+yabai -m rule --add app="Alfred Preferences" manage=off
+yabai -m rule --add app="Fantastical Helper" manage=off
+yabai -m rule --add app="Photo Booth" manage=off
+yabai -m rule --add app="zoom" manage=off
+yabai -m rule --add app="Terminal" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add label="App Store" app="^App Store$" manage=off
+yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
+yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
+yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
+yabai -m rule --add label="mpv" app="^mpv$" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Color Picker$" manage=off
+yabai -m rule --add app="^Stickies$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+
+
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+echo "yabai configuration loaded.."
+

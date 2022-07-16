@@ -1,0 +1,184 @@
+{
+    "editor.fontFamily": "PragmataPro Mono Liga, Dank Mono, Menlo, Courier New, monospace",
+    "editor.fontSize": 24,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": false,
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "cSpell.userWords": [
+        "Puthir",
+        "Unschooling",
+        "spammy"
+    ],
+    "playfab.loginId": "navilan@puthir.in",
+    "playfab.showTitleIds": true,
+    "vim.useSystemClipboard": true,
+    "editor.emptySelectionClipboard": false,
+    "vim.enableNeovim": true,
+    "vim.hlsearch": true,
+    "vim.leader": "SPC",
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.statusBarColorControl": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f",
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f"
+    },
+    "editor.fontLigatures": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontSize": 20,
+    "terminal.integrated.fontFamily": "PragmataPro Mono Liga, Dank Mono, monospace",
+    "workbench.sideBar.location": "left",
+    "eslint.codeActionsOnSave.mode": "problems",
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.format.enable": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "workbench.startupEditor": "none",
+    "vim.easymotion": true,
+    "vim.neovimPath": "/etc/profiles/per-user/navilan/bin/nvim",
+    "vim.replaceWithRegister": true,
+    "vim.visualstar": true,
+    "vspacecode.bindingOverrides": [],
+    "redhat.telemetry.enabled": false,
+    "yaml.schemas": {
+        "http://json.schemastore.org/github-workflow": [
+            "**/.github/workflows/*.yaml",
+            "**/.github/workflows/*.yml"
+        ],
+        "http://json.schemastore.org/github-action": [
+            "action.yaml",
+            "action.yml"
+        ]
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "scm.diffDecorationsGutterVisibility": "hover",
+    "scm.diffDecorations": "gutter",
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path.mac": "/Users/navilan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vscode-kubernetes.kubectl-path.mac": "/Users/navilan/.vs-kubernetes/tools/kubectl/kubectl",
+        "vscode-kubernetes.helm-path.mac": "/Users/navilan/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "telemetry.telemetryLevel": "off",
+    "search.exclude": {
+        "**/.history": true,
+        "**/.history/**": true
+    },
+    "customizeUI.font.monospace": "PragmataPro Liga Mono",
+    "customizeUI.font.regular": "PragmataPro Liga",
+    "customizeUI.fontSizeMap": {
+        "8px": "14px",
+        "9px": "15px",
+        "10px": "16px",
+        "11px": "17px",
+        "12px": "18px",
+        "13px": "19px",
+        "14px": "20px",
+        "15px": "22px",
+        "16px": "22px",
+        "17px": "22px",
+        "monospace": "16px"
+    },
+    "customizeUI.moveStatusbar": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "editor.semanticHighlighting.enabled": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.guides.indentation": false,
+    "editor.guides.bracketPairs": false,
+    "editor.wordWrap": "off",
+    "diffEditor.wordWrap": "off",
+    "editor.inlayHints.enabled": false,
+    "window.titleBarStyle": "native",
+    "files.exclude": {
+        "**/.history": true
+    },
+    "explorer.confirmDelete": false,
+    "blockman.n01LineHeight": 0,
+    "breadcrumbs.enabled": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "workbench.editor.wrapTabs": true,
+    "workbench.editor.tabCloseButton": "off",
+    "prolog.executablePath": "/etc/profiles/per-user/navilan/bin/swipl",
+    "prolog.format.tabSize": 2,
+    "shellcheck.executablePath": "/etc/profiles/per-user/navilan/bin/shellcheck",
+    "shellcheck.useWorkspaceRootAsCwd": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--experimental-string-processing"
+    ],
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "local-history.path": "~/.config/cache/codium/.history/${workspaceFolderBasename}",
+    "window.zoomLevel": -1,
+    "java.home": "/nix/store/j0snd6l2w4v7f560psk7w85j4z9xh99w-zulu11.48.21-ca-jdk-11.0.11"
+}

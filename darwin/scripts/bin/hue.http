@@ -1,0 +1,86 @@
+# -*- restclient -*-
+# -*- gnutls-verify-error: nil; -*-
+#
+@hue-ip = 10.0.0.10
+
+# #
+# # Auth
+# #
+# POST http://:hue-ip/api
+# Content-Type: application/json
+
+# {
+#     "devicetype": "wabi-emacs-rc#navilan"
+# }
+
+# # Retrieved from the previous call
+@un = PvYObopjFhOCir9RUX1RM-T2jvonK1grE3yruQgq
+
+
+#
+# Rooms
+#
+
+
+###
+@name=rooms
+GET https://{{hue-ip}}/clip/v2/resource/room
+hue-application-key: {{un}}
+
+###
+
+@nav-office=ebe74480-ed4b-420a-b7af-5c67aa9a3bb7
+
+###
+GET https://{{hue-ip}}/clip/v2/resource/room/{{nav-office}}
+hue-application-key: {{un}}
+
+
+###
+
+
+# Get nav office
+@nav-office-group=79448f67-cf9c-4a6d-b692-e072db3b952f
+GET https://{{hue-ip}}/clip/v2/resource/grouped_light/{{nav-office-group}}
+hue-application-key: {{un}}
+
+###
+
+
+###
+
+# turn on nav office
+PUT https://{{hue-ip}}/clip/v2/resource/grouped_light/{{nav-office-group}}
+hue-application-key: {{un}}
+
+{
+    "on": {
+        "on": true
+    }
+}
+
+###
+
+# turn off nav office
+PUT https://{{hue-ip}}/clip/v2/resource/grouped_light/{{nav-office-group}}
+hue-application-key: {{un}}
+
+{
+    "on": {
+        "on": false
+    }
+}
+
+###
+
+# #
+# # Zones
+# #
+# GET https://:hue-ip/clip/v2/resource/zone
+# hue-application-key: <appkey :un>
+
+# #
+# # Lights
+# #
+# GET https://:hue-ip/clip/v2/resource/light
+# hue-application-key: <appkey :un>

@@ -1,0 +1,33 @@
+* Setup
+
+** Install Nix
+
+#+begin_src bash
+sh <(curl -L https://nixos.org/nix/install) \
+    --darwin-use-unencrypted-nix-store-volume \
+    --daemon
+sudo reboot
+#+end_src
+
+** Setup Darwin channel
+
+#+begin_src bash
+nix-channel \
+    --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz \
+    darwin
+nix-channel --update
+nix-shell '<darwin>' -A installer
+darwin-rebuild switch
+#+end_src
+
+** Rebuild
+
+#+begin_src bash
+git clone https://github.com/navilan/wabi.git ~/.nixpkgs
+darwin-rebuild swtich
+#+end_src
+
+** Based on
+
+- https://github.com/breuerfelix/dotfiles
+- https://github.com/shaunsingh/nix-darwin-dotfiles

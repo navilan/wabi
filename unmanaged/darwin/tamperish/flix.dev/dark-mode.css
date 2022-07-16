@@ -1,0 +1,25 @@
+body, .page {
+   background: #333;
+   color: #ededed;
+
+}
+
+.bg-light {
+    background-color: #222 !important;
+    color: #ededed;
+}
+
+#brace-editor, .card-body, .inline-editor-code, .ace_editor, .editor-code, .ace_scroller, .box {
+   background: #000;
+   color: #ededed;
+
+}
+
+p, .Documentation_documentation__W\+afF, .link-dark {
+    color: #ededed !important;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ededed;
+}

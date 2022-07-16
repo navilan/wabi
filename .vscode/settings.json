@@ -1,0 +1,13 @@
+{
+    "yaml.schemas": {
+        "http://json.schemastore.org/github-workflow": [
+            "**/.github/workflows/*.yaml",
+            "**/.github/workflows/*.yml"
+        ],
+        "http://json.schemastore.org/github-action": [
+            "action.yaml",
+            "action.yml"
+        ],
+        "https://json.schemastore.org/yamllint.json": "file:///Users/navilan/newnix/common/k9s/plugin.yml"
+    }
+}
