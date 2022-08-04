@@ -32,6 +32,7 @@ in
         haskell.haskell
         justusadam.language-haskell
 
+
         ## Nix
         bbenoist.nix
         b4dm4n.vscode-nixpkgs-fmt
@@ -40,8 +41,6 @@ in
 
         ## Flix
 
-
-        ## Prolog
 
         ## Markup & Data
         davidanson.vscode-markdownlint
@@ -63,7 +62,7 @@ in
 
 
         ## Python
-        ms-python.python
+        # ms-python.python
         ms-python.vscode-pylance
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
@@ -175,7 +174,8 @@ in
             publisher = "flix";
             name = "flix";
             version = "0.76.0";
-            sha256 = "c5i4JuGchTC8rLSMvImeTzzuBwJGJzXdial9DpCDIHM=";
+            sha256 = "yMp9gfmWg+eYH2JRmukGhSHq7qCMgeeDkp28hcV0G9s=";
+
         }
         {
             publisher = "rrudi";

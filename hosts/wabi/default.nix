@@ -17,7 +17,6 @@
 
   nix = {
     allowedUsers = [ "navilan" ];
-    package = pkgs.nixUnstable;
   };
 
   services = {
@@ -35,9 +34,7 @@
     fontDir.enable = true;
     fonts = with pkgs; [
       nerdfonts
-      corefonts
       recursive
     ];
   };
-
 }

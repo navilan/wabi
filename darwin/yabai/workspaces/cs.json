@@ -1,0 +1,39 @@
+{
+    "workspaces": {
+        "cs": {
+            "D1": [
+                "Slack",
+                "monday.com",
+                "Safari"
+            ],
+            "D2": [
+                "VSCodium"
+            ],
+            "D3": [
+                "VSCodium"
+            ],
+            "D4": [
+                "VSCodium",
+                "Alacritty",
+                "Emacs"
+            ]
+        },
+        "wabi": {
+            "D1": [
+                "",
+                "monday.com",
+                "Safari"
+            ],
+            "D2": [
+                "VSCodium"
+            ],
+            "D3": [
+                "VSCodium"
+            ],
+            "D4": [
+                "VSCodium",
+                "Emacs"
+            ]
+        }
+    }
+}

@@ -80,7 +80,21 @@ fi
 
 
 #########################################################################
-# SPACE LAYOUTS                                                          #
+# SPACE LAYOUTS                                                         #
+#########################################################################
+# CreditSCRIPT
+# # Slack -  S1 / D1 / W1
+# # Monday - S1 / D1 / W2
+# # Safari 1 - S1 / D1 / W3
+# # Codium 1 - S2 / D2 / W1
+# # Codium 2 - S3 / D3 / W1
+# # Alacritty 1 - S4 / D4 / W1
+# # Codium 3 - S4 / D4 / W2
+# # Emacs 1  - S4 / D4 / W3
+# Wabi
+# # Alacritty 2 - S5 / D1 / W1
+# # Emacs 2  - S6 / D2  / W1
+# # Fantastical S7 / D3 / W1
 #########################################################################
 yabai -m config --space s1  layout bsp
 yabai -m config --space s2  layout stack
@@ -131,6 +145,7 @@ yabai -m rule --add app="^Color Picker$" manage=off
 yabai -m rule --add app="^Stickies$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
 
 
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"

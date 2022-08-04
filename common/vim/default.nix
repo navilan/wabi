@@ -42,12 +42,9 @@ in {
 
       # extra language servers
       rnix-lsp
-      terraform-ls terraform-lsp
       nodePackages.typescript nodePackages.typescript-language-server
-      gopls
       texlab
       nodePackages.pyright black
-      rust-analyzer
 
       # debugging
       delve # golang

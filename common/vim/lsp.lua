@@ -85,12 +85,9 @@ end
 
 local servers = {
   "tsserver",
-  "gopls",
   "rnix",
-  "terraformls",
   "texlab",
   "pyright",
-  "rust_analyzer",
 }
 
 local caps = vim.lsp.protocol.make_client_capabilities()

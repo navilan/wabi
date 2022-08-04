@@ -57,11 +57,11 @@
       "jakehilborn/jakehilborn"
     ];
     masApps = {
-      Vimari = 1480933944;
-      AdGuard = 1440147259;
-      Monday = 1298450641;
-      Fantastical = 975937182;
-      Tamperish = 1516885392;
+      # Vimari = 1480933944;
+      # AdGuard = 1440147259;
+      # Monday = 1298450641;
+      # Fantastical = 975937182;
+      # Tamperish = 1516885392;
     };
     extraConfig = ''
       brew "emacs-plus@29", args: [

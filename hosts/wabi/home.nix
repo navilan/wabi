@@ -57,7 +57,6 @@
       yarn
 
       starship # terminal prompt
-      slides # terminal presentation tool
 
 
       # music
@@ -136,5 +135,4 @@
       ];
     };
   };
-
 }

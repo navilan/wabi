@@ -91,18 +91,10 @@
       # direnv
       eval "$(direnv hook zsh)"
 
-      function transfer() {
-          wget --method PUT --body-file=$1 https://up.fbr.ai/$1 -O - -nv
-      }
       export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib -L$(brew --prefix libpq)/lib -L$(brew --prefix libffi)/lib"
       export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include -I$(brew --prefix libpq)/include -I$(brew --prefix libffi)/include"
     '';
 
-    # dirHashes = {
-    #   dl = "$HOME/Downloads";
-    #   nix = "$HOME/.nixpkgs";
-    #   work = "$HOME/work";
-    # };
 
     shellAliases = {
       # builtins
@@ -132,27 +124,6 @@
       venv = "python3 -m venv";
       j = "z";
 
-      # utilities
-      psf = "ps -aux | grep";
-      lsf = "ls | grep";
-      search = "sudo fd . '/' | grep"; # TODO replace with ripgrep
-      shut = "sudo shutdown -h now";
-      tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
-      socks = "ssh -D 1337 -q -C -N";
-
-
-      # nix
-      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
-      nb = "darwin-rebuild switch";
-      nbu = "nix-channel --update && darwin-rebuild switch";
-      #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
-      clean = "nix-collect-garbage";
-      nsh = "nix-shell";
-      "," = "nix-shell -p";
-
-      nbh = "home-manager switch";
-      nbhu = "nix-channel --update && home-manager switch";
-
     };
 
     plugins = [
@@ -175,8 +146,6 @@
         dotExpansion = true;
         keymap = "vi";
       };
-      #prompt.showReturnVal = true;
-      #tmux.autoStartLocal = true;
       pmodules = [
         "autosuggestions"
         "completion"

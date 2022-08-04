@@ -1,0 +1,34 @@
+# /etc/bashrc: DO NOT EDIT -- this file has been generated automatically.
+# This file is read for interactive shells.
+
+[ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"
+
+# Only execute this file once per shell.
+if [ -n "$__ETC_BASHRC_SOURCED" -o -n "$NOSYSBASHRC" ]; then return; fi
+__ETC_BASHRC_SOURCED=1
+
+# Don't execute this file when running in a pure nix-shell.
+if test -n "$IN_NIX_SHELL"; then return; fi
+
+if [ -z "$__NIX_DARWIN_SET_ENVIRONMENT_DONE" ]; then
+  . /nix/store/d1p4nmliczbssbiz6alp0v0hb9x6qc3w-set-environment
+fi
+
+# Return early if not running interactively, but after basic nix setup.
+[[ $- != *i* ]] && return
+
+# Make bash check its window size after a process completes
+shopt -s checkwinsize
+
+
+
+
+
+
+
+
+
+# Read system-wide modifications.
+if test -f /etc/bash.local; then
+  source /etc/bash.local
+fi

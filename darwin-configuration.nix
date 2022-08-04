@@ -2,7 +2,7 @@
 {
   imports = [
     ./hosts/wabi
-    ./common/system.nix
-    ./darwin/system
+    #./common/system.nix
+    #./darwin/system
   ];
 }

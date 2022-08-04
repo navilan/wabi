@@ -179,6 +179,7 @@
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "local-history.path": "~/.config/cache/codium/.history/${workspaceFolderBasename}",
-    "window.zoomLevel": -1,
-    "java.home": "/nix/store/j0snd6l2w4v7f560psk7w85j4z9xh99w-zulu11.48.21-ca-jdk-11.0.11"
+    "java.home": "/nix/store/j0snd6l2w4v7f560psk7w85j4z9xh99w-zulu11.48.21-ca-jdk-11.0.11",
+    "diffEditor.renderSideBySide": false,
+    "window.zoomLevel": -1
 }

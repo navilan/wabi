@@ -132,6 +132,8 @@
 :: active  @ : ~/.bin/skhd_yabai.sh highlight_active
 :: shorts  @ : ~/.bin/skhd_yabai.sh highlight_shorts
 :: restart  @ : ~/.bin/skhd_yabai.sh highlight_shorts
+:: launch  @ : ~/.bin/skhd_yabai.sh highlight_shorts
+:: yabai  @ : ~/.bin/skhd_yabai.sh highlight_shorts
 
 :: focus  @ : ~/.bin/skhd_yabai.sh highlight_focus    # focus window, spaces or displays - green color
 :: swap   @ : ~/.bin/skhd_yabai.sh highlight_swap     # swap windows, spaces or displays - red color
@@ -174,6 +176,8 @@ default < f18 ; shorts
 shorts < f18 ; default
 shorts < escape ; default
 shorts < r ; restart
+shorts < a ; launch
+shorts < y ; yabai
 restart < escape ; default
 
 # Shortcuts
@@ -206,9 +210,12 @@ shorts < shift - 9    : yabai -m space --focus s9; skhd -k 'escape'
 shorts < shift - 0    : yabai -m space --focus s10; skhd -k 'escape'
 
 # Launch
-shorts < t : alacritty & disown alacritty
-shorts < e : emacs & disown emacs
-shorts < d : cd "$HOME/.nixpkgs" && codium .
+launch < t : alacritty & disown alacritty
+launch < e : emacs & disown emacs
+launch < c : cd "$HOME/.nixpkgs" && codium .
+
+# Yabai Layouts
+yabai < s : sh "$HOME/.bin/save-layout.sh"
 
 # Active
 active < f ; focus             # green
