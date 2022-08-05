@@ -27,11 +27,10 @@
         }
       ];
 
-      font = let fontname = "SauceCodePro Nerd Font Mono"; in {
-      #font = let fontname = "Recursive Mono Linear Static"; in { # TODO fix this font with nerd font
-        normal = { family = fontname; style = "Semibold"; };
+      font = let fontname = "PragmataPro Mono Liga"; in {
+        normal = { family = fontname; style = "Regular"; };
         bold = { family = fontname; style = "Bold"; };
-        italic = { family = fontname; style = "Semibold Italic"; };
+        italic = { family = fontname; style = "Italic"; };
         size = 16;
       };
       cursor.style = "Block";
@@ -41,10 +40,6 @@
           background = "0x24283b";
           foreground = "0xc0caf5";
         };
-        #cursor = {
-          #text = "";
-          #cursor = "";
-        #};
         normal = {
           black = "0x1D202F";
           red = "0xf7768e";

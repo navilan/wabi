@@ -10,6 +10,12 @@
     '';
   };
 
+  home.activation.chshzsh = lib.hm.dag.entryAfter ["writeBoundary"]
+    ''
+    sudo chsh -s ${pkgs.zsh}/bin/zsh
+    '';
+
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -18,7 +24,7 @@
     enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
-    #defaultKeymap = "viins"; #vicmd or viins
+    defaultKeymap = "viins"; #vicmd or viins
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -36,8 +42,8 @@
 
     initExtraBeforeCompInit = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
-        eval "$(starship init zsh)"
-        eval "$(thefuck --alias)"
+        eval "$(${pkgs.starship}/bin/starship init zsh)"
+        eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
       '';
 
     initExtra = ''
@@ -46,9 +52,6 @@
       export VISUAL=nvim
       export NIXPKGS_ALLOW_UNFREE=1
       export ETCD_UNSUPPORTED_ARCH=arm64
-      #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
-
-      #source /secrets/environment.bash
 
       bindkey '^e' edit-command-line
       bindkey '^ ' autosuggest-accept
@@ -89,12 +92,17 @@
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
       # direnv
-      eval "$(direnv hook zsh)"
+      eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
 
       export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib -L$(brew --prefix libpq)/lib -L$(brew --prefix libffi)/lib"
       export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include -I$(brew --prefix libpq)/include -I$(brew --prefix libffi)/include"
     '';
 
+    # dirHashes = {
+    #   dl = "$HOME/Downloads";
+    #   nix = "$HOME/.nixpkgs";
+    #   work = "$HOME/work";
+    # };
 
     shellAliases = {
       # builtins
@@ -124,6 +132,27 @@
       venv = "python3 -m venv";
       j = "z";
 
+      # utilities
+      psf = "ps -aux | grep";
+      lsf = "ls | grep";
+      search = "sudo fd . '/' | grep"; # TODO replace with ripgrep
+      shut = "sudo shutdown -h now";
+      tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
+      socks = "ssh -D 1337 -q -C -N";
+
+
+      # nix
+      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
+      nb = "darwin-rebuild switch";
+      nbu = "nix-channel --update && darwin-rebuild switch";
+      #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
+      clean = "nix-collect-garbage";
+      nsh = "nix-shell";
+      "," = "nix-shell -p";
+
+      nbh = "home-manager switch";
+      nbhu = "nix-channel --update && home-manager switch";
+
     };
 
     plugins = [
@@ -146,6 +175,8 @@
         dotExpansion = true;
         keymap = "vi";
       };
+      #prompt.showReturnVal = true;
+      #tmux.autoStartLocal = true;
       pmodules = [
         "autosuggestions"
         "completion"
@@ -157,3 +188,4 @@
     };
   };
 }
+

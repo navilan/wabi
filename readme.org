@@ -9,25 +9,35 @@ sh <(curl -L https://nixos.org/nix/install) \
 sudo reboot
 #+end_src
 
-** Setup Darwin channel
+** Pull Repo
 
 #+begin_src bash
-nix-channel \
-    --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz \
-    darwin
-nix-channel --update
-nix-shell '<darwin>' -A installer
-darwin-rebuild switch
+git clone https://github.com/navilan/wabi.git ~/wabi
 #+end_src
 
-** Rebuild
+** Build Flake
 
 #+begin_src bash
-git clone https://github.com/navilan/wabi.git ~/.nixpkgs
-darwin-rebuild swtich
+cd ~/wabi
+nix build .\#darwinConfigurations.wabi.system
 #+end_src
+
+** First Run
+
+#+begin_src bash
+result/sw/bin/darwin-rebuild switch --flake .\#wabi
+#+end_src
+
+** Subsequent Runs
+
+#+begin_src bash
+darwin-rebuild switch --flake .\#wabi
+#+end_src
+
 
 ** Based on
 
+- https://github.com/cmacrae/config
+- https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/breuerfelix/dotfiles
 - https://github.com/shaunsingh/nix-darwin-dotfiles

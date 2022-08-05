@@ -1,5 +1,5 @@
 
-{ config, pkgs, lib, ... }: 
+{ pkgs, ... }: 
 {
   imports = [
     ../../common
@@ -7,72 +7,47 @@
   ];
 
   home = {
-    stateVersion = "21.11";
+    stateVersion = "22.05";
+
     packages = with pkgs; [
-      # terminal
-      bottom # htop alternatives
-      #btop
-      fd ripgrep # fast search
+      bottom
+      fd ripgrep
       git
       git-lfs
-      nnn #filemanager
-      shellcheck # Shell script linter
-      gitAndTools.delta # pretty diff tool
+      ranger
+      shellcheck
+      gitAndTools.delta
       wget curl
-      thefuck # auto correct commands
-      sshfs # mount folders via ssh
-      gh # github cli tool
-      direnv # Autoload env
-      # TODO m1 mac ttyd # terminal share via web
-      graph-easy # draw graphs in the terminal
-      unixtools.watch # watches commands
-      cht-sh # cheat sheet -> cht python read file
-      tealdeer # community driven man pages
-      dive # analyse docker images
-      hyperfine # benchmark tool
-      sipcalc # ip subnet calculator
-      duf # disk usage
-      httpie # awesome alternative to curl
+      thefuck
+      sshfs
+      gh
+      direnv
+      graph-easy
+      duf
+      httpie
       tmuxp
       gnupg
       gnutls
 
-      swiProlog #prolog
-      jdk11 #Java
+      swiProlog
+      jdk11
 
-      # gnu binaries
-      coreutils-full # installs some gnu versions of linux bins
-      gnutar gnused gnugrep gnumake # linux implementation of tar
+      coreutils-full
+      gnutar gnused gnugrep gnumake
       findutils
       gawk
 
-      # k8s stuff
       kubectl k9s kubie
 
-      #podman # TODO installed via brew - cannot be installed via nix right now
-
-      python37 poetry # python tools
-      rustup # rust
-      nodejs # node runtime
+      python37 poetry
+      rustup
+      nodejs
       yarn
 
-      starship # terminal prompt
+      starship
 
-
-      # music
       portaudio
       spotify-tui
-      spotifyd
-
-      # social
-      teams
-
-
-
-      (pkgs.writeShellScriptBin "nixFlakes" ''
-        exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
-      '')
-
     ];
     sessionPath = [
       "$HOME/go/bin"
@@ -87,10 +62,8 @@
   };
 
   programs = {
-    # let home-manager manage itself
     home-manager.enable = true;
 
-    # shell integrations are enabled by default
     zoxide.enable = true;
     jq.enable = true;
 

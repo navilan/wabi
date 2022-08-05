@@ -9,6 +9,7 @@
       "zlib" # dependency for emacs
 
       "libpq"
+      "libgccjit"
       "gcc"
       # waiting for updates on nix
       #
@@ -57,22 +58,11 @@
       "jakehilborn/jakehilborn"
     ];
     masApps = {
-      # Vimari = 1480933944;
+      Vimari = 1480933944;
       # AdGuard = 1440147259;
-      # Monday = 1298450641;
-      # Fantastical = 975937182;
-      # Tamperish = 1516885392;
+      Monday = 1298450641;
+      Fantastical = 975937182;
+      Tamperish = 1516885392;
     };
-    extraConfig = ''
-      brew "emacs-plus@29", args: [
-        "with-ctags",
-        "with-dbus",
-        "with-debug",
-        "with-mailutils",
-        "with-no-frame-refocus",
-        "with-imagemagick",
-        "with-native-comp"
-      ]
-    '';
   };
 }

@@ -33,10 +33,6 @@
             mru-spaces = false;
         };
 
-        # "com.visualstudio.code.oss" = {
-        #     ApplePressAndHoldEnabled = false;
-        # };
-
         NSGlobalDomain = {
             "com.apple.sound.beep.feedback" = 0;
             "com.apple.sound.beep.volume" = "0.000";

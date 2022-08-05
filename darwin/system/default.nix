@@ -3,5 +3,6 @@
     ./defaults
     ./homebrew
     ./postgres
+#    ./emacs
   ];
 }

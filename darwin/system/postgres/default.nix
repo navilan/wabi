@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  services = {
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql_13;
-      dataDir = "/Users/navilan/.local/share/postgresql/data";
-    };
+  services.postgresql = {	
+    enable = true;
+    package = pkgs.postgresql_13;
+    dataDir = "/Users/navilan/.local/share/postgresql/data";
   };
 
   # Create the PostgreSQL data directory, if it does not exist.

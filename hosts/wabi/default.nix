@@ -1,40 +1,23 @@
-{ config, pkgs, lib, ... }:
+{ lib, pkgs, inputs, nixpkgs, home-manager, darwin, user, ...}:
+
+let
+  system = "aarch64-darwin";
+in
 {
-  imports = [
-    ./navilan.nix
-  ];
-  system.stateVersion = 4;
-  environment = {
-    systemPackages = with pkgs; [];
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
-  };
-
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-
-  nix = {
-    allowedUsers = [ "navilan" ];
-  };
-
-  services = {
-    nix-daemon = {
-      enable = true;
-    };
-  };
-
-  networking = {
-    hostName = "wabi";
-    knownNetworkServices = [ "Wi-Fi" ];
-  };
-
-  fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      nerdfonts
-      recursive
+  wabi = darwin.lib.darwinSystem {
+    inherit system;
+    specialArgs = { inherit user inputs; };
+    modules = [
+      ./configuration.nix
+      
+      home-manager {
+        home-manager.useUserPackages = true;
+        home-manager.useGlobalPkgs =  true;
+        home-manager.extraSpecialArgs = { inherit user; };
+        home-manager.users.${user} = import ./home.nix;
+      }
     ];
   };
 }
+
+
