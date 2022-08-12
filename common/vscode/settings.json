@@ -11,8 +11,6 @@
         "Unschooling",
         "spammy"
     ],
-    "playfab.loginId": "navilan@puthir.in",
-    "playfab.showTitleIds": true,
     "vim.useSystemClipboard": true,
     "editor.emptySelectionClipboard": false,
     "vim.enableNeovim": true,
@@ -68,11 +66,6 @@
     "markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "scm.diffDecorationsGutterVisibility": "hover",
     "scm.diffDecorations": "gutter",
-    "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path.mac": "/Users/navilan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
-        "vscode-kubernetes.kubectl-path.mac": "/Users/navilan/.vs-kubernetes/tools/kubectl/kubectl",
-        "vscode-kubernetes.helm-path.mac": "/Users/navilan/.vs-kubernetes/tools/helm/darwin-amd64/helm"
-    },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -122,22 +115,6 @@
         "**/.history": true,
         "**/.history/**": true
     },
-    "customizeUI.font.monospace": "PragmataPro Liga Mono",
-    "customizeUI.font.regular": "PragmataPro Liga",
-    "customizeUI.fontSizeMap": {
-        "8px": "14px",
-        "9px": "15px",
-        "10px": "16px",
-        "11px": "17px",
-        "12px": "18px",
-        "13px": "19px",
-        "14px": "20px",
-        "15px": "22px",
-        "16px": "22px",
-        "17px": "22px",
-        "monospace": "16px"
-    },
-    "customizeUI.moveStatusbar": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "GitHub Dark Default",
     "editor.semanticHighlighting.enabled": true,
@@ -181,5 +158,11 @@
     "local-history.path": "~/.config/cache/codium/.history/${workspaceFolderBasename}",
     "java.home": "/nix/store/j0snd6l2w4v7f560psk7w85j4z9xh99w-zulu11.48.21-ca-jdk-11.0.11",
     "diffEditor.renderSideBySide": false,
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "remote.containers.dotfiles.installCommand": "~/wabi/install-dc.sh",
+    "remote.containers.dotfiles.repository": "https://github.com/navilan/wabi",
+    "remote.containers.dotfiles.targetPath": "~/wabi",
+    "dotfiles.installCommand": "~/wabi/install-dc.sh",
+    "dotfiles.repository": "https://github.com/navilan/wabi",
+    "dotfiles.targetPath": "~/wabi"
 }

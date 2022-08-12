@@ -1,44 +1,20 @@
 
+
 { pkgs, ... }:
-let
-  commonPkgs = import ../../common/packages.nix { inherit pkgs; };
-  wabiPkgs = with pkgs; [
-      swiProlog
-      jdk11
-
-      kubectl k9s kubie
-
-      python37 poetry
-      rustup
-      nodejs
-      yarn
-
-      starship
-
-      portaudio
-      spotify-tui
-
-      lima
-  ];
+let commonPkgs = import ../../common/packages.nix { inherit pkgs; };
 in
 {
   imports = [
     ../../common
-    ../../common/extra.nix
-    ../../darwin
   ];
 
   home = {
     stateVersion = "22.05";
+    username = "code";
+    homeDirectory = "/home/code";
 
-    packages = commonPkgs.packages ++ wabiPkgs;
-    sessionPath = [
-      "$HOME/go/bin"
-      "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
-    ];
+    packages = commonPkgs.packages;
     sessionVariables = {
-      GO111MODULE = "on";
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
@@ -46,9 +22,6 @@ in
 
   programs = {
     home-manager.enable = true;
-
-    direnv.enable = true;
-    direnv.nix-direnv.enable = true;
 
     zoxide.enable = true;
     jq.enable = true;
@@ -64,14 +37,6 @@ in
 
     lazygit = {
       enable = true;
-    };
-
-    go = {
-      enable = true;
-      package = pkgs.go_1_18;
-      goPath = "go";
-      goBin = "go/bin";
-      goPrivate = [ "github.com/stackitcloud" ];
     };
 
     htop = {

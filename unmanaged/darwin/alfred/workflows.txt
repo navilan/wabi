@@ -3,3 +3,4 @@ tmcknight/Movie-and-TV-Show-Search-Alfred-Workflow -p Movie.and.TV.Show.Search.a
 edgarjs/alfred-github-repos -p gh-repos-3.1.3.alfredworkflow
 jaroslawhartman/TimeZones-Alfred -p TimeZones.alfredworkflow
 birnstiel/ttimer -p TTimer-0.3.alfredworkflow
+jsumners/alfred-emoji -p alfred-emoji.alfredworkflow

@@ -171,6 +171,12 @@ in
             sha256 = "Wy1gfRNI6OdXWf70g+qCKKOq1SFX0PQTI6ig0YFIUCA=";
         }
         {
+            publisher = "ms-vscode-remote";
+            name = "remote-containers";
+            version="0.244.0";
+            sha256 = "j1qw3NXztMXntvVEJZbCiaSqLjK78ZqK7iJNMCpx2VQ=";
+        }
+        {
             publisher = "flix";
             name = "flix";
             version = "0.76.0"; 

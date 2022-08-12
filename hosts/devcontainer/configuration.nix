@@ -1,14 +1,13 @@
+
 { pkgs, user, ... }:
 {
   imports = [
     ../../common/system.nix
-    ../../common/spotifyd/system.nix
-    ../../darwin/system
   ];
   environment = {
     loginShell = pkgs.zsh;
     shells = with pkgs; [ zsh ];
-    systemPackages = with pkgs; [ 
+    systemPackages = with pkgs; [
     ];
     variables = {
       EDITOR = "nvim";
@@ -38,8 +37,8 @@
   };
 
   networking = {
-    hostName = "wabi";
-    computerName = "wabi";
+    hostName = "devc";
+    computerName = "devc";
   };
 
   fonts = {

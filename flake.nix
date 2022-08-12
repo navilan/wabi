@@ -25,12 +25,17 @@
 
   outputs = { self, nixpkgs, darwin, home, ...}@inputs:
     let 
-      user = "navilan";
       pkgs = nixpkgs;
       home-manager = home.darwinModules.home-manager;
     in
     {
-      darwinConfigurations = (
+      devContainers = let user = "code"; in (
+        import ./hosts/devcontainer {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home user;
+        }
+      );
+      darwinConfigurations = let user = "navilan"; in (
         import ./hosts/wabi {
           inherit (nixpkgs) lib;
           inherit inputs pkgs nixpkgs darwin home-manager user;

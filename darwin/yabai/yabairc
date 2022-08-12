@@ -97,8 +97,8 @@ fi
 # # Fantastical S7 / D3 / W1
 #########################################################################
 yabai -m config --space s1  layout bsp
-yabai -m config --space s2  layout stack
-yabai -m config --space s3  layout stack
+yabai -m config --space s2  layout bsp
+yabai -m config --space s3  layout bsp
 yabai -m config --space s4  layout bsp
 yabai -m config --space s5  layout bsp
 yabai -m config --space s6  layout bsp
@@ -107,18 +107,6 @@ yabai -m config --space s8  layout bsp
 yabai -m config --space s9  layout bsp
 yabai -m config --space s10 layout bsp
 
-#########################################################################
-# WINDOW DEDICATED SPACE RULES                                          #
-#########################################################################
-
-yabai -m rule --add app="VSCodium" space=s2
-yabai -m rule --add app="Alacritty" space=s3
-yabai -m rule --add app="alacritty" space=s3
-yabai -m rule --add app="Slack" space=s5
-yabai -m rule --add app="monday.com" space=s6
-yabai -m rule --add app="Firefox" space=s1
-yabai -m rule --add app="Safari" space=s4
-yabai -m rule --add app="Fantastical" space=s7
 
 # Floats
 yabai -m rule --add app="Finder" manage=off

@@ -41,7 +41,9 @@
     };
 
     initExtraBeforeCompInit = ''
-        eval "$(/opt/homebrew/bin/brew shellenv)"
+        if [ -f /opt/homebrew/bin/brew ]; then
+           eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
         eval "$(${pkgs.starship}/bin/starship init zsh)"
         eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
       '';
@@ -93,9 +95,6 @@
 
       # direnv
       eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
-
-      export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib -L$(brew --prefix libpq)/lib -L$(brew --prefix libffi)/lib"
-      export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include -I$(brew --prefix libpq)/include -I$(brew --prefix libffi)/include"
     '';
 
     # dirHashes = {

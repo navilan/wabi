@@ -1,9 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-  imports = [
-    ./spotifyd/system.nix
-  ];
-
   nix = {
     gc = {
       automatic = true;
@@ -13,6 +9,8 @@
     extraOptions = ''
       auto-optimise-store = true
       experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
     '';
   };
 }
