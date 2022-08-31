@@ -18,6 +18,12 @@
       twittering-initial-timeline-spec-string '(":home")
 )
 
+(after! doom-modeline
+      doom-modeline-enable-word-count t
+      doom-modeline-continuous-word-count-modes '(mardown-mode gfm-mode org-mode text-mode)
+  )
+
+
 
 (provide 'config)
 ;;; config.el ends here
