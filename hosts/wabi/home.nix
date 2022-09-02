@@ -19,6 +19,7 @@ let
       spotify-tui
 
       lima
+      gnuplot
   ];
 in
 {
@@ -26,6 +27,7 @@ in
     ../../common
     ../../common/extra.nix
     ../../darwin
+    ../../darwin/home-manager/applications.nix
   ];
 
   home = {

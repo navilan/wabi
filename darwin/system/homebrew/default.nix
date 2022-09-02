@@ -32,6 +32,7 @@
       "jetbrains-toolbox"
       "ibm-cloud-cli"
       "kensingtonworks"
+      "mactex"
     ];
     taps = [
       "cmacrae/formulae" # spacebar
