@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 {
   imports = [
     ./alacritty
@@ -7,4 +7,5 @@
     ./spotifyd
     ./vscode
   ];
+
 }

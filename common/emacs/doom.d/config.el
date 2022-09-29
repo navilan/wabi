@@ -24,6 +24,11 @@
   )
 
 
+(after! org
+        (org-babel-do-load-languages 'org-babel-load-languages
+                                '((jq . t)))
+  )
+
 
 (provide 'config)
 ;;; config.el ends here

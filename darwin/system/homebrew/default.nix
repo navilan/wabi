@@ -11,13 +11,14 @@
       "spacebar" # macos bar alternative
       "skhd" # keybinding manager
       "yabai" # tiling window manager
+      "libomp" # OpenMP
+      "libusb"
     ];
     casks = [
       "macfuse"
       "alfred"
       "docker"
       "adobe-creative-cloud"
-      "balenaetcher"
       "chromium"
       "firefox"
       "meld"
@@ -33,6 +34,7 @@
       "ibm-cloud-cli"
       "kensingtonworks"
       "mactex"
+      "vlc"
     ];
     taps = [
       "cmacrae/formulae" # spacebar

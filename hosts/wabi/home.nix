@@ -1,25 +1,29 @@
 
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
       swiProlog
+
       jdk11
 
       kubectl k9s kubie
 
-      python37 poetry
+      python39
+
       rustup
+
       nodejs
       yarn
-
-      starship
 
       portaudio
       spotify-tui
 
       lima
       gnuplot
+      libusb1
+      (callPackage ../../common/wally-cli {  })
+
   ];
 in
 {
@@ -70,7 +74,7 @@ in
 
     go = {
       enable = true;
-      package = pkgs.go_1_18;
+      package = pkgs.go_1_19;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ "github.com/stackitcloud" ];

@@ -1,0 +1,52 @@
+* Some commands for managing windows with yabai
+
+#+BEGIN_SRC json
+
+{
+
+    "id": number,
+    "pid": number,
+    "app": string,
+    "title": string,
+    "frame": object {
+        "x": number,
+        "y": number,
+        "w": number,
+        "h": number,
+    },
+    "role": string,
+    "subrole": string,
+    "tags": string,
+    "display": number,
+    "space": number,
+    "level": number,
+    "opacity": number,
+    "split-type": string,
+    "stack-index": number,
+    "can-move": bool,
+    "can-resize": bool,
+    "has-focus": bool,
+    "has-shadow": bool,
+    "has-border": bool,
+    "has-parent-zoom": bool,
+    "has-fullscreen-zoom": bool,
+    "is-native-fullscreen": bool,
+    "is-visible": bool,
+    "is-minimized": bool,
+    "is-hidden": bool,
+    "is-floating": bool,
+    "is-sticky": bool,
+    "is-topmost": bool,
+    "is-grabbed": bool
+}
+
+#+END_SRC
+
+#+BEGIN_SRC shell
+
+yabai                                                               \
+    | -m query --windows                                            \
+    | jq '. | map(select(.title | startswith("wabi"))) | .[0].id'   \
+    | xargs -n 1 yabai -m window --focus
+
+#+END_SRC

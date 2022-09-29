@@ -70,6 +70,7 @@ in
 
   users.nix.configureBuildUsers = true;
 
+
   programs = {
     zsh.enable = true;
   };

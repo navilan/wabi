@@ -35,6 +35,12 @@ darwin-rebuild switch --flake .\#wabi
 #+end_src
 
 
+
+** TODO:
+
+- [ ] Better use of spaces (Group application windows - a.k.a Mejai mode)
+- [ ] Launch or focus application by :title or :application name
+
 ** Based on
 
 - https://github.com/cmacrae/config

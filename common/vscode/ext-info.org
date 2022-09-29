@@ -1,0 +1,684 @@
+* Extensions
+
+Retrieve extension information from marketplace and update the nix list (handles outdated versions).
+
+#+NAME: extensions
+#+BEGIN_SRC nix :results none
+let
+  exts = import ./marketplace-exts.nix;
+in
+  map ({name, publisher, ...}: { filterType=7; value="\${publisher}.\${name}"; }) exts
+
+#+END_SRC
+
+#+NAME: extsjson
+#+BEGIN_SRC bash :noweb yes :results output
+result=$(cat <<EOF
+  <<extensions>>
+EOF
+)
+nix eval --impure --json --expr  "$result" | jq '{ filters: [{ criteria: . }], flags: 914 }'
+
+#+END_SRC
+
+#+RESULTS: extsjson
+#+begin_example
+{
+  "filters": [
+    {
+      "criteria": [
+        {
+          "filterType": 7,
+          "value": "arcanis.vscode-zipfs"
+        },
+        {
+          "filterType": 7,
+          "value": "vscode-org-mode.org-mode"
+        },
+        {
+          "filterType": 7,
+          "value": "mkhl.direnv"
+        },
+        {
+          "filterType": 7,
+          "value": "ms-toolsai.jupyter-keymap"
+        },
+        {
+          "filterType": 7,
+          "value": "njqdev.vscode-python-typehint"
+        },
+        {
+          "filterType": 7,
+          "value": "celianriboulet.webvalidator"
+        },
+        {
+          "filterType": 7,
+          "value": "ebrithil30.vscode-ts-auto-return-type"
+        },
+        {
+          "filterType": 7,
+          "value": "eliostruyf.vscode-typescript-exportallmodules"
+        },
+        {
+          "filterType": 7,
+          "value": "kakumei.ts-debug"
+        },
+        {
+          "filterType": 7,
+          "value": "jsxtools.jstl"
+        },
+        {
+          "filterType": 7,
+          "value": "mkaufman.HTMLHint"
+        },
+        {
+          "filterType": 7,
+          "value": "leodevbro.blockman"
+        },
+        {
+          "filterType": 7,
+          "value": "equinusocio.vsc-community-material-theme"
+        },
+        {
+          "filterType": 7,
+          "value": "equinusocio.vsc-material-theme"
+        },
+        {
+          "filterType": 7,
+          "value": "equinusocio.vsc-material-theme-icons"
+        },
+        {
+          "filterType": 7,
+          "value": "ghmcadams.lintlens"
+        },
+        {
+          "filterType": 7,
+          "value": "jacobdufault.fuzzy-search"
+        },
+        {
+          "filterType": 7,
+          "value": "ms-vscode.atom-keybindings"
+        },
+        {
+          "filterType": 7,
+          "value": "ms-vsliveshare.vsliveshare"
+        },
+        {
+          "filterType": 7,
+          "value": "ms-vscode-remote.remote-containers"
+        },
+        {
+          "filterType": 7,
+          "value": "flix.flix"
+        },
+        {
+          "filterType": 7,
+          "value": "rrudi.vscode-dired"
+        },
+        {
+          "filterType": 7,
+          "value": "techer.open-in-browser"
+        },
+        {
+          "filterType": 7,
+          "value": "fabiospampinato.vscode-open-in-github"
+        },
+        {
+          "filterType": 7,
+          "value": "arthurwang.vsc-prolog"
+        },
+        {
+          "filterType": 7,
+          "value": "shd101wyy.markdown-preview-enhanced"
+        },
+        {
+          "filterType": 7,
+          "value": "hilleer.yaml-plus-json"
+        },
+        {
+          "filterType": 7,
+          "value": "James-Yu.latex-workshop"
+        },
+        {
+          "filterType": 7,
+          "value": "ronnidc.nunjucks"
+        },
+        {
+          "filterType": 7,
+          "value": "okitavera.vscode-nunjucks-formatter"
+        },
+        {
+          "filterType": 7,
+          "value": "shadowtime2000.eta-vscode"
+        },
+        {
+          "filterType": 7,
+          "value": "davidnussio.vscode-jq-playground"
+        },
+        {
+          "filterType": 7,
+          "value": "jq-syntax-highlighting.jq-syntax-highlighting"
+        },
+        {
+          "filterType": 7,
+          "value": "sveltejs.language-tools"
+        }
+      ]
+    }
+  ],
+  "flags": 914
+}
+#+end_example
+
+
+
+#+BEGIN_SRC elisp :results none :exports none
+
+(url-retrieve-synchronously
+ "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery/")
+
+#+END_SRC
+
+
+#+NAME: mexts
+#+BEGIN_SRC restclient :var crit=extsjson :jq .results[0].extensions | map(. | { "publisher": .publisher.publisherName, "name": .extensionName, "version": .versions[0].version, "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="  }) | { exts: . }
+
+POST https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery/
+Accept: application/json;api-version=3.0-preview.1
+Content-Type: application/json
+
+:crit
+
+#+END_SRC
+
+#+NAME: mextres
+#+RESULTS: mexts
+#+BEGIN_SRC js
+{
+  "exts": [
+    {
+      "publisher": "ms-toolsai",
+      "name": "jupyter-keymap",
+      "version": "1.0.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "ms-vscode-remote",
+      "name": "remote-containers",
+      "version": "0.254.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "MS-vsliveshare",
+      "name": "vsliveshare",
+      "version": "1.0.5723",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "techer",
+      "name": "open-in-browser",
+      "version": "2.0.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "shd101wyy",
+      "name": "markdown-preview-enhanced",
+      "version": "0.6.3",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "James-Yu",
+      "name": "latex-workshop",
+      "version": "8.29.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "Equinusocio",
+      "name": "vsc-community-material-theme",
+      "version": "1.4.4",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "Equinusocio",
+      "name": "vsc-material-theme-icons",
+      "version": "2.4.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "Equinusocio",
+      "name": "vsc-material-theme",
+      "version": "33.5.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "mkaufman",
+      "name": "HTMLHint",
+      "version": "0.10.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "ms-vscode",
+      "name": "atom-keybindings",
+      "version": "3.0.9",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "njqdev",
+      "name": "vscode-python-typehint",
+      "version": "1.4.1",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "ronnidc",
+      "name": "nunjucks",
+      "version": "0.3.1",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "arthurwang",
+      "name": "vsc-prolog",
+      "version": "0.8.23",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "arcanis",
+      "name": "vscode-zipfs",
+      "version": "3.0.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "leodevbro",
+      "name": "blockman",
+      "version": "1.5.9",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "kakumei",
+      "name": "ts-debug",
+      "version": "0.0.6",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "ghmcadams",
+      "name": "lintlens",
+      "version": "3.0.3",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "fabiospampinato",
+      "name": "vscode-open-in-github",
+      "version": "1.3.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "hilleer",
+      "name": "yaml-plus-json",
+      "version": "1.11.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "CelianRiboulet",
+      "name": "webvalidator",
+      "version": "1.2.2",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "vscode-org-mode",
+      "name": "org-mode",
+      "version": "1.0.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "okitavera",
+      "name": "vscode-nunjucks-formatter",
+      "version": "0.1.3",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "jacobdufault",
+      "name": "fuzzy-search",
+      "version": "0.0.3",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "jq-syntax-highlighting",
+      "name": "jq-syntax-highlighting",
+      "version": "0.0.2",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "davidnussio",
+      "name": "vscode-jq-playground",
+      "version": "4.3.4",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "eliostruyf",
+      "name": "vscode-typescript-exportallmodules",
+      "version": "2.5.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "mkhl",
+      "name": "direnv",
+      "version": "0.6.1",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "shadowtime2000",
+      "name": "eta-vscode",
+      "version": "1.0.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "ebrithil30",
+      "name": "vscode-ts-auto-return-type",
+      "version": "1.1.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "rrudi",
+      "name": "vscode-dired",
+      "version": "0.0.6",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "jsxtools",
+      "name": "jstl",
+      "version": "1.0.4",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    },
+    {
+      "publisher": "flix",
+      "name": "flix",
+      "version": "0.81.0",
+      "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+    }
+  ]
+}
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC js
+[
+  {
+    "publisher": "ms-toolsai",
+    "name": "jupyter-keymap",
+    "version": "1.0.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "ms-vscode-remote",
+    "name": "remote-containers",
+    "version": "0.254.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "MS-vsliveshare",
+    "name": "vsliveshare",
+    "version": "1.0.5723",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "techer",
+    "name": "open-in-browser",
+    "version": "2.0.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "shd101wyy",
+    "name": "markdown-preview-enhanced",
+    "version": "0.6.3",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "James-Yu",
+    "name": "latex-workshop",
+    "version": "8.29.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "Equinusocio",
+    "name": "vsc-community-material-theme",
+    "version": "1.4.4",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "Equinusocio",
+    "name": "vsc-material-theme-icons",
+    "version": "2.4.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "Equinusocio",
+    "name": "vsc-material-theme",
+    "version": "33.5.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "mkaufman",
+    "name": "HTMLHint",
+    "version": "0.10.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "ms-vscode",
+    "name": "atom-keybindings",
+    "version": "3.0.9",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "njqdev",
+    "name": "vscode-python-typehint",
+    "version": "1.4.1",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "ronnidc",
+    "name": "nunjucks",
+    "version": "0.3.1",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "arthurwang",
+    "name": "vsc-prolog",
+    "version": "0.8.23",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "arcanis",
+    "name": "vscode-zipfs",
+    "version": "3.0.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "leodevbro",
+    "name": "blockman",
+    "version": "1.5.9",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "kakumei",
+    "name": "ts-debug",
+    "version": "0.0.6",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "ghmcadams",
+    "name": "lintlens",
+    "version": "3.0.3",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "fabiospampinato",
+    "name": "vscode-open-in-github",
+    "version": "1.3.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "hilleer",
+    "name": "yaml-plus-json",
+    "version": "1.11.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "CelianRiboulet",
+    "name": "webvalidator",
+    "version": "1.2.2",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "vscode-org-mode",
+    "name": "org-mode",
+    "version": "1.0.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "okitavera",
+    "name": "vscode-nunjucks-formatter",
+    "version": "0.1.3",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "jacobdufault",
+    "name": "fuzzy-search",
+    "version": "0.0.3",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "jq-syntax-highlighting",
+    "name": "jq-syntax-highlighting",
+    "version": "0.0.2",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "davidnussio",
+    "name": "vscode-jq-playground",
+    "version": "4.3.4",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "eliostruyf",
+    "name": "vscode-typescript-exportallmodules",
+    "version": "2.5.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "mkhl",
+    "name": "direnv",
+    "version": "0.6.1",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "shadowtime2000",
+    "name": "eta-vscode",
+    "version": "1.0.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "ebrithil30",
+    "name": "vscode-ts-auto-return-type",
+    "version": "1.1.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "rrudi",
+    "name": "vscode-dired",
+    "version": "0.0.6",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "jsxtools",
+    "name": "jstl",
+    "version": "1.0.4",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  },
+  {
+    "publisher": "flix",
+    "name": "flix",
+    "version": "0.81.0",
+    "sha256": "ZCEbNGMEjGI1PqHTIvqTwt1T8rSzjhEe/Jj6cHLPT8c="
+  }
+]
+#+END_SRC
+
+
+#+NAME: extupdate
+#+BEGIN_SRC nix :results none :noweb yes
+let
+  b = builtins;
+  old = import ./marketplace-exts.nix;
+  mexts = ''
+     <<mextres>>
+  '';
+  new = b.fromJSON(mexts);
+  filterNew = o: b.filter (n: n.name == o.name && n.publisher == o.publisher) new.exts;
+  applyNewMaybe = o: fn:
+                   if b.length fn == 0
+                   then o
+                   else  o // { version = (b.elemAt fn 0).version; };
+  fapp = o: applyNewMaybe o (filterNew o);
+in
+  map fapp old
+#+END_SRC
+
+#+NAME: sortkeys
+#+BEGIN_SRC nix :results none :noweb yes
+let
+  pkgs = import <nixpkgs> {};
+  b = builtins;
+  f = import ./marketplace-exts.nix;
+  zipWith = pkgs.lib.zipListsWith;
+  key = "name";
+  cmp = s1: s2: (pkgs.lib.compare (pkgs.lib.toLower s1) (pkgs.lib.toLower s2)) < 0;
+  ss = o:
+    let
+      ks = b.attrNames o;
+      vs = b.attrValues o;
+      ts = zipWith (k: v: { name = k; value = v; }) ks vs;
+    in
+      b.listToAttrs ts;
+in
+  b.sort (o1: o2: cmp o1.name o2.name) (map ss f)
+
+#+END_SRC
+
+#+NAME: sortkeyex
+#+BEGIN_SRC bash :results output :noweb yes
+sk=$(cat <<EOF
+  <<sortkeys>>
+EOF
+)
+
+rm -f "./marketplace-exts-sorted.nix"
+
+nix eval                \
+    --read-only          \
+    --no-use-registries   \
+    --no-update-lock-file  \
+    --impure                \
+    --expr "$sk"             \
+    | nixfmt                  \
+    > marketplace-exts-sorted.nix
+
+#+END_SRC
+
+#+RESULTS: sortkeyex
+
+
+
+
+
+
+#+NAME: extupdatejson
+#+BEGIN_SRC bash :noweb yes :results output
+upd=$(cat <<EOF
+  <<extupdate>>
+EOF
+)
+
+nix eval --impure --expr  "$upd" | nixfmt > marketplace-exts-upd.nix
+
+#+END_SRC
+
+#+RESULTS: extupdatejson
