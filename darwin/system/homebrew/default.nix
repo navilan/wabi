@@ -17,7 +17,6 @@
     casks = [
       "macfuse"
       "alfred"
-      "docker"
       "adobe-creative-cloud"
       "chromium"
       "firefox"
@@ -28,10 +27,8 @@
       "unity-hub"
       "microsoft-word"
       "microsoft-excel"
-      "slack"
       "zoom"
       "jetbrains-toolbox"
-      "ibm-cloud-cli"
       "kensingtonworks"
       "mactex"
       "vlc"

@@ -1,32 +1,27 @@
-
 { inputs, pkgs, ... }:
 let
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
-      swiProlog
+    swiProlog
 
-      jdk11
+    jdk11
+    python39
 
-      kubectl k9s kubie
+    rustup
 
-      python39
+    nodejs
+    yarn
 
-      rustup
+    portaudio
+    spotify-tui
 
-      nodejs
-      yarn
-
-      portaudio
-      spotify-tui
-
-      lima
-      gnuplot
-      libusb1
-      (callPackage ../../common/wally-cli {  })
+    lima
+    gnuplot
+    libusb1
+    (callPackage ../../common/wally-cli { })
 
   ];
-in
-{
+in {
   imports = [
     ../../common
     ../../common/extra.nix
@@ -38,11 +33,7 @@ in
     stateVersion = "22.05";
 
     packages = commonPkgs.packages ++ wabiPkgs;
-    sessionPath = [
-      "$HOME/go/bin"
-      "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
-    ];
+    sessionPath = [ "$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];
     sessionVariables = {
       GO111MODULE = "on";
       EDITOR = "nvim";
@@ -64,13 +55,9 @@ in
       enableAliases = true;
     };
 
-    bat = {
-      enable = true;
-    };
+    bat = { enable = true; };
 
-    lazygit = {
-      enable = true;
-    };
+    lazygit = { enable = true; };
 
     go = {
       enable = true;
@@ -92,7 +79,8 @@ in
 
     fzf = {
       enable = true;
-      defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
+      defaultCommand =
+        "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
       defaultOptions = [
         "--border sharp"
         "--inline-info"
