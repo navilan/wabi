@@ -1,16 +1,14 @@
 { inputs, config, pkgs, lib, ... }:
 let
-  configPath = if pkgs.stdenv.hostPlatform.isDarwin then
-    "Library/Application Support"
-  else
-    ".config";
+  p = import ../../lib/platforms.nix { inherit config pkgs; };
+  configPath = p.whenDarwinOrElse "Library/Application Support" ".config";
 in {
   home = {
     file = {
-      "${configPath}/Code/User/settings.json".text =
-        builtins.readFile ./settings.json;
-      "${configPath}/Code/User/keybindings.json".text =
-        builtins.readFile ./keybindings.json;
+      "${configPath}/Code/User/settings.json" = { source = ./settings.json; };
+      "${configPath}/Code/User/keybindings.json" = {
+        source = ./keybindings.json;
+      };
     };
   };
   programs = {
