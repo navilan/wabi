@@ -54,6 +54,7 @@ in {
   xresources.extraConfig = builtins.readFile ../../nixos/X/Xresources;
 
   programs = {
+    home-manager.enable = true;
     gpg.enable = true;
 
     direnv.enable = true;

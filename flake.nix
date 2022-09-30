@@ -23,24 +23,26 @@
   };
 
   outputs = { self, nixpkgs, darwin, home, ... }@inputs:
-    let
-      home-manager = home.darwinModules.home-manager;
-      pkgs = nixpkgs;
+    let pkgs = nixpkgs;
     in {
       devContainers = let user = "code";
       in (import ./hosts/devcontainer {
         inherit (nixpkgs) lib;
         inherit inputs nixpkgs home user;
       });
-      darwinConfigurations = let user = "navilan";
+      darwinConfigurations = let
+        user = "navilan";
+        home-manager = home.darwinModules.home-manager;
       in (import ./hosts/wabi {
         inherit (nixpkgs) lib;
         inherit inputs pkgs nixpkgs darwin home-manager user;
       });
-      nixosConfigurations = let user = "navilan";
+      nixosConfigurations = let
+        user = "navilan";
+        home-manager = home;
       in (import ./hosts/sabi {
         inherit (nixpkgs) lib;
-        inherit inputs pkgs nixpkgs home-manager user;
+        inherit inputs pkgs nixpkgs home user;
       });
     };
 }

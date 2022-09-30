@@ -87,43 +87,6 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
-
-
-      # # >>> mamba initialize >>>
-      # # !! Contents within this block are managed by 'mamba init' !!
-      # export MAMBA_EXE="/etc/profiles/per-user/navilan/bin/micromamba";
-      # export MAMBA_ROOT_PREFIX="/Users/navilan/micromamba";
-      # __mamba_setup="$('/etc/profiles/per-user/navilan/bin/micromamba' shell hook --shell zsh --prefix '/Users/navilan/micromamba' 2> /dev/null)"
-      # if [ $? -eq 0 ]; then
-      #     eval "$__mamba_setup"
-      # else
-      #     if [ -f "/Users/navilan/micromamba/etc/profile.d/micromamba.sh" ]; then
-      #         . "/Users/navilan/micromamba/etc/profile.d/micromamba.sh"
-      #     else
-      #         export  PATH="/Users/navilan/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
-      #     fi
-      # fi
-      # unset __mamba_setup
-      # # <<< mamba initialize <<<
-
-      # # >>> conda initialize >>>
-      # # !! Contents within this block are managed by 'conda init' !!
-      # __conda_setup="$('/Users/navilan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-      # if [ $? -eq 0 ]; then
-      #     eval "$__conda_setup"
-      # else
-      #     if [ -f "/Users/navilan/miniconda3/etc/profile.d/conda.sh" ]; then
-      #         . "/Users/navilan/miniconda3/etc/profile.d/conda.sh"
-      #     else
-      #         export PATH="/Users/navilan/miniconda3/bin:$PATH"
-      #     fi
-      # fi
-      # unset __conda_setup
-      # # <<< conda initialize <<<
-
-
-
-
       # direnv
       eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
     '';
@@ -135,7 +98,6 @@
     # };
 
     shellAliases = {
-      # builtins
       size = "du -sh";
       cp = "cp -i";
       mkdir = "mkdir -p";
@@ -168,20 +130,6 @@
       search = "sudo fd . '/' | grep"; # TODO replace with ripgrep
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
-      socks = "ssh -D 1337 -q -C -N";
-
-      # nix
-      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
-      nb = "darwin-rebuild switch";
-      nbu = "nix-channel --update && darwin-rebuild switch";
-      #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
-      clean = "nix-collect-garbage";
-      nsh = "nix-shell";
-      "," = "nix-shell -p";
-
-      nbh = "home-manager switch";
-      nbhu = "nix-channel --update && home-manager switch";
-
     };
 
     plugins = [

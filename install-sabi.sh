@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Connectivity info for Linux VM
-NIXADDR=192.168.64.6
+NIXADDR=192.168.64.7
 NIXPORT=22
 
 SSH_OPTIONS="-o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Connectivity info for Linux VM
-NIXADDR=192.168.64.6
+NIXADDR=192.168.64.7
 NIXPORT=22
 NIXUSER=root
 NIXNAME=sabi
@@ -33,5 +33,6 @@ rsync -av -e "ssh ${SSH_OPTIONS} -p${NIXPORT}" \
     ${PWD}/ ${NIXUSER}@${NIXADDR}:/nix-config
 
 ssh ${SSH_OPTIONS} -p${NIXPORT} ${NIXUSER}@${NIXADDR} " \
-    sudo NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nixos-rebuild switch --flake \"/nix-config#${NIXNAME}\" \
+    sudo NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nixos-rebuild switch --verbose --keep-failed --flake \"/nix-config#${NIXNAME}\" \
+
 "

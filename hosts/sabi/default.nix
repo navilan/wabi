@@ -1,14 +1,14 @@
-{ lib, inputs, pkgs, nixpkgs, home-manager, user, ... }:
+{ lib, inputs, pkgs, nixpkgs, home, user, ... }:
 
 let system = "aarch64-linux";
 in {
-  sabi = nixpkgs.lib.nixosSystem {
+  sabi = nixpkgs.lib.nixosSystem rec {
     inherit system;
     specialArgs = { inherit user inputs; };
     modules = [
-      ../../vms/hardware-configuration-aarch64-utm.nix
+      ./hardware-configuration.nix
       ./configuration.nix
-      home-manager
+      home.nixosModules.home-manager
       {
         home-manager.useUserPackages = true;
         home-manager.useGlobalPkgs = true;
