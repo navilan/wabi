@@ -21,7 +21,7 @@
   networking = {
     hostName = "sabi";
     # Interface is this on my M1
-    interfaces.enp0s5.useDHCP = true;
+    interfaces.enp0s6.useDHCP = true;
     # Disable the firewall since we're in a VM and we want to make it
     # easy to visit stuff in here. We only use NAT networking anyways.
     firewall.enable = false;

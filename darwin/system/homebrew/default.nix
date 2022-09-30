@@ -4,47 +4,42 @@
     autoUpdate = true;
     cleanup = "zap"; # "zap" removes manually installed brews and casks
     brews = [
-      # waiting for updates on nix
-      #
-      #
-      #
-      "spacebar" # macos bar alternative
-      "skhd" # keybinding manager
-      "yabai" # tiling window manager
       "libomp" # OpenMP
       "libusb"
       "qemu"
+      "skhd" # keybinding manager
+      "spacebar" # macos bar alternative
+      "yabai" # tiling window manager
     ];
     casks = [
-      "macfuse"
-      "alfred"
       "adobe-creative-cloud"
+      "alfred"
       "chromium"
       "firefox"
+      "jetbrains-toolbox"
+      "kensingtonworks"
+      "macfuse"
+      "mactex"
       "meld"
+      "microsoft-excel"
+      "microsoft-word"
       "the-unarchiver"
       "tunnelblick"
       "ubersicht"
       "unity-hub"
-      "microsoft-word"
-      "microsoft-excel"
-      "zoom"
-      "jetbrains-toolbox"
-      "kensingtonworks"
-      "mactex"
-      "vlc"
       "utm"
+      "vlc"
+      "zoom"
     ];
     taps = [
       "cmacrae/formulae" # spacebar
-      "koekeishiya/formulae" # yabai
-
-      # default
       "homebrew/bundle"
       "homebrew/cask"
       "homebrew/cask-drivers"
+      "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
+      "koekeishiya/formulae" # yabai
     ];
     masApps = {
       # Vimari = 1480933944;

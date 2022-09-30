@@ -25,6 +25,7 @@
     gnutls
     ispell
     nixfmt
+    keychain
 
     coreutils-full
     gnutar

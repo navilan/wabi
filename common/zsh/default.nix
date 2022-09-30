@@ -40,6 +40,7 @@
       fi
       eval "$(${pkgs.starship}/bin/starship init zsh)"
       eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
+      eval `${pkgs.keychain}/bin/keychain --eval --agents ssh --inherit any id_ed25519`
     '';
 
     initExtra = ''

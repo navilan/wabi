@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Connectivity info for Linux VM
-NIXADDR=192.168.64.4
+NIXADDR=192.168.64.8
 NIXPORT=22
 NIXUSER=navilan
 NIXNAME=sabi
