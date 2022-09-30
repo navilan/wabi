@@ -40,6 +40,9 @@ in {
   xdg.configFile."i3/config.rasi".text =
     builtins.readFile ../../nixos/rofi/rofirc;
 
+  xdg.configFile."devtty/config".text =
+    builtins.readFile ../../nixos/devtty/devttyrc;
+
   services.emacs = { enable = true; };
 
   services.gpg-agent = {
@@ -87,6 +90,11 @@ in {
         "wireless _first_".enable = false;
         "battery all".enable = false;
       };
+    };
+
+    kitty = {
+      enable = true;
+      extraConfig = builtins.readFile ../../nixos/kitty/kittyrc;
     };
 
     go = {
