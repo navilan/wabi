@@ -5,7 +5,8 @@
   home.activation.doomEmacs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     DOOM="$HOME/.emacs.d"
     if [ ! -d "$DOOM" ]; then
-      git clone https://github.com/doom-emacs/doom-emacs.git $DOOM
+      echo "cloning doom emacs"
+      git clone https://github.com/doomemacs/doomemacs.git $DOOM
       yes | $DOOM/bin/doom install
       $DOOM/bin/doom sync
     else
