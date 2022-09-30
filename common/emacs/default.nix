@@ -1,7 +1,9 @@
 { config, pkgs, lib, ... }: {
-  home.file = {
-    ".doom.d" = { source = config.lib.file.mkOutOfStoreSymlink ./doom.d; };
-  };
+
+  home.file.".doom.d/config.el".text = builtins.readFile ./doom.d/config.el;
+  home.file.".doom.d/init.el".text = builtins.readFile ./doom.d/init.el;
+  home.file.".doom.d/packages.el".text = builtins.readFile ./doom.d/packages.el;
+
   home.activation.doomEmacs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     DOOM="$HOME/.emacs.d"
     if [ ! -d "$DOOM" ]; then
