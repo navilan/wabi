@@ -13,6 +13,7 @@
       "yabai" # tiling window manager
       "libomp" # OpenMP
       "libusb"
+      "qemu"
     ];
     casks = [
       "macfuse"
@@ -32,6 +33,7 @@
       "kensingtonworks"
       "mactex"
       "vlc"
+      "utm"
     ];
     taps = [
       "cmacrae/formulae" # spacebar

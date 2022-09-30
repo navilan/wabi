@@ -35,8 +35,7 @@ darwin-rebuild switch --flake .\#wabi
 #+end_src
 
 
-
-** TODO:
+** Tasks:
 
 - [ ] Better use of spaces (Group application windows - a.k.a Mejai mode)
 - [ ] Launch or focus application by :title or :application name
@@ -47,3 +46,4 @@ darwin-rebuild switch --flake .\#wabi
 - https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/breuerfelix/dotfiles
 - https://github.com/shaunsingh/nix-darwin-dotfiles
+- https://github.com/mitchellh/nixos-config

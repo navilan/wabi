@@ -18,6 +18,8 @@ let
     lima
     gnuplot
     libusb1
+    qrencode
+
     (callPackage ../../common/wally-cli { })
 
   ];
@@ -27,6 +29,7 @@ in {
     ../../common/extra.nix
     ../../darwin
     ../../darwin/home-manager/applications.nix
+    ../../darwin/home-manager/chsh.nix
   ];
 
   home = {

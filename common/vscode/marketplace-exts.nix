@@ -98,7 +98,8 @@
   {
     name = "remote-containers";
     publisher = "ms-vscode-remote";
-    sha256 = "j1qw3NXztMXntvVEJZbCiaSqLjK78ZqK7iJNMCpx2VQ=";
+    # sha256 = "j1qw3NXztMXntvVEJZbCiaSqLjK78ZqK7iJNMCpx2VQ=";
+    sha256 = "sha256-Ex6IQN2ZYM0Hsr/9usloCsTNQzfA30YEyXlD7IxwBK8=";
     version = "0.254.0";
   }
   {

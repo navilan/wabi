@@ -1,53 +1,5 @@
 {
   "nodes": {
-    "conda-aarch64-darwin": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-uzImxg3SCspA0gF8mxMEJnohdUFR9DvfLoQyexq8Q00=",
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh"
-      }
-    },
-    "conda-aarch64-linux": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-jwJTh4GEK0J9nwQR2pafqyzZhmVfRO0kYbC2eDs4Bmw=",
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"
-      }
-    },
-    "conda-x86_64-darwin": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-PXAWpxEDg+reCKVlelssx79OVJ9GxKJUROvBRerWz9U=",
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
-      }
-    },
-    "conda-x86_64-linux": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-lYdbQxmIPgCPBp/BJjuYSyNImjBeDBT4pyuqKU61fr8=",
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -224,10 +176,6 @@
     },
     "root": {
       "inputs": {
-        "conda-aarch64-darwin": "conda-aarch64-darwin",
-        "conda-aarch64-linux": "conda-aarch64-linux",
-        "conda-x86_64-darwin": "conda-x86_64-darwin",
-        "conda-x86_64-linux": "conda-x86_64-linux",
         "darwin": "darwin",
         "emacs": "emacs",
         "emacs-overlay": "emacs-overlay",

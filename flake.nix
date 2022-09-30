@@ -10,26 +10,6 @@
     };
     emacs = { url = "github:cmacrae/emacs"; };
     emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
-    conda-x86_64-darwin = {
-      url =
-        "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh";
-      flake = false;
-    };
-    conda-aarch64-darwin = {
-      url =
-        "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh";
-      flake = false;
-    };
-    conda-x86_64-linux = {
-      url =
-        "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh";
-      flake = false;
-    };
-    conda-aarch64-linux = {
-      url =
-        "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh";
-      flake = false;
-    };
     home = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +36,11 @@
       in (import ./hosts/wabi {
         inherit (nixpkgs) lib;
         inherit inputs pkgs nixpkgs darwin home-manager user;
+      });
+      nixosConfigurations = let user = "navilan";
+      in (import ./hosts/sabi {
+        inherit (nixpkgs) lib;
+        inherit inputs pkgs nixpkgs home-manager user;
       });
     };
 }

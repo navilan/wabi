@@ -10,12 +10,6 @@
     '';
   };
 
-  home.activation.chshzsh = lib.hm.dag.entryAfter ["writeBoundary"]
-    ''
-    sudo chsh -s ${pkgs.zsh}/bin/zsh
-    '';
-
-
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -24,7 +18,7 @@
     enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
-    defaultKeymap = "viins"; #vicmd or viins
+    defaultKeymap = "viins"; # vicmd or viins
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -41,12 +35,12 @@
     };
 
     initExtraBeforeCompInit = ''
-        if [ -f /opt/homebrew/bin/brew ]; then
-           eval "$(/opt/homebrew/bin/brew shellenv)"
-        fi
-        eval "$(${pkgs.starship}/bin/starship init zsh)"
-        eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
-      '';
+      if [ -f /opt/homebrew/bin/brew ]; then
+         eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
+      eval "$(${pkgs.starship}/bin/starship init zsh)"
+      eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
+    '';
 
     initExtra = ''
       # TODO only because session variables are not getting picked up
@@ -175,7 +169,6 @@
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
       socks = "ssh -D 1337 -q -C -N";
-
 
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";

@@ -1,0 +1,4 @@
+* NixOS VM on M1 MBP
+
+
+** https://github.com/mitchellh/nixos-config
