@@ -27,6 +27,10 @@
     firewall.enable = false;
   };
 
+  # https://github.com/nix-community/home-manager/issues/3247
+  systemd.services."home-manager-${user}".serviceConfig.TimeoutStartSec =
+    pkgs.lib.mkForce 3600;
+
   # Be careful updating this.
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

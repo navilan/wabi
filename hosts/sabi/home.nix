@@ -56,10 +56,6 @@ in {
 
   xresources.extraConfig = builtins.readFile ../../nixos/X/Xresources;
 
-  # https://github.com/nix-community/home-manager/issues/3247
-  systemd.services."home-manager-${user}".serviceConfig.TimeoutStartSec =
-    pkgs.lib.mkForce 3600;
-
   programs = {
     home-manager.enable = true;
     gpg.enable = true;
