@@ -15,10 +15,11 @@ in {
 
     packages = commonPkgs.packages ++ [ pkgs.rofi ];
 
+    # Make cursor not tiny on HiDPI screens
     pointerCursor = {
       name = "Vanilla-DMZ";
       package = pkgs.vanilla-dmz;
-      size = 128;
+      size = 96;
       x11.enable = true;
     };
 
@@ -115,7 +116,6 @@ in {
       };
     };
 
-    # Make cursor not tiny on HiDPI screens
     fzf = {
       enable = true;
       defaultCommand =

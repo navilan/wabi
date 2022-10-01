@@ -63,7 +63,7 @@ yabai -m config window_shadow float
 # render all unfocus windows with 90% opacity
 yabai -m config window_opacity off
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.98
+yabai -m config normal_window_opacity 0.80
 
 # borders
 yabai -m config window_border on

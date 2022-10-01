@@ -1,0 +1,17 @@
+#+title: Tasks
+
+* Bugs
+** TODO Emacs & Yabai (moot if emacs on Nixos works as well)
+** TODO Font management (Git Crypt / Rsync.net)
+** TODO Wallpaper management
+** TODO Window resize for tall screens
+** TODO Documentation
+* Features
+** HOLD deploy-rs integration
+This kinda works for WIW. Requires a nixos host system to test it to completion. Can try this later on the VM to see how this works.
+** TODO UTM multi-display update
+** TODO Wireshark
+** TODO Tailscale / Headscale
+* Machines and Home Automation
+** TODO PI hole
+** TODO Home Assistant

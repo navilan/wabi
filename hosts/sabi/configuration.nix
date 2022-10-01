@@ -59,7 +59,7 @@
       # For hypervisors that support auto-resizing, this script forces it.
       # I've noticed not everyone listens to the udev events so this is a hack.
       (writeShellScriptBin "xrandr-auto" ''
-        xrandr --output Virtual-1 --auto
+        xrandr --output "$(xrandr | awk '/ connected/{print $1; exit; }')" --auto
       '')
 
     ];
@@ -102,7 +102,7 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    dpi = 220;
+    dpi = 180;
 
     desktopManager = {
       xterm.enable = false;
@@ -117,6 +117,7 @@
       # display resolution. This is a known issue with VMware Fusion.
       sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        ${pkgs.xorg.xrandr}/bin/xrandr --output "Virtual-1" --mode "3840x2160"
       '';
     };
 
