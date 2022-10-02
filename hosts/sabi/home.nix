@@ -1,12 +1,8 @@
 { pkgs, user, inputs, ... }:
 let commonPkgs = import ../../common/packages.nix { inherit pkgs; };
 in {
-  imports = [
-    ../../common
-    ../../common/alacritty
-    ../../common/vscode
-    ../../common/emacs
-  ];
+  imports =
+    [ ../../common ../../common/kitty ../../common/vscode ../../common/emacs ];
 
   home = {
     stateVersion = "22.05";
@@ -91,11 +87,6 @@ in {
         "wireless _first_".enable = false;
         "battery all".enable = false;
       };
-    };
-
-    kitty = {
-      enable = true;
-      extraConfig = builtins.readFile ../../common/kitty/kittyrc;
     };
 
     go = {

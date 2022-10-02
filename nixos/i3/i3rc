@@ -53,6 +53,7 @@ bindsym $mod+o exec rofi -show run
 # start a terminal
 bindsym $mod+n exec kitty
 bindsym $mod+d split h
+bindsym $mod+space split h
 bindsym $mod+Shift+d split v
 
 # temp, hacking on a tty
@@ -82,10 +83,10 @@ bindsym $mod+Shift+w layout tabbed
 bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+t floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+t focus mode_toggle
 
 # focus the parent container
 bindsym $mod+Shift+a focus parent
@@ -203,7 +204,7 @@ bindsym $mod+BackSpace mode "$mode_system"
 bar {
     status_command i3status
 
-    font pango:Fira Code 8
+    font pango:PragmataPro Mono Liga 16
     colors {
         background $back
     }

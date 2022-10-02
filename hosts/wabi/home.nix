@@ -63,10 +63,6 @@ in {
 
     lazygit = { enable = true; };
 
-    kitty = {
-      enable = true;
-      extraConfig = builtins.readFile ../../common/kitty/kittyrc;
-    };
     go = {
       enable = true;
       package = pkgs.go_1_19;

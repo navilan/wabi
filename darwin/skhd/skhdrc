@@ -209,11 +209,6 @@ shorts < shift - 8    : yabai -m space --focus s8; skhd -k 'escape'
 shorts < shift - 9    : yabai -m space --focus s9; skhd -k 'escape'
 shorts < shift - 0    : yabai -m space --focus s10; skhd -k 'escape'
 
-# Launch
-launch < t : alacritty & disown alacritty
-launch < e : emacs & disown emacs
-launch < c : cd "$HOME/.nixpkgs" && codium .
-
 # Yabai Layouts
 yabai < s : sh "$HOME/.bin/save-layout.sh"
 
