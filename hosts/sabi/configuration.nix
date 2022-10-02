@@ -6,7 +6,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  sops = { defaultSopsFile = ./secrets.yaml; };
+  sops.defaultSopsFile = ./secrets.yaml;
 
   users.users."${user}" = {
     isNormalUser = true;

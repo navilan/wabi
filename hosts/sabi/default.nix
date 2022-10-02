@@ -6,7 +6,7 @@ let
 in {
   sabi = nixpkgs.lib.nixosSystem rec {
     inherit system;
-    specialArgs = { inherit user inputs; };
+    specialArgs = { inherit user inputs sops; };
     modules = [
       ./hardware-configuration.nix
       ./configuration.nix
