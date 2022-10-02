@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, user, ...  }: {
+{ config, pkgs, modulesPath, user, ... }: {
   # Qemu
   services.spice-vdagentd.enable = true;
 
@@ -7,9 +7,9 @@
   nixpkgs.config.allowUnsupportedSystem = true;
 
   sops.defaultSopsFile = ./secrets.yaml;
-  sops.secrets."fonts/k" = {};
-  sops.secrets."fonts/v" = {};
-  sops.secrets."fonts/urls/pp" = {};
+  sops.secrets."fonts/k" = { };
+  sops.secrets."fonts/v" = { };
+  sops.secrets."fonts/urls/pp" = { };
 
   users.users."${user}" = {
     isNormalUser = true;
@@ -139,10 +139,30 @@
     fontDir.enable = true;
 
     fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
       fira-code
-      (import ../../common/fonts/pragmata.nix { inherit pkgs ; })
+      (import ../../common/fonts/pragmata.nix { inherit pkgs; })
 
     ];
+
+    fontconfig = {
+      enable = true;
+      antialias = true;
+      hinting.enable = true;
+      defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        emoji = [
+          "PragmataPro Liga"
+          "Noto Color Emoji"
+          "Noto Emoji"
+          "Not Music"
+          "FontAwesome"
+        ];
+        monospace = [ "PragmataPro Liga Mono" "Noto Sans Mono" "Fira Code" ];
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
