@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, user, ... }: {
+{ config, pkgs, modulesPath, user, sops, ... }: {
   # Qemu
   services.spice-vdagentd.enable = true;
 
