@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, user, sops, ... }: {
+{ config, pkgs, modulesPath, user, ...  }: {
   # Qemu
   services.spice-vdagentd.enable = true;
 
@@ -7,6 +7,9 @@
   nixpkgs.config.allowUnsupportedSystem = true;
 
   sops.defaultSopsFile = ./secrets.yaml;
+  sops.secrets."fonts/k" = {};
+  sops.secrets."fonts/v" = {};
+  sops.secrets."fonts/urls/pp" = {};
 
   users.users."${user}" = {
     isNormalUser = true;
@@ -135,15 +138,9 @@
   fonts = {
     fontDir.enable = true;
 
-    fonts = let
-      secrets = config.sops.secrets.sabi.fonts;
-      un = secrets.k;
-      pw = secrets.v;
-      ul = secrets.urls.pp;
-      zipurl = "ftp://${un}:${pw}@${ul}";
-    in with pkgs; [
+    fonts = with pkgs; [
       fira-code
-      (import ../../common/fonts/pragmata.nix { inherit pkgs zipurl; })
+      (import ../../common/fonts/pragmata.nix { inherit pkgs ; })
 
     ];
   };

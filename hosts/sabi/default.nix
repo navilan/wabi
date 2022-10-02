@@ -2,12 +2,14 @@
 
 let
   system = "aarch64-linux";
-  sops = inputs.sops-nix.nixosModules.sops;
 in {
   sabi = nixpkgs.lib.nixosSystem rec {
     inherit system;
-    specialArgs = { inherit user inputs sops; };
+    specialArgs = { inherit user inputs; };
     modules = [
+      {
+        imports = [ inputs.sops-nix.nixosModules.sops ];
+      }
       ./hardware-configuration.nix
       ./configuration.nix
       home.nixosModules.home-manager

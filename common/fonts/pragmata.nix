@@ -1,4 +1,4 @@
-{ pkgs, zipurl, ... }:
+{ pkgs, ... }:
 
 let
   stdenv = pkgs.stdenvNoCC;
@@ -6,21 +6,23 @@ let
   fetchZip = pkgs.fetchZip;
 
 in stdenv.mkDerivation rec {
-  pname = "pragmata-pro";
+  pname = "pragmatapro-${version}";
   dontConfigure = true;
   version = "0.829";
 
-  src = pkgs.fetchzip {
-    url = zipurl;
-    sha256 = "sha256-uRRZ5nNUg0MyK2ZRCZeAYi2P2UHyxUHFNTzgnU+I8gY=";
-    stripRoot = false;
+  src = pkgs.requireFile rec {
+    name = "PragmataPro-${version}.zip";
+    sha256 = "0gpf4r45451204vr18f3cqz559n0hi92nfqflcdqzf59apl66p9f";
+    message = "Run $  nix-store --add-fixed sha256 <file>";
   };
 
+  buildInputs = [pkgs.unzip];
+  phases  = [ "unpackPhase" "installPhase" ];
+  sourceRoot = ".";
   installPhase = ''
-    runHook preInstall
-    mkdir -p $out/share/fonts;
-    cp -R $src $out/share/fonts/opentype/
-    runHook postInstall
+    install_path=$out/share/fonts/opentype
+    mkdir -p $install_path
+    find -name "*.otf" -exec     cp {} $install_path \;
   '';
 
   meta = { description = "Pragmata Pro by Fabrizio (fsd.it)"; };
