@@ -95,7 +95,7 @@ in {
 
     kitty = {
       enable = true;
-      extraConfig = builtins.readFile ../../nixos/kitty/kittyrc;
+      extraConfig = builtins.readFile ../../common/kitty/kittyrc;
     };
 
     go = {
