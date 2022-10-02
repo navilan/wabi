@@ -6,6 +6,8 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;
 
+  sops = { defaultSopsFile = ./secrets.yaml; };
+
   users.users."${user}" = {
     isNormalUser = true;
     home = "/home/${user}";
@@ -133,11 +135,17 @@
   fonts = {
     fontDir.enable = true;
 
-    fonts = with pkgs;
-      [
-        fira-code
+    fonts = let
+      secrets = config.sops.secrets.sabi.fonts;
+      un = secrets.k;
+      pw = secrets.v;
+      ul = secrets.urls.pp;
+      zipurl = "ftp://${un}:${pw}@${ul}";
+    in with pkgs; [
+      fira-code
+      (import ../../common/fonts/pragmata.nix { inherit pkgs zipurl; })
 
-      ];
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
