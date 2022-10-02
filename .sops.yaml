@@ -1,0 +1,10 @@
+keys:
+  - &navilan DA68E973CC361FA8146FE0356EAEEC6726FC4E30
+  - &sabi 6c41e9827b687f18fb95809b4f64fb344fa19f50
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - pgp:
+        - *navilan
+        - *sabi
+

@@ -60,6 +60,7 @@
       # I've noticed not everyone listens to the udev events so this is a hack.
       (writeShellScriptBin "xrandr-auto" ''
         xrandr --output "$(xrandr | awk '/ connected/{print $1; exit; }')" --auto
+        xrandr --output "$(xrandr | awk '/ connected/{print $1; exit; }')" --mode "3840x2160"
       '')
 
     ];
