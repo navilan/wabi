@@ -139,6 +139,7 @@
     fontDir.enable = true;
 
     fonts = with pkgs; [
+      emacs-all-the-icons-fonts
       noto-fonts
       noto-fonts-emoji
       fira-code

@@ -7,11 +7,12 @@
 )
 
 
-(setq doom-font (font-spec :family "PragmataPro Mono Liga" :size 20)
-      doom-big-font (font-spec :family "PragmataPro Mono Liga" :size 24)
-      doom-variable-pitch-font (font-spec :family "PragmataPro Mono Liga" :size 16)
+(setq doom-font (font-spec :family "PragmataPro Mono Liga" :size 24)
+      doom-theme 'doom-tokyo-night
+      doom-big-font (font-spec :family "PragmataPro Mono Liga" :size 28)
+      doom-variable-pitch-font (font-spec :family "PragmataPro Mono Liga" :size 20)
       doom-unicode-font (font-spec :family "PragmataPro Mono Liga")
-      doom-serif-font (font-spec :family "PragmataPro Mono Liga" :size 16 :weight 'bold)
+      doom-serif-font (font-spec :family "PragmataPro Mono Liga" :size 20 :weight 'bold)
       twittering-allow-insecure-server-cert t
       twittering-icon-mode t
       twittering-use-icon-storage t

@@ -1,14 +1,20 @@
 #+title: Tasks
 
 * Bugs
-** TODO Emacs & Yabai (moot if emacs on Nixos works as well)
-** TODO Font management (Git Crypt / Rsync.net)
+** DONE Emacs & Yabai (moot if emacs on Nixos works as well)
++Right now emacs is not managed by Yabai. Full-screen emacs is almost like a VM and I deal with it the same way :D+
+Turns out I forgot to uncomment an emacs include.
+** DONE Font management (Git Crypt / Rsync.net)
+Use ~requireFile~ for now.
 ** TODO Wallpaper management
-** TODO Window resize for tall screens
-** TODO Documentation
+** TODO UTM Window resize for tall screens
+** TODO Dotfiles Documentation
+** TODO Evil + vterm
 * Features
+** TODO Yabai + Emacs:  https://gist.github.com/ethan-leba/760054f36a2f7c144c6b06ab6458fae6
+** TODO Tmux + Emacs:  https://gist.github.com/mislav/5189704
 ** HOLD deploy-rs integration
-This kinda works for WIW. Requires a nixos host system to test it to completion. Can try this later on the VM to see how this works.
+This kinda works FWIW. Requires a nixos host system to test it to completion. Can try this later on the VM to see how this works.
 ** TODO UTM multi-display update
 ** TODO Wireshark
 ** TODO Tailscale / Headscale

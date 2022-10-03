@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "PragmataPro Mono Liga, Dank Mono, Menlo, Courier New, monospace",
-  "editor.fontSize": 20,
+  "editor.fontSize": 16,
   "editor.minimap.enabled": false,
   "workbench.activityBar.visible": false,
   "atomKeymap.promptV3Features": true,
@@ -16,11 +16,15 @@
   "vim.sneakUseIgnorecaseAndSmartcase": true,
   "vim.statusBarColorControl": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f",
     "editor.lineHighlightBackground": "#1073cf2d",
-    "editor.lineHighlightBorder": "#9fced11f"
+    "editor.lineHighlightBorder": "#9fced11f",
+    "activityBar.background": "#242631",
+    "editorGroupHeader.tabsBackground": "#242631",
+    "statusBar.background": "#242631",
+    "statusBar.noFolderBackground": "#242631",
+    "statusBar.debugginBackground": "#242631",
+    "titleBar.activeBackground": "#242631",
+    "sideBar.background": "#242631"
   },
   "editor.fontLigatures": true,
   "terminal.external.osxExec": "iTerm.app",
@@ -91,13 +95,50 @@
       ]
     }
   ],
+  "todohighlight.defaultStyle": {
+    "backgroundColor": "none",
+     "fontWeight": "bold"
+  },
+  "todohighlight.keywords": [
+    {
+      "text": "BUG:",
+      "color": "#ff6c6b"
+    },
+    {
+      "text": "DEPRECATED:",
+      "color": "#83898d"
+    },
+    {
+      "text": "FIXME:",
+      "color": "#ff6c6b",
+      "backgroundColor": "none"
+    },
+    {
+      "text": "HACK:",
+      "color": "#a9a1e1"
+    },
+    {
+      "text": "NOTE:",
+      "color": "#5ea164"
+    },
+    {
+      "text": "REVIEW:",
+      "color": "#51afef"
+    },
+    {
+      "text": "TODO:",
+      "color": "#ecbe7b",
+      "backgroundColor": "none"
+    }
+  ],
+  "update.mode": "manual",
   "telemetry.telemetryLevel": "off",
   "search.exclude": {
     "**/.history": true,
     "**/.history/**": true
   },
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "Tokyo Night",
   "editor.semanticHighlighting.enabled": true,
   "files.trimTrailingWhitespace": true,
   "editor.guides.indentation": false,
@@ -140,11 +181,12 @@
   "local-history.path": "~/.config/cache/codium/.history/${workspaceFolderBasename}",
   "java.home": "/nix/store/j0snd6l2w4v7f560psk7w85j4z9xh99w-zulu11.48.21-ca-jdk-11.0.11",
   "diffEditor.renderSideBySide": false,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 3,
   "remote.containers.dotfiles.installCommand": "~/wabi/install-dc.sh",
   "remote.containers.dotfiles.repository": "https://github.com/navilan/wabi",
   "remote.containers.dotfiles.targetPath": "~/wabi",
   "dotfiles.installCommand": "~/wabi/install-dc.sh",
   "dotfiles.repository": "https://github.com/navilan/wabi",
-  "dotfiles.targetPath": "~/wabi"
+  "dotfiles.targetPath": "~/wabi",
+  "svelte.enable-ts-plugin": true
 }

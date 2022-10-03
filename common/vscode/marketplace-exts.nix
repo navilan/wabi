@@ -115,22 +115,10 @@
     version = "0.0.6";
   }
   {
-    name = "vsc-community-material-theme";
-    publisher = "equinusocio";
-    sha256 = "Pn1IcgpwknVyKSnqs9/ZF2w6D2zASlAI6maPnvIltAA=";
-    version = "1.4.4";
-  }
-  {
-    name = "vsc-material-theme";
-    publisher = "equinusocio";
-    sha256 = "BthKoGzj0XeZINAmgkHPArvm2gIzDaOaAnkoWVqOkoY=";
-    version = "33.4.0";
-  }
-  {
-    name = "vsc-material-theme-icons";
-    publisher = "equinusocio";
-    sha256 = "YKwMwcpL1Vsi789ggTIOvWDniBW6V9KGwYpYBsckVbY=";
-    version = "2.3.1";
+    name = "tokyo-night";
+    publisher = "enkia";
+    version = "0.7.9";
+    sha256 = "1yci2krmmxz4w105c9mjzhv8r0wbpf3k603rz5p0syq1b7g9vsfv";
   }
   {
     name = "vsc-prolog";
@@ -161,6 +149,12 @@
     publisher = "fabiospampinato";
     sha256 = "dBb7RmmW9KB0MbMkHZD9KQnZXvrk0OR3pVrSsyvdtJI=";
     version = "1.3.0";
+  }
+  {
+    name = "vscode-postcss";
+    publisher = "vunguyentuan";
+    sha256 = "sha256-ttvCwxk3dMwva5LmVHq4p31INTa/T91qQISEU4gYNbg=";
+    version = "2.0.2";
   }
   {
     name = "vscode-python-typehint";

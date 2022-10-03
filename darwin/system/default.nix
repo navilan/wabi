@@ -1,8 +1,3 @@
 { config, pkgs, lib, ... }: {
-  imports = [
-    ./defaults
-    ./homebrew
-    ./postgres
-#    ./emacs
-  ];
+  imports = [ ./defaults ./homebrew ./postgres ./emacs ];
 }
