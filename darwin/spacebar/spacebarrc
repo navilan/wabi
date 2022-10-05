@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 spacebar -m config position                         top
-spacebar -m config height                           36
+spacebar -m config height                           30
 spacebar -m config title                            on
 spacebar -m config spaces                           on
 spacebar -m config dnd                              on
