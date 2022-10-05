@@ -8,6 +8,7 @@ in {
     modules = [
       ./configuration.nix
       ../../darwin/system/applications.nix
+      ../../darwin/system/pam
 
       home-manager
       {

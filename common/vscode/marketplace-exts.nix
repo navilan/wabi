@@ -115,6 +115,12 @@
     version = "0.0.6";
   }
   {
+    name = "vscode-todo-highlight";
+    publisher = "wayou";
+    version = "1.0.5";
+    sha256 = "sha256-CQVtMdt/fZcNIbH/KybJixnLqCsz5iF1U0k+GfL65Ok=";
+  }
+  {
     name = "tokyo-night";
     publisher = "enkia";
     version = "0.7.9";

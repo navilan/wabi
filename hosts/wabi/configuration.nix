@@ -76,6 +76,8 @@ in {
 
   users.nix.configureBuildUsers = true;
 
+  security.pam.enableSudoTouchIdAuth = true;
+
   programs = { zsh.enable = true; };
 
   services.nix-daemon = { enable = true; };

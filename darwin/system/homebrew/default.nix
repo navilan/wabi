@@ -10,6 +10,7 @@
       "skhd" # keybinding manager
       "spacebar" # macos bar alternative
       "yabai" # tiling window manager
+      "m-cli"
     ];
     casks = [
       "adobe-creative-cloud"

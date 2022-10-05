@@ -84,13 +84,13 @@ if which spacebar >/dev/null; then
       spacebar -m config foreground_color 0xff282a36             &
       ;;
     highlight_window)
-      spacebar -m config space_icon_strip W ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௰ 11 12 13 14
+      spacebar -m config space_icon_strip ௧ ௨ ௩ ௪ ௫ ௬ WINDOW
       ;;
     highlight_space)
-      spacebar -m config space_icon_strip S ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௰ 11 12 13 14
+      spacebar -m config space_icon_strip ௧ ௨ ௩ ௪ ௫ ௬ SPACE
       ;;
     highlight_display)
-      spacebar -m config space_icon_strip D ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௰ 11 12 13 14
+      spacebar -m config space_icon_strip ௧ ௨ ௩ ௪ ௫ ௬ DISPLAY
       ;;
   esac
 else

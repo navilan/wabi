@@ -3,10 +3,12 @@ sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 
+
 # debug logs
 yabai -m config debug_output on
 
 # Create / Manage spaces
+sh "$HOME/.bin/wp.sh"
 sh "$HOME/.bin/spacer.sh"
 
 #########################################################################
@@ -79,6 +81,7 @@ if which spacebar >/dev/null; then
 fi
 
 
+
 #########################################################################
 # SPACE LAYOUTS                                                         #
 #########################################################################
@@ -89,9 +92,21 @@ yabai -m config --space s4  layout bsp
 yabai -m config --space s5  layout bsp
 yabai -m config --space s6  layout bsp
 yabai -m config --space s7  layout bsp
-yabai -m config --space s8  layout bsp
-yabai -m config --space s9  layout bsp
-yabai -m config --space s10 layout bsp
+# Unused
+# yabai -m config --space s8  layout bsp
+# yabai -m config --space s9  layout bsp
+# yabai -m config --space s10 layout bsp
+#
+
+# WINDOW RULES
+#
+#
+yabai -m rule --add app="Emacs" space=s1
+yabai -m rule --add app="Code" space=s2
+yabai -m rule --add app="Firefox" space=s3
+yabai -m rule --add app="Safari" space=s4
+yabai -m rule --add app="Chromium" space=s5
+yabai -m rule --add app="kitty" space=s6
 
 
 # Floats
@@ -122,8 +137,16 @@ yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 
 
+yabai -m signal --add event=display_added action="~/.bin/save-layout.sh && ~/.bin/spacer.sh"
+yabai -m signal --add event=display_removed action="~/.bin/save-layout.sh && ~/.bin/spacer.sh"
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+
+# Update spaces if needed
+sh "$HOME/.bin/spacer.sh"
+sh "$HOME/.bin/wp.sh"
+
 
 echo "yabai configuration loaded.."
 

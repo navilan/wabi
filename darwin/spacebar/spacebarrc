@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 spacebar -m config position                         top
-spacebar -m config height                           26
+spacebar -m config height                           36
 spacebar -m config title                            on
 spacebar -m config spaces                           on
 spacebar -m config dnd                              on
@@ -13,7 +13,7 @@ spacebar -m config spacing_left                     25
 spacebar -m config spacing_right                    15
 spacebar -m config text_font                        "PragmataPro:Bold:24.0"
 spacebar -m config icon_font                        "PragmataPro:Bold:24.0"
-spacebar -m config background_color                 0x88282a36
+spacebar -m config background_color                 0x88282aff
 spacebar -m config foreground_color                 0x88eff0eb
 spacebar -m config power_icon_color                 0xffF3F99D
 spacebar -m config battery_icon_color               0xffFF5C57
@@ -28,9 +28,9 @@ spacebar -m config display_separator                on
 spacebar -m config display_separator_icon           ⌇
 spacebar -m config display_separator_icon_color     0xffffffff
 spacebar -m config spaces_for_all_displays          on
-spacebar -m config space_icon_color                 0xff5AF78E
-spacebar -m config space_icon_color_secondary       0xf050F78E
-spacebar -m config space_icon_color_tertiary        0xf555F78E
+spacebar -m config space_icon_color                 0x005A00ff
+spacebar -m config space_icon_color_secondary       0xf550F750
+spacebar -m config space_icon_color_tertiary        0x0055F750
 spacebar -m config power_icon_strip                 - +
 spacebar -m config space_icon_strip                 ௧ ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௰ 11 12 13 14
 spacebar -m config space_icon                       •

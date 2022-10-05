@@ -14,7 +14,7 @@
   "vim.leader": "SPC",
   "vim.sneak": true,
   "vim.sneakUseIgnorecaseAndSmartcase": true,
-  "vim.statusBarColorControl": true,
+  "vim.statusBarColorControl": false,
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#1073cf2d",
     "editor.lineHighlightBorder": "#9fced11f",
@@ -22,7 +22,7 @@
     "editorGroupHeader.tabsBackground": "#242631",
     "statusBar.background": "#242631",
     "statusBar.noFolderBackground": "#242631",
-    "statusBar.debugginBackground": "#242631",
+    "statusBar.debuggingBackground": "#242631",
     "titleBar.activeBackground": "#242631",
     "sideBar.background": "#242631"
   },
@@ -97,7 +97,7 @@
   ],
   "todohighlight.defaultStyle": {
     "backgroundColor": "none",
-     "fontWeight": "bold"
+    "fontWeight": "bold"
   },
   "todohighlight.keywords": [
     {
@@ -145,7 +145,7 @@
   "editor.guides.bracketPairs": false,
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
-  "editor.inlayHints.enabled": false,
+  "editor.inlayHints.enabled": "off",
   "window.titleBarStyle": "native",
   "files.exclude": {
     "**/.history": true
@@ -163,15 +163,6 @@
   "prolog.executablePath": "/etc/profiles/per-user/navilan/bin/swipl",
   "prolog.format.tabSize": 2,
   "shellcheck.executablePath": "/etc/profiles/per-user/navilan/bin/shellcheck",
-  "shellcheck.useWorkspaceRootAsCwd": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--experimental-string-processing"],
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -179,14 +170,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "local-history.path": "~/.config/cache/codium/.history/${workspaceFolderBasename}",
-  "java.home": "/nix/store/j0snd6l2w4v7f560psk7w85j4z9xh99w-zulu11.48.21-ca-jdk-11.0.11",
   "diffEditor.renderSideBySide": false,
   "window.zoomLevel": 3,
-  "remote.containers.dotfiles.installCommand": "~/wabi/install-dc.sh",
-  "remote.containers.dotfiles.repository": "https://github.com/navilan/wabi",
-  "remote.containers.dotfiles.targetPath": "~/wabi",
-  "dotfiles.installCommand": "~/wabi/install-dc.sh",
-  "dotfiles.repository": "https://github.com/navilan/wabi",
-  "dotfiles.targetPath": "~/wabi",
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.useNewTransformation": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
+  },
 }
