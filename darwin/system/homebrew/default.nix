@@ -31,6 +31,7 @@
       "utm"
       "vlc"
       "zoom"
+      "qutebrowser"
     ];
     taps = [
       "cmacrae/formulae" # spacebar

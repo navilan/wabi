@@ -131,9 +131,9 @@
 :: default  : ~/.bin/skhd_yabai.sh highlight_default
 :: active  @ : ~/.bin/skhd_yabai.sh highlight_active
 :: shorts  @ : ~/.bin/skhd_yabai.sh highlight_shorts
-:: restart  @ : ~/.bin/skhd_yabai.sh highlight_shorts
+:: restart @ : ~/.bin/skhd_yabai.sh highlight_shorts
 :: launch  @ : ~/.bin/skhd_yabai.sh highlight_shorts
-:: yabai  @ : ~/.bin/skhd_yabai.sh highlight_shorts
+:: yabai   @ : ~/.bin/skhd_yabai.sh highlight_shorts
 
 :: focus  @ : ~/.bin/skhd_yabai.sh highlight_focus    # focus window, spaces or displays - green color
 :: swap   @ : ~/.bin/skhd_yabai.sh highlight_swap     # swap windows, spaces or displays - red color
@@ -237,6 +237,17 @@ grid < d   ; default
 resize < w ; resize
 resize < s ; default
 resize < d ; default
+
+# Launch
+# cmd - return : open "$HOME/Applications/Home Manager Apps/kitty.app"; skhd -k 'escape'
+
+# launch < k : open "$HOME/Applications/Home Manager Apps/kitty.app"; skhd -k 'escape'
+# launch < e : open "$HOME/Applications/Home Manager Apps/Emacs.app"; skhd -k 'escape'
+# launch < v : open "$HOME/Applications/Home Manager Apps/Visual Studio Code.app"; skhd -k 'escape'
+# launch < q : open "/Applications/qutebrowser.app"; skhd -k 'escape'
+# launch < s : open "/Applications/Safari.app"; skhd -k 'escape'
+# launch < c : open "/Applications/Chromium.app"; skhd -k 'escape'
+# launch < f : open "/Applications/Firefox.app"; skhd -k 'escape'
 
 # focus windows
 focus_window < h    : yabai -m window --focus west; skhd -k 'escape'

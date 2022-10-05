@@ -10,6 +10,7 @@ Use ~requireFile~ for now.
 ** TODO UTM Window resize for tall screens
 ** TODO Dotfiles Documentation
 ** TODO Evil + vterm
+** TODO Remove homebrew dependency
 * Features
 ** TODO Yabai + Emacs:  https://gist.github.com/ethan-leba/760054f36a2f7c144c6b06ab6458fae6
 ** TODO Tmux + Emacs:  https://gist.github.com/mislav/5189704

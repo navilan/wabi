@@ -13,10 +13,6 @@
       doom-variable-pitch-font (font-spec :family "PragmataPro Mono Liga" :size 20)
       doom-unicode-font (font-spec :family "PragmataPro Mono Liga")
       doom-serif-font (font-spec :family "PragmataPro Mono Liga" :size 20 :weight 'bold)
-      twittering-allow-insecure-server-cert t
-      twittering-icon-mode t
-      twittering-use-icon-storage t
-      twittering-initial-timeline-spec-string '(":home")
 )
 
 (after! doom-modeline
