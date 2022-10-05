@@ -145,6 +145,7 @@
 
 :: focus_window    @ : ~/.bin/skhd_yabai.sh highlight_window
 :: focus_space     @ : ~/.bin/skhd_yabai.sh highlight_space
+:: focus_app       @ : ~/.bin/skhd_yabai.sh highlight_space
 :: focus_display   @ : ~/.bin/skhd_yabai.sh highlight_display
 :: swap_window     @ : ~/.bin/skhd_yabai.sh highlight_window
 :: swap_space      @ : ~/.bin/skhd_yabai.sh highlight_space
@@ -161,8 +162,8 @@
 default < f19 ; active
 active, focus, grid, swap, move, resize, toggle < f19 ; default
 active, focus, grid, swap, move, resize, toggle < escape ; default
-focus_window, focus_space, focus_display < f19 ; default
-focus_window, focus_space, focus_display < escape ; default
+focus_window, focus_space, focus_display, focus_app < f19 ; default
+focus_window, focus_space, focus_display, focus_app < escape ; default
 swap_window, swap_space, swap_display < f19 ; default
 swap_window, swap_space, swap_display < escape ; default
 move_window, move_space, move_display < f19 ; default
@@ -222,6 +223,7 @@ active < t ; toggle            # purple
 focus < w  ; focus_window
 focus < s  ; focus_space
 focus < d  ; focus_display
+focus < a  ; focus_app
 swap < w   ; swap_window
 swap < s   ; swap_space
 swap < d   ; swap_display
@@ -248,6 +250,15 @@ resize < d ; default
 # launch < s : open "/Applications/Safari.app"; skhd -k 'escape'
 # launch < c : open "/Applications/Chromium.app"; skhd -k 'escape'
 # launch < f : open "/Applications/Firefox.app"; skhd -k 'escape'
+#
+# focus apps
+focus_app < e    : yabai -m space --focus s1; skhd -k 'escape' #emacs
+focus_app < v    : yabai -m space --focus s2; skhd -k 'escape' #vscode
+focus_app < f    : yabai -m space --focus s3; skhd -k 'escape' #firefox
+focus_app < s    : yabai -m space --focus s4; skhd -k 'escape' #safari
+focus_app < c    : yabai -m space --focus s5; skhd -k 'escape' #chromium
+focus_app < k    : yabai -m space --focus s6; skhd -k 'escape' #kitty
+focus_app < q    : yabai -m space --focus s7; skhd -k 'escape' #qutebrowser
 
 # focus windows
 focus_window < h    : yabai -m window --focus west; skhd -k 'escape'

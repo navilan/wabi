@@ -101,12 +101,13 @@ yabai -m config --space s7  layout bsp
 # WINDOW RULES
 #
 #
-yabai -m rule --add app="Emacs" space=s1
-yabai -m rule --add app="Code" space=s2
-yabai -m rule --add app="Firefox" space=s3
-yabai -m rule --add app="Safari" space=s4
-yabai -m rule --add app="Chromium" space=s5
-yabai -m rule --add app="kitty" space=s6
+yabai -m rule --add app="Emacs"       space=s1
+yabai -m rule --add app="Code"        space=s2
+yabai -m rule --add app="Firefox"     space=s3
+yabai -m rule --add app="Safari"      space=s4
+yabai -m rule --add app="Chromium"    space=s5
+yabai -m rule --add app="kitty"       space=s6
+yabai -m rule --add app="qutebrowser" space=s7
 
 
 # Floats
