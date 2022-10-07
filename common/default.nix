@@ -5,5 +5,6 @@
     ./tmux
     ./vim
     ./zsh
+    ./firefox
   ];
 }

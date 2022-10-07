@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, lib, ... }:
+{ inputs, pkgs, ... }:
 let
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
@@ -29,16 +29,19 @@ in {
     ../../common
     ../../common/extra.nix
     ../../darwin
+    ../../darwin/buku
     ../../darwin/home-manager/applications.nix
     ../../darwin/home-manager/chsh.nix
   ];
 
   home = {
-    stateVersion = "22.11";
+    stateVersion = "22.05";
 
     packages = commonPkgs.packages ++ wabiPkgs;
     sessionPath = [ "$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];
     sessionVariables = {
+      TERMINFO_DIRS =
+        "${pkgs.kitty.terminfo.outPath}/share/terminfo:$TERMINFO_DIRS";
       GO111MODULE = "on";
       EDITOR = "nvim";
       VISUAL = "nvim";

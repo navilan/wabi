@@ -12,10 +12,10 @@ Use ~requireFile~ for now.
 ** TODO Evil + vterm
 ** TODO Remove homebrew dependency
 ** TODO Hide title bar in apps
- - [ ] Kitty: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/kitty/kitty.conf#L25
- - [ ] Emacs: (add-to-list 'default-frame-alist '(undecorated . t))
- - [ ] VSCode: "customizeUI.titleBar": "frameless"
- - [ ] qutebrowser: https://github.com/qutebrowser/qutebrowser/issues/6438
+ - [x] Kitty: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/kitty/kitty.conf#L25
+ - [x] Emacs: (add-to-list 'default-frame-alist '(undecorated . t))
+ - [x] VSCode: "customizeUI.titleBar": "frameless"
+ - [x] qutebrowser: https://github.com/qutebrowser/qutebrowser/issues/6438
  - [ ] Firefox: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/firefox/stealthfox-fork/userChrome.css#L162
  - [ ] Chromium: ???
 ** TODO qutebrowser configuration

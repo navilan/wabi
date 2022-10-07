@@ -1,11 +1,14 @@
-{ config, pkgs, lib, ... }: {
-  home = {
+{ config, pkgs, lib, ... }: 
+let
+  p = import ../../lib/platforms.nix { inherit config pkgs; };
+  configPath = p.whenDarwinOrElse "Library/Application Support" ".config";
+in
+{
 
+  home = {
     file = {
-      "Library/Application Support/VSCodium/User/settings.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink .../vscode/settings.json;
-      };
-      "Library/Application Support/VSCodium/User/keybindings.json" = {
+      "${configPath}/VSCodium/User/settings.json" = { source = ../vscode/settings.json; };
+      "${configPath}/VSCodium/User/keybindings.json" = {
         source = ../vscode/keybindings.json;
       };
     };

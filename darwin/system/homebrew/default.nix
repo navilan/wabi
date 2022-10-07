@@ -15,13 +15,12 @@
       "svim"
       "spacebar" # macos bar alternative
       "yabai" # tiling window manager
-      "m-cli"
     ];
     casks = [
       "adobe-creative-cloud"
       "alfred"
-      "chromium"
       "firefox"
+      "chromium"
       "jetbrains-toolbox"
       "kensingtonworks"
       "macfuse"
@@ -31,7 +30,6 @@
       "microsoft-word"
       "the-unarchiver"
       "tunnelblick"
-      "ubersicht"
       "unity-hub"
       "utm"
       "vlc"
@@ -41,6 +39,7 @@
     ];
     taps = [
       "cmacrae/formulae" # spacebar
+      "d12frosted/emacs-plus"
       "homebrew/bundle"
       "homebrew/cask"
       "homebrew/cask-drivers"
@@ -50,6 +49,10 @@
       "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchy bar
     ];
+
+    extraConfig = ''
+      brew "emacs-plus@29", args: ["with-modern-black-dragon-icon", "with-mailutils", "with-xwidgets", "with-imagemagick", "with-dbus", "with-ctags"], link: true
+    '';
     masApps = {
       Vimari = 1480933944;
       AdGuard = 1440147259;

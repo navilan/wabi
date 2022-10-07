@@ -4,6 +4,7 @@
 (package! org-roam-ui)
 (package! org-preview-html)
 (package! jq-mode)
+(package! ebuku)
 
 
 (provide 'packages)

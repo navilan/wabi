@@ -84,6 +84,12 @@
     version = "0.6.3";
   }
   {
+    name = "monkey-patch";
+    publisher = "iocave";
+    sha256 = "sha256-NdqkKgzVUaLmcz05CWNwjwCrBHmKSK6H9zhiyH8Lm7U=";
+    version = "0.1.22";
+  }
+  {
     name = "nunjucks";
     publisher = "ronnidc";
     sha256 = "7YfmRMhC+HFmYgYtyHWrzSi7PZS3tdDHly9S1kDMmjY=";

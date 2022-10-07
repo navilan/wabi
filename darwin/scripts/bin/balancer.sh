@@ -18,9 +18,16 @@ if [ "$ND" -eq 4 ]; then D1=$d2; D2=$d2; D3=$d3; D4=$d1; echo "Balancing spaces:
 # yabai -m space --focus s9  && yabai -m space --display $D2 # Unused
 # yabai -m space --focus s8  && yabai -m space --display $D1 # Unused
 yabai -m space --focus s7  && yabai -m space --display $D4 # Utils
+sh $CDIR/wp.sh
 yabai -m space --focus s6  && yabai -m space --display $D4 # Kitty
+sh $CDIR/wp.sh
 yabai -m space --focus s5  && yabai -m space --display $D3 # Safari
+sh $CDIR/wp.sh
 yabai -m space --focus s4  && yabai -m space --display $D3 # Chrome
+sh $CDIR/wp.sh
 yabai -m space --focus s3  && yabai -m space --display $D3 # Firefox
+sh $CDIR/wp.sh
 yabai -m space --focus s2  && yabai -m space --display $D2 # VSCode
+sh $CDIR/wp.sh
 yabai -m space --focus s1  && yabai -m space --display $D1 # Emacs
+sh $CDIR/wp.sh

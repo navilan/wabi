@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, user, inputs, ... }:
 
 let
   stringTakeLast = str: last:
@@ -62,6 +62,14 @@ in {
       VISUAL = "nvim";
     };
   };
+
+  nixpkgs.overlays = [
+    inputs.nur.overlay
+    (final: prev: {
+      # This populates a dummy package to satisfy the requirement (From Homebrew)
+      firefox-darwin = final.runCommand "firefox-0.0.0" { } "mkdir $out";
+    })
+  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;

@@ -5,12 +5,15 @@
   inputs = {
     flake-utils = { url = "github:numtide/flake-utils"; };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nur = { url = "github:nix-community/NUR"; };
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs = { url = "github:cmacrae/emacs"; };
-    emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
+    emacs = {
+      url = "github:cmacrae/emacs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +23,10 @@
       inputs.nixpkgs.follows = "fenix/nixpkgs";
       inputs.fenix.follows = "fenix";
     };
-    fenix = { url = "github:nix-community/fenix"; };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +65,6 @@
         user = "navilan";
         home-manager = home.darwinModules.home-manager;
       in (import ./hosts/wabi {
-        inherit config;
         inherit (nixpkgs) lib;
         inherit inputs pkgs nixpkgs darwin home-manager user;
       });

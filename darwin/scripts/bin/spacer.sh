@@ -28,6 +28,15 @@ yabai -m space 4  --label s4
 yabai -m space 5  --label s5
 yabai -m space 6  --label s6
 yabai -m space 7  --label s7
+
+
+yabai -m space 1  --layout bsp
+yabai -m space 2  --layout bsp
+yabai -m space 3  --layout bsp
+yabai -m space 4  --layout bsp
+yabai -m space 5  --layout bsp
+yabai -m space 6  --layout bsp
+yabai -m space 7  --layout bsp
 # Unused right now
 # yabai -m space 8  --label s8
 # yabai -m space 9  --label s9

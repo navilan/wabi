@@ -1,4 +1,4 @@
 { inputs, config, pkgs, lib, ... }: {
-  imports = [ ./kitty ./emacs ./spotifyd ./vscodium ];
+  imports = [ ./kitty ./emacs ./spotifyd ./vscodium ./qutebrowser ];
 
 }

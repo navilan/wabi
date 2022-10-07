@@ -1,0 +1,60 @@
+:root {
+  --tridactyl-font-family: 'PragmataPro Liga' !important;
+  --tridactyl-cmdl-font-family: 'PragmataPro Mono Liga' !important;
+  --tridactyl-status-font-family: 'PragmataPro Mono' !important;
+  --tridactyl-cmplt-font-family: 'PragmataPro Mono' !important;
+  --tridactyl-hintspan-font-family: 'PragmataPro Mono' !important;
+}
+
+/* NixOS -- nixos.org */
+@-moz-document domain(nixos.org) {
+  body {
+    /* As of 2022-06-02 the body font weight is too light, so make it normal. */
+    font-weight: normal;
+  }
+}
+
+/* Alternate monospace font stack, sorted by least popular so you're most likely
+ * to get the font you want.
+ * */
+code,
+kbd,
+pre,
+tt,
+.ace_editor.ace-github-light,
+.blame-sha,
+.blob-code-inner,
+.blob-num,
+.branch-name,
+.commit .sha,
+.commit .sha-block,
+.commit-desc pre,
+.commit-ref,
+.commit-tease-sha,
+.default-label .sha,
+.export-phrase pre,
+.file-editor-textarea,
+.file-info,
+.gollum-editor .expanded textarea,
+.gollum-editor .gollum-editor-body,
+.hook-delivery-guid,
+.hook-delivery-response-status,
+.input-monospace,
+.news .alert .branch-link,
+.oauth-app-info-container dl.keys dd,
+.quick-pull-choice .new-branch-name-input input,
+.tag-references > li.commit,
+.two-factor-secret,
+.upload-files .filename,
+.url-field,
+.wiki-wrapper .wiki-history .commit-meta code {
+  font-family: 'PragmataPro', monospace !important;
+  font-size: 1.05em !important;
+}
+
+/* body, */
+/* .tooltipped:after, */
+/* .markdown-body, */
+/* .hx_text-body { */
+/* 	font-family: sans-serif !important; */
+/* } */
