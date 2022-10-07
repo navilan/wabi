@@ -29,7 +29,6 @@
       url = "github:zsa/wally-cli";
       flake = false;
     };
-
   };
 
   outputs =

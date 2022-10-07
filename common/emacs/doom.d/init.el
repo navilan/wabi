@@ -33,7 +33,7 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       ;; (emoji +unicode)  ; 🙂
+       (emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides     ; highlighted indent columns
@@ -49,7 +49,7 @@
         +defaults)   ; tame sudden yet inevitable temporary windows
        ;;tabs              ; a tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
-       ;; unicode           ; extended unicode support for various languages
+       unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        ;;window-select     ; visually switch windows
@@ -195,15 +195,16 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       web               ; the tubes
-       yaml              ; JSON, but readable
+       (web
+        +lsp
+        +tree-sitter)      ; the tubes
+       yaml                ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
        (mu4e +org +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
-a
        :app
        calendar
        ;;emms

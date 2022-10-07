@@ -1,5 +1,6 @@
 font_family PragmataPro Mono Liga
-font_size 24.0
+font_size 22.0
+adjust_line_height 110%
 
 #--------------------------------------------------------------------
 # Key bindings

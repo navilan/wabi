@@ -89,7 +89,12 @@ in {
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ emacs-all-the-icons-fonts nerdfonts recursive ];
+    fonts = with pkgs; [
+      emacs-all-the-icons-fonts
+      nerdfonts
+      recursive
+      (import ../../darwin/sketchybar/sketchybar-app-font.nix { inherit pkgs; })
+    ];
   };
 
   system.stateVersion = 4;

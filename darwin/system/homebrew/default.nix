@@ -8,6 +8,8 @@
       "libusb"
       "qemu"
       "skhd" # keybinding manager
+      "sketchybar"
+      "svim"
       "spacebar" # macos bar alternative
       "yabai" # tiling window manager
       "m-cli"
@@ -32,6 +34,7 @@
       "vlc"
       "zoom"
       "qutebrowser"
+
     ];
     taps = [
       "cmacrae/formulae" # spacebar
@@ -42,6 +45,7 @@
       "homebrew/core"
       "homebrew/services"
       "koekeishiya/formulae" # yabai
+      "FelixKratz/formulae" # sketchy bar
     ];
     masApps = {
       Vimari = 1480933944;

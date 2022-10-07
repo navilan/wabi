@@ -92,12 +92,6 @@
       eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
     '';
 
-    # dirHashes = {
-    #   dl = "$HOME/Downloads";
-    #   nix = "$HOME/.nixpkgs";
-    #   work = "$HOME/work";
-    # };
-
     shellAliases = {
       size = "du -sh";
       cp = "cp -i";

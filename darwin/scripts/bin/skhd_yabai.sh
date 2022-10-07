@@ -33,8 +33,8 @@
 if which spacebar >/dev/null; then
   case "$1" in
     highlight_default) # default
-      spacebar -m config background_color 0x88282a36
-      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config background_color 0x1a1b2699
+      spacebar -m config foreground_color 0xa9b1d6eb
       spacebar -m config center_shell     off
       spacebar -m config title            on
       ;;
