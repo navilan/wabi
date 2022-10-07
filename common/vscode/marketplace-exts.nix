@@ -12,6 +12,12 @@
     version = "1.5.9";
   }
   {
+    name = "customize-ui";
+    publisher = "iocave";
+    sha256 = "sha256-6VhsHDVOcxI0fehcAs3UC2jS74hh84g+F6MCQo6voy8=";
+    version = "0.1.65";
+  }
+  {
     name = "direnv";
     publisher = "mkhl";
     sha256 = "5/Tqpn/7byl+z2ATflgKV1+rhdqj+XMEZNbGwDmGwLQ=";
@@ -96,13 +102,6 @@
     version = "1.0.0";
   }
   {
-    name = "remote-containers";
-    publisher = "ms-vscode-remote";
-    # sha256 = "j1qw3NXztMXntvVEJZbCiaSqLjK78ZqK7iJNMCpx2VQ=";
-    sha256 = "sha256-Ex6IQN2ZYM0Hsr/9usloCsTNQzfA30YEyXlD7IxwBK8=";
-    version = "0.254.0";
-  }
-  {
     name = "svelte-vscode";
     publisher = "svelte";
     sha256 = "sha256-tQgVS/yJgdbM3nZoQhIgBR0mUCPS5A69rPJ5os96q7g=";
@@ -185,12 +184,6 @@
     publisher = "arcanis";
     sha256 = "sha256-yNRC03kV0UvpEp1gF+NK0N3iCoqZMQ+PAqtrHLXFeXM=";
     version = "3.0.0";
-  }
-  {
-    name = "vsliveshare";
-    publisher = "ms-vsliveshare";
-    sha256 = "Wy1gfRNI6OdXWf70g+qCKKOq1SFX0PQTI6ig0YFIUCA=";
-    version = "1.0.5597";
   }
   {
     name = "webvalidator";

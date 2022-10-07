@@ -1,117 +1,51 @@
+#--------------------------------------------------------------------
+# Font
+#--------------------------------------------------------------------
 font_family PragmataPro Mono Liga
 font_size 22.0
 adjust_line_height 110%
 
-#--------------------------------------------------------------------
-# Key bindings
-#--------------------------------------------------------------------
-# Clipboard
-map super+v             paste_from_clipboard
-map super+c             copy_or_interrupt
-
-# Screen
-map super+k combine : clear_terminal scroll active : send_text normal,application \x0c
-
-# Miscellaneous
-map super+equal         increase_font_size
-map super+minus         decrease_font_size
-map super+0             restore_font_size
-
-# Scrolling
-map ctrl+shift+j        scroll_line_down
-map ctrl+shift+k        scroll_line_up
-
-map ctrl+shift+g        scroll_home
-
-map cmd+ctrl+j          scroll_page_down
-map cmd+ctrl+k          scroll_page_up
-
-map super+ctrl+p        scroll_to_prompt -1
-map super+ctrl+n        scroll_to_prompt 1
-
-map super+shift+g       show_last_command_output
 
 #--------------------------------------------------------------------
 # Theme
 #--------------------------------------------------------------------
-# Tokyo Night color scheme for kitty terminal emulator
-# https://github.com/davidmathers/tokyo-night-kitty-theme
-#
-# Based on Tokyo Night color theme for Visual Studio Code
-# https://github.com/enkia/tokyo-night-vscode-theme
+include themes/tokyo-night.conf
 
-foreground #a9b1d6
-background #1a1b26
-
-# Black
-color0 #414868
-color8 #414868
-
-# Red
-color1 #f7768e
-color9 #f7768e
-
-# Green
-color2  #73daca
-color10 #73daca
-
-# Yellow
-color3  #e0af68
-color11 #e0af68
-
-# Blue
-color4  #7aa2f7
-color12 #7aa2f7
-
-# Magenta
-color5  #bb9af7
-color13 #bb9af7
-
-# Cyan
-color6  #7dcfff
-color14 #7dcfff
-
-# White
-color7  #c0caf5
-color15 #c0caf5
-
-# Cursor
-cursor #c0caf5
-cursor_text_color #1a1b26
-
-# Selection highlight
-selection_foreground none
-selection_background #28344a
-
-# The color for highlighting URLs on mouse-over
-url_color #9ece6a
-
-# Window borders
-active_border_color #3d59a1
-inactive_border_color #101014
-bell_border_color #e0af68
-
-# Tab bar
-tab_bar_style fade
-tab_fade 1
-active_tab_foreground   #3d59a1
-active_tab_background   #16161e
-active_tab_font_style   bold
-inactive_tab_foreground #787c99
-inactive_tab_background #16161e
-inactive_tab_font_style bold
-tab_bar_background #101014
-
-# Title bar
-macos_titlebar_color #16161e
-
-# Storm
-# background #24283b
-# cursor_text_color #24283b
-# active_tab_background   #1f2335
-# inactive_tab_background #1f2335
-# macos_titlebar_color #1f2335
+#--------------------------------------------------------------------
+# Key bindings
+#--------------------------------------------------------------------
+includ keymap.conf
 
 
+#--------------------------------------------------------------------
+# UI
+#--------------------------------------------------------------------
+hide_window_decorations yes
+tab_bar_edge  top
+tab_bar_style powerline
+tab_bar_switch_strategy left
+tab_powerline_style angled
+
+#--------------------------------------------------------------------
+# Mac OS
+#--------------------------------------------------------------------
+macos_option_as_alt left
+macos_option_as_alt both
+macos_custom_beam_cursor yes
+macos_thicken_font 0
+macos_show_window_title_in menubar
+
+#--------------------------------------------------------------------
+# Session
+#--------------------------------------------------------------------
+allow_remote_control yes
+enable_audio_bell no
+copy_on_select no
+bell_on_tab yes
+
+
+#--------------------------------------------------------------------
+# Shell
+#--------------------------------------------------------------------
 # https://github.com/kovidgoyal/kitty/discussions/3904#discussioncomment-1375344
 scrollback_pager nvim -c 'setlocal ft=man number modifiable noro relativenumber nolist showtabline=0 foldcolumn=0' -c "autocmd VimEnter * normal G" -c ":silent! %s#\($\n\s*\)\+\%$##" -

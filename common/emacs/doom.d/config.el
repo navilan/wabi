@@ -31,6 +31,8 @@
                                 '((jq . t)))
   )
 
+(add-to-list 'default-frame-alist '(undecorated . t))
+
 
 
 (provide 'config)

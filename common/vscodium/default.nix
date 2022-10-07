@@ -6,7 +6,7 @@
         source = config.lib.file.mkOutOfStoreSymlink .../vscode/settings.json;
       };
       "Library/Application Support/VSCodium/User/keybindings.json" = {
-        source = ../.vscode/keybindings.json;
+        source = ../vscode/keybindings.json;
       };
     };
   };
@@ -17,6 +17,7 @@
       extensions = import ../vscode/extensions.nix {
         inherit config;
         inherit pkgs;
+        installClosed = false;
       };
     };
   };

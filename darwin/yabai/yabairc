@@ -75,6 +75,7 @@ fi
 #
 yabai -m rule --add app="Emacs"       space=s1
 yabai -m rule --add app="Code"        space=s2
+yabai -m rule --add app="VSCodium"    space=s2
 yabai -m rule --add app="Firefox"     space=s3
 yabai -m rule --add app="Safari"      space=s4
 yabai -m rule --add app="Chromium"    space=s5

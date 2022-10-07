@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, lib, ... }:
 let
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
@@ -34,7 +34,7 @@ in {
   ];
 
   home = {
-    stateVersion = "22.05";
+    stateVersion = "22.11";
 
     packages = commonPkgs.packages ++ wabiPkgs;
     sessionPath = [ "$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];

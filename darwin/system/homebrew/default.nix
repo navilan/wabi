@@ -1,8 +1,11 @@
 { config, pkgs, lib, ... }: {
   homebrew = {
     enable = true;
-    autoUpdate = true;
-    cleanup = "zap"; # "zap" removes manually installed brews and casks
+    onActivation = {
+      upgrade = true;
+      autoUpdate = true;
+      cleanup = "zap"; # "zap" removes manually installed brews and casks
+    };
     brews = [
       "libomp" # OpenMP
       "libusb"

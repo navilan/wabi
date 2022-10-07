@@ -26,6 +26,7 @@
     ispell
     nixfmt
     keychain
+    neofetch
 
     coreutils-full
     gnutar

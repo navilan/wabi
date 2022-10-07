@@ -3,7 +3,6 @@
 let
   stdenv = pkgs.stdenvNoCC;
   lib = pkgs.lib;
-  fetchZip = pkgs.fetchZip;
 
 in stdenv.mkDerivation rec {
   pname = "sketchybar-app-font";

@@ -1,21 +1,27 @@
-{ lib, inputs, pkgs, nixpkgs, home-manager, darwin, user, ... }:
+{ config, lib, inputs, nixpkgs, home-manager, darwin, user, ... }:
 
-let system = "aarch64-darwin";
+let
+  system = "aarch64-darwin";
+  pkgs = import inputs.nixpkgs {
+    inherit system;
+    nixpkgs.config.allowUnfree = true;
+  };
+  lib = pkgs.lib;
 in {
   wabi = darwin.lib.darwinSystem {
     inherit system;
-    specialArgs = { inherit user inputs; };
+    specialArgs = { inherit pkgs user inputs; };
     modules = [
       ./configuration.nix
       ../../darwin/system/applications.nix
-      ../../darwin/system/pam
 
       home-manager
       {
         home-manager.useUserPackages = true;
         home-manager.useGlobalPkgs = true;
         home-manager.extraSpecialArgs = { inherit user inputs; };
-        home-manager.users.${user} = import ./home.nix;
+        home-manager.users.${user} =
+          import ./home.nix { inherit pkgs inputs lib config; };
       }
     ];
   };

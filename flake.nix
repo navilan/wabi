@@ -59,6 +59,7 @@
         user = "navilan";
         home-manager = home.darwinModules.home-manager;
       in (import ./hosts/wabi {
+        inherit config;
         inherit (nixpkgs) lib;
         inherit inputs pkgs nixpkgs darwin home-manager user;
       });

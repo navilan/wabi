@@ -1,6 +1,5 @@
-{ config, pkgs, ... }:
-let active = true;
-in (with pkgs.vscode-extensions; [
+{ config, pkgs, installClosed, ... }:
+(with pkgs.vscode-extensions; [
   # Editor
   bodil.file-browser
   editorconfig.editorconfig
@@ -55,9 +54,6 @@ in (with pkgs.vscode-extensions; [
   dbaeumer.vscode-eslint
   esbenp.prettier-vscode
 
-  ## Python
-  ms-python.vscode-pylance
-  ms-toolsai.jupyter
-  ms-toolsai.jupyter-renderers
 ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
 (import ./marketplace-exts.nix)
+++ pkgs.lib.optionals installClosed (import ./ms-exts.nix)

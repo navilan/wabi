@@ -66,7 +66,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
 
-  nix.allowedUsers = [ "${user}" ];
+  nix.settings.allowed-users = [ "${user}" ];
   nix.package = pkgs.nixUnstable;
 
   users.users."${user}" = {
@@ -74,7 +74,7 @@ in {
     shell = pkgs.zsh;
   };
 
-  users.nix.configureBuildUsers = true;
+  nix.configureBuildUsers = true;
 
   security.pam.enableSudoTouchIdAuth = true;
 
@@ -90,10 +90,11 @@ in {
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
-      emacs-all-the-icons-fonts
+      # emacs-all-the-icons-fonts
       nerdfonts
       recursive
       (import ../../darwin/sketchybar/sketchybar-app-font.nix { inherit pkgs; })
+      (import ../../darwin/sketchybar/sf-symbols.nix { inherit pkgs; })
     ];
   };
 

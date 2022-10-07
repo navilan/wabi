@@ -1,4 +1,4 @@
 { inputs, config, pkgs, lib, ... }: {
-  imports = [ ./kitty ./emacs ./spotifyd ./vscode ];
+  imports = [ ./kitty ./emacs ./spotifyd ./vscodium ];
 
 }

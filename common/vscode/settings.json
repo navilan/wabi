@@ -179,4 +179,7 @@
     "vscodevim.vim": 1,
     "asvetliakov.vscode-neovim": 1
   },
+  "customizeUI.titleBar": "frameless",
+  "customizeUI.font.regular": "PragmataPro Liga",
+  "customizeUI.font.monospace": "PragmataPro Mono Liga",
 }

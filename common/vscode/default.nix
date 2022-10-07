@@ -11,6 +11,7 @@ in {
       };
     };
   };
+  nixpkgs.config.allowUnfree = true;
   programs = {
     vscode = {
       enable = true;
@@ -18,6 +19,7 @@ in {
       extensions = import ./extensions.nix {
         inherit config;
         inherit pkgs;
+        installClosed = true;
       };
     };
   };
