@@ -47,7 +47,7 @@ if which spacebar >/dev/null; then
       ;;
     highlight_shorts)
       spacebar -m config background_color 0x004787f0
-      spacebar -m config foreground_color 0x88282a36
+      spacebar -m config foreground_color 0x88eff0eb
       spacebar -m config title            off
       spacebar -m config center_shell     on
       spacebar -m config center_shell_command 'echo "(r)estart|(a)app|(y)abai|(f)ocus|fw(hjkl+wsd)|fd(#)|fs(S#)"'

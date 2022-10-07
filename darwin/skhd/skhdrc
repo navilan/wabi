@@ -1,28 +1,25 @@
 # Check ~/.bin/skhd_yabai.sh for Modal help
 #
-:: default   : ~/.bin/skhd_yabai.sh highlight_default
-:: active  @ : ~/.bin/skhd_yabai.sh highlight_active
-:: shorts  @ : ~/.bin/skhd_yabai.sh highlight_shorts
-:: yabai   @ : ~/.bin/skhd_yabai.sh highlight_yabai
-
-:: focus  @ : ~/.bin/skhd_yabai.sh highlight_focus
-:: swap   @ : ~/.bin/skhd_yabai.sh highlight_swap
-:: move   @ : ~/.bin/skhd_yabai.sh highlight_move
-:: grid   @ : ~/.bin/skhd_yabai.sh highlight_grid
-:: resize @ : ~/.bin/skhd_yabai.sh highlight_resize
-:: toggle @ : ~/.bin/skhd_yabai.sh highlight_toggle
-
-:: focus_window    @ : ~/.bin/skhd_yabai.sh highlight_focus_window
-:: focus_space     @ : ~/.bin/skhd_yabai.sh highlight_focus_space
-:: focus_app       @ : ~/.bin/skhd_yabai.sh highlight_focus_app
-:: focus_display   @ : ~/.bin/skhd_yabai.sh highlight_focus_display
-:: focus_app       @ : ~/.bin/skhd_yabai.sh highlight_focus_app
-:: swap_window     @ : ~/.bin/skhd_yabai.sh highlight_swap_window
-:: swap_space      @ : ~/.bin/skhd_yabai.sh highlight_swap_space
-:: move_window     @ : ~/.bin/skhd_yabai.sh highlight_move_window
-:: move_space      @ : ~/.bin/skhd_yabai.sh highlight_move_space
-:: toggle_window   @ : ~/.bin/skhd_yabai.sh highlight_toggle_window
-:: toggle_space    @ : ~/.bin/skhd_yabai.sh highlight_toggle_space
+:: default         : ~/.bin/skhd_yabai.sh highlight_default
+:: active        @ : ~/.bin/skhd_yabai.sh highlight_active
+:: shorts        @ : ~/.bin/skhd_yabai.sh highlight_shorts
+:: yabai         @ : ~/.bin/skhd_yabai.sh highlight_yabai
+:: focus         @ : ~/.bin/skhd_yabai.sh highlight_focus
+:: swap          @ : ~/.bin/skhd_yabai.sh highlight_swap
+:: move          @ : ~/.bin/skhd_yabai.sh highlight_move
+:: grid          @ : ~/.bin/skhd_yabai.sh highlight_grid
+:: resize        @ : ~/.bin/skhd_yabai.sh highlight_resize
+:: toggle        @ : ~/.bin/skhd_yabai.sh highlight_toggle
+:: focus_window  @ : ~/.bin/skhd_yabai.sh highlight_focus_window
+:: focus_space   @ : ~/.bin/skhd_yabai.sh highlight_focus_space
+:: focus_app     @ : ~/.bin/skhd_yabai.sh highlight_focus_app
+:: focus_display @ : ~/.bin/skhd_yabai.sh highlight_focus_display
+:: swap_window   @ : ~/.bin/skhd_yabai.sh highlight_swap_window
+:: swap_space    @ : ~/.bin/skhd_yabai.sh highlight_swap_space
+:: move_window   @ : ~/.bin/skhd_yabai.sh highlight_move_window
+:: move_space    @ : ~/.bin/skhd_yabai.sh highlight_move_space
+:: toggle_window @ : ~/.bin/skhd_yabai.sh highlight_toggle_window
+:: toggle_space  @ : ~/.bin/skhd_yabai.sh highlight_toggle_space
 
 # F19 activate
 default < f19 ; active
@@ -66,8 +63,8 @@ shorts, yabai  < f19    ; active
 
 # Modes
 shorts  < y ; yabai
-shorts  < f ; focus      # Duplicated for convenience
-shorts  < a ; focus_app  # Duplicated for convenience
+shorts  < a ; focus_app
+shorts  < f ; focus
 
 
 # Shortcuts
@@ -134,13 +131,13 @@ resize < s ; default
 resize < d ; default
 
 # focus apps
-focus_app < e    : yabai -m space --focus s1; skhd -k 'escape' #emacs
-focus_app < v    : yabai -m space --focus s2; skhd -k 'escape' #vscode
-focus_app < f    : yabai -m space --focus s3; skhd -k 'escape' #firefox
-focus_app < s    : yabai -m space --focus s4; skhd -k 'escape' #safari
-focus_app < c    : yabai -m space --focus s5; skhd -k 'escape' #chromium
-focus_app < k    : yabai -m space --focus s6; skhd -k 'escape' #kitty
-focus_app < q    : yabai -m space --focus s7; skhd -k 'escape' #qutebrowser
+focus_app < e    : yabai -m space --focus s1; skhd -k 'escape'
+focus_app < v    : yabai -m space --focus s2; skhd -k 'escape'
+focus_app < f    : yabai -m space --focus s3; skhd -k 'escape'
+focus_app < s    : yabai -m space --focus s4; skhd -k 'escape'
+focus_app < c    : yabai -m space --focus s5; skhd -k 'escape'
+focus_app < k    : yabai -m space --focus s6; skhd -k 'escape'
+focus_app < q    : yabai -m space --focus s7; skhd -k 'escape'
 
 # focus windows
 focus_window < h    : yabai -m window --focus west; skhd -k 'escape'
