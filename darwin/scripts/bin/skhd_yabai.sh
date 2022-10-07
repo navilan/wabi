@@ -1,154 +1,175 @@
 #!/usr/bin/env bash
+#
+#
+
+
+# Mode
+
+# Background Color
+# Text Color
+# Center Text (Prompt)
+
+# Action
+#
+# Center Text (Prompt)
+
+# Active (Long form verbs)
+# BG: Violet
+
+# Commands
+# - Focus Window(w) | Space(s) | Display(d) | App(a)
+# --- Window     Direction(hjkl) | Prev(p) | Next(n) | Recent(r) | Largest(m)
+# --- Space      Prev(hjp) | Next(lkn) | Space(#)
+# --- Display    Prev(hjp) | Next(lkn) | Display(#)
+# - Swap  ("W | S | D" Window, Space, Display)
+# --- Window ( "hjkl | m | # |S#" Direction, Largest, Space, Space)
+# - Move  ("W | S | D" Window, Space, Display)
+# - Toggle ("W | S | D" Window, Space, Display)
+
+# Shorts (Quick access menu)
+# BG: Purple
+
 
 if which spacebar >/dev/null; then
   case "$1" in
     highlight_default) # default
-      spacebar -m config space_icon_strip             ௧ ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௰ 11 12 13 14
-      spacebar -m config space_icon_color             0xf050f78e &
-      spacebar -m config space_icon_color_secondary   0xf559f78e &
-      spacebar -m config space_icon_color_tertiary    0xff5af78e &
-      spacebar -m config display_separator_icon_color 0xffffffff &
-      spacebar -m config background_color 0x88282a36 &
-      spacebar -m config foreground_color 0x88eff0eb &
+      spacebar -m config background_color 0x88282a36
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config center_shell     off
+      spacebar -m config title            on
       ;;
-    highlight_active) # white
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xfff1f1f0             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_active)
+      spacebar -m config background_color 0xff4499f0
+      spacebar -m config foreground_color 0x88282a36
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "(f)ocus|(g)rid|(s)wap|(m)ove|(r)esize|(t)oggle"'
       ;;
-    highlight_shorts) # yellow
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xcfc133f0             &
-      spacebar -m config foreground_color 0xff002a36             &
+    highlight_shorts)
+      spacebar -m config background_color 0x004787f0
+      spacebar -m config foreground_color 0x88282a36
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "(r)estart|(a)app|(y)abai|(f)ocus|fw(hjkl+wsd)|fd(#)|fs(S#)"'
       ;;
-    highlight_focus) # green
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xff5af78e             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_yabai)
+      spacebar -m config background_color 0x004787f0
+      spacebar -m config foreground_color 0x88282a36
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "(s)ave layout|(l)oad layout"'
       ;;
-    highlight_grid) # orange/magenta
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xffff6ac1             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_focus)
+      spacebar -m config background_color 0x00ffd2f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "focus (w)indow|(s)pace|(d)isplay|(a)pp"'
       ;;
-    highlight_swap) # red
-      spacebar -m config space_icon_color             0xffeff0eb &
-      spacebar -m config space_icon_color_secondary   0xffeff0eb &
-      spacebar -m config space_icon_color_tertiary    0xffeff0eb &
-      spacebar -m config display_separator_icon_color 0xffeff0eb &
-      spacebar -m config background_color 0xffff5c57             &
-      spacebar -m config foreground_color 0xffeff0eb             &
+    highlight_grid)
+      spacebar -m config background_color 0xdadef4f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "grid (hjkl)+alt"'
       ;;
-    highlight_move) # yellow
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xfff3f99d             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_swap)
+      spacebar -m config background_color 0xa4aed6f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "swap (w)indow|(s)pace|(d)isplay"'
       ;;
-    highlight_resize) # cyan
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xff9aedfe             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_move)
+      spacebar -m config background_color 0x6a6fb1f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "move (w)indow|(s)pace|(d)isplay"'
       ;;
-    highlight_toggle) # purple
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xffcc66cc             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_resize)
+      spacebar -m config background_color 0x000000f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "resize (hjkl)+alt|balance(=)|(m)ax|(c)enter"'
       ;;
-    highlight_launch) # blue
-      spacebar -m config space_icon_color             0xff282a36 &
-      spacebar -m config space_icon_color_secondary   0xff282a36 &
-      spacebar -m config space_icon_color_tertiary    0xff282a36 &
-      spacebar -m config display_separator_icon_color 0xff282a36 &
-      spacebar -m config background_color 0xff57c7ff             &
-      spacebar -m config foreground_color 0xff282a36             &
+    highlight_toggle)
+      spacebar -m config background_color 0x8590c5f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "toggle (w)indow|(s)pace"'
       ;;
-    highlight_window)
-      spacebar -m config space_icon_strip ௧ ௨ ௩ ௪ ௫ ௬ WINDOW
+    highlight_focus_window)
+      spacebar -m config background_color 0x00ffd2f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "focusW (hjklpnrm)"'
       ;;
-    highlight_space)
-      spacebar -m config space_icon_strip ௧ ௨ ௩ ௪ ௫ ௬ SPACE
+    highlight_focus_space)
+      spacebar -m config background_color 0x00ffd2f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "focusS (hjkl)|space(#)"'
       ;;
-    highlight_display)
-      spacebar -m config space_icon_strip ௧ ௨ ௩ ௪ ௫ ௬ DISPLAY
+    highlight_focus_display)
+      spacebar -m config background_color 0x00ffd2f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "focusD (hjkl)|display(#)"'
       ;;
-  esac
-else
-  case "$1" in
-    highlight_default) # default
-      yabai -m config window_border_width 1
-      yabai -m config active_window_border_color 0x00444444
-      yabai -m config normal_window_border_color 0x00444444
+    highlight_focus_app)
+      spacebar -m config background_color 0x00ffd2f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "focusA (e)macs|(v)scode|(s)afari|(c)hrome|(f)irefox|(q)uteb|(k)itty"'
       ;;
-    highlight_active) # white
-      yabai -m config window_border_width 128
-      yabai -m config active_window_border_color 0xb2000000
-      yabai -m config normal_window_border_color 0xb2000000
+    highlight_move_window)
+      spacebar -m config background_color 0x6a6fb1f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "moveW space(hjkl#)|display(Chjkl#)"'
       ;;
-    highlight_focus) # green
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb266cc66
-      yabai -m config active_window_border_color 0xb299ff99
+    highlight_move_space)
+      spacebar -m config background_color 0x6a6fb1f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "moveS display(hjkl#)"'
       ;;
-    highlight_grid) # orange/magenta
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb2cc9966
-      yabai -m config active_window_border_color 0xb2ffcc99
+    highlight_swap_window)
+      spacebar -m config background_color 0xa4aed6f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "swapW space(hjkl#)|display(Chjkl#)"'
       ;;
-    highlight_swap) # red
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb2cc6666
-      yabai -m config active_window_border_color 0xb2ff9999
+    highlight_swap_space)
+      spacebar -m config background_color 0xa4aed6f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "swapS display(hjkl#)"'
       ;;
-    highlight_move) # yellow
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb2cccc66
-      yabai -m config active_window_border_color 0xb2ffff99
+    highlight_toggle_window)
+      spacebar -m config background_color 0x8590c5f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "toggleW (f)loat|(s)ticky|(t)op|(b)order|spl(i)t|(p)ip|(z)oom|(m)ax|full(Sm)|(q)uit|(c)enter"'
       ;;
-    highlight_resize) # cyan
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb266cccc
-      yabai -m config active_window_border_color 0xb299ffff
-      ;;
-    highlight_toggle) # purple
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb2cc66cc
-      yabai -m config active_window_border_color 0xb2ff99ff
-      ;;
-    highlight_launch) # blue
-      yabai -m config window_border_width 128
-      yabai -m config normal_window_border_color 0xb26666cc
-      yabai -m config active_window_border_color 0xb29999ff
-      ;;
-    highlight_window)
-      yabai -m config window_border_width 192
-      yabai -m config normal_window_border_color 0xb2444444
-      ;;
-    highlight_space)
-      yabai -m config window_border_width 320
-      ;;
-    highlight_display)
-      yabai -m config window_border_width 2048
+    highlight_toggle_space)
+      spacebar -m config background_color 0x8590c5f0
+      spacebar -m config foreground_color 0x88eff0eb
+      spacebar -m config title            off
+      spacebar -m config center_shell     on
+      spacebar -m config center_shell_command 'echo "toggleS gap(o)|balance(=)|(b)sp|(f)loat|(s)tack|(d)esktop"'
       ;;
   esac
 fi

@@ -1,185 +1,74 @@
-# ################################################################ #
-# THE FOLLOWING IS AN EXPLANATION OF THE GRAMMAR THAT SKHD PARSES. #
-# FOR SIMPLE EXAMPLE MAPPINGS LOOK FURTHER DOWN THIS FILE..        #
-# ################################################################ #
-
-# A list of all built-in modifier and literal keywords can
-# be found at https://github.com/koekeishiya/skhd/issues/1
+# Check ~/.bin/skhd_yabai.sh for Modal help
 #
-# A hotkey is written according to the following rules:
-#
-#   hotkey       = <mode> '<' <action> | <action>
-#
-#   mode         = 'name of mode' | <mode> ',' <mode>
-#
-#   action       = <keysym> '[' <proc_map_lst> ']' | <keysym> '->' '[' <proc_map_lst> ']'
-#                  <keysym> ':' <command>          | <keysym> '->' ':' <command>
-#                  <keysym> ';' <mode>             | <keysym> '->' ';' <mode>
-#
-#   keysym       = <mod> '-' <key> | <key>
-#
-#   mod          = 'modifier keyword' | <mod> '+' <mod>
-#
-#   key          = <literal> | <keycode>
-#
-#   literal      = 'single letter or built-in keyword'
-#
-#   keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
-#
-#   proc_map_lst = * <proc_map>
-#
-#   proc_map     = <string> ':' <command> | <string>     '~' |
-#                  '*'      ':' <command> | '*'          '~'
-#
-#   string       = '"' 'sequence of characters' '"'
-#
-#   command      = command is executed through '$SHELL -c' and
-#                  follows valid shell syntax. if the $SHELL environment
-#                  variable is not set, it will default to '/bin/bash'.
-#                  when bash is used, the ';' delimeter can be specified
-#                  to chain commands.
-#
-#                  to allow a command to extend into multiple lines,
-#                  prepend '\' at the end of the previous line.
-#
-#                  an EOL character signifies the end of the bind.
-#
-#   ->           = keypress is not consumed by skhd
-#
-#   *            = matches every application not specified in <proc_map_lst>
-#
-#   ~            = application is unbound and keypress is forwarded per usual, when specified in a <proc_map>
-#
-# A mode is declared according to the following rules:
-#
-#   mode_decl = '::' <name> '@' ':' <command> | '::' <name> ':' <command> |
-#               '::' <name> '@'               | '::' <name>
-#
-#   name      = desired name for this mode,
-#
-#   @         = capture keypresses regardless of being bound to an action
-#
-#   command   = command is executed through '$SHELL -c' and
-#               follows valid shell syntax. if the $SHELL environment
-#               variable is not set, it will default to '/bin/bash'.
-#               when bash is used, the ';' delimeter can be specified
-#               to chain commands.
-#
-#               to allow a command to extend into multiple lines,
-#               prepend '\' at the end of the previous line.
-#
-#               an EOL character signifies the end of the bind.
-# ################################################################ #
-#
-# The keybindings here follow vim principles of modal. You specify
-# the verb, then the noun and finally the direction.
-#
-# I use Karabiner Elements to remap CapsLock to F19 as that key is not
-# used anywhere in the system, and gives us a good starter key for our
-# modals. I have also defined simpler key-bindings that can be
-# triggered along with `fn` key for often used shortcuts.
-#
-# For example:
-# - all `focus` related commands can be triggered via: F19 f
-# - all `focus` related commands for spaces can be triggered via: F19 f s
-# - all `focus` related commands for windows can be triggered via: F19 f w
-#
-# Therefore, to focus a window on right, you would do: F19 f w r
-#
-# Available verbs:
-# - focus: focus a window/space/display
-# - swap: swap a window/space/display
-# - move: move/warp a window/space/display
-# - grid: arrange windows in grid
-# - resize: resize a window
-#
-# Apart from hjkl keys for movement, you will also find (where they make sense):
-#          m for largest
-#          x for x-axis
-#          y for y-axis
-#   ] (0x1E) for next
-#   \ (0x2A) for recent
-#   [ (0x21) for previous
-#   . (0x2F) for clockwise (>)
-#   , (0x2B) for anti-clockwise (<)
-#        0-9 for numbered nouns (0 is for 10)
-#
-# hjkl[]<> movements will always be defined for a given verb noun pair.
-# A movement key when pressed with SHIFT will modify target to next hierarcy,
-# and CMD to next to next one, e.g.. `F19 m w Shift+l` will move window to space on right,
-# while `F19 m w CMD+l` will move window to display on right. ALT (option) can be used to
-# trigger alternate response.
-#
-# For example:
-# - to move all windows in a space clockwise, you would F19 m w . (as you are moving windows).
-# - to move space (and all contained windows) to right, you would F19 m s KEY where KEY is one of `jl.]` (as you are
-#   moving space and all these movements target next window)
-#
-# Since, `grid` and `resize` actions can only happen on `window`, you can shorten them, e.g. `F19 g h` to force window
-# to left half. Although, remember that grid commands won't apply to windows managed using bsp layout. You can quickly
-# toggle the layout to `grid` using F19 t s g (toggle space to grid layout)
-#
-# I don't use multiple displays - so, some related functionality may not be present or
-# may not work.
-#
-# ################################################################ #
-
-# modal shortcuts
-# hjkl keys targets windows/space/display like vim, while m targets largest windows and
-# \ targets recent, [ targets previous and ] targets next window for all commands.
-
-:: default  : ~/.bin/skhd_yabai.sh highlight_default
+:: default   : ~/.bin/skhd_yabai.sh highlight_default
 :: active  @ : ~/.bin/skhd_yabai.sh highlight_active
 :: shorts  @ : ~/.bin/skhd_yabai.sh highlight_shorts
-:: restart @ : ~/.bin/skhd_yabai.sh highlight_shorts
-:: launch  @ : ~/.bin/skhd_yabai.sh highlight_shorts
-:: yabai   @ : ~/.bin/skhd_yabai.sh highlight_shorts
+:: yabai   @ : ~/.bin/skhd_yabai.sh highlight_yabai
 
-:: focus  @ : ~/.bin/skhd_yabai.sh highlight_focus    # focus window, spaces or displays - green color
-:: swap   @ : ~/.bin/skhd_yabai.sh highlight_swap     # swap windows, spaces or displays - red color
-:: move   @ : ~/.bin/skhd_yabai.sh highlight_move     # move (warp) windows, spaces or displays - yellow color
-:: grid   @ : ~/.bin/skhd_yabai.sh highlight_grid     # layout windows in grid - orange color
-:: resize @ : ~/.bin/skhd_yabai.sh highlight_resize   # resize windows - cyan color
-:: toggle @ : ~/.bin/skhd_yabai.sh highlight_toggle   # toggle window, space or display attributes - purple color
-# :: warpnf @ : ~/.bin/skhd_yabai.sh highlight_warpnf   # Same, but don't follow focus
+:: focus  @ : ~/.bin/skhd_yabai.sh highlight_focus
+:: swap   @ : ~/.bin/skhd_yabai.sh highlight_swap
+:: move   @ : ~/.bin/skhd_yabai.sh highlight_move
+:: grid   @ : ~/.bin/skhd_yabai.sh highlight_grid
+:: resize @ : ~/.bin/skhd_yabai.sh highlight_resize
+:: toggle @ : ~/.bin/skhd_yabai.sh highlight_toggle
 
-:: focus_window    @ : ~/.bin/skhd_yabai.sh highlight_window
-:: focus_space     @ : ~/.bin/skhd_yabai.sh highlight_space
-:: focus_app       @ : ~/.bin/skhd_yabai.sh highlight_space
-:: focus_display   @ : ~/.bin/skhd_yabai.sh highlight_display
-:: swap_window     @ : ~/.bin/skhd_yabai.sh highlight_window
-:: swap_space      @ : ~/.bin/skhd_yabai.sh highlight_space
-:: swap_display    @ : ~/.bin/skhd_yabai.sh highlight_display
-:: move_window     @ : ~/.bin/skhd_yabai.sh highlight_window
-:: move_space      @ : ~/.bin/skhd_yabai.sh highlight_space
-:: move_display    @ : ~/.bin/skhd_yabai.sh highlight_display
-:: toggle_window   @ : ~/.bin/skhd_yabai.sh highlight_window
-:: toggle_space    @ : ~/.bin/skhd_yabai.sh highlight_space
-:: toggle_display  @ : ~/.bin/skhd_yabai.sh highlight_display
+:: focus_window    @ : ~/.bin/skhd_yabai.sh highlight_focus_window
+:: focus_space     @ : ~/.bin/skhd_yabai.sh highlight_focus_space
+:: focus_app       @ : ~/.bin/skhd_yabai.sh highlight_focus_app
+:: focus_display   @ : ~/.bin/skhd_yabai.sh highlight_focus_display
+:: focus_app       @ : ~/.bin/skhd_yabai.sh highlight_focus_app
+:: swap_window     @ : ~/.bin/skhd_yabai.sh highlight_swap_window
+:: swap_space      @ : ~/.bin/skhd_yabai.sh highlight_swap_space
+:: move_window     @ : ~/.bin/skhd_yabai.sh highlight_move_window
+:: move_space      @ : ~/.bin/skhd_yabai.sh highlight_move_space
+:: toggle_window   @ : ~/.bin/skhd_yabai.sh highlight_toggle_window
+:: toggle_space    @ : ~/.bin/skhd_yabai.sh highlight_toggle_space
 
 # F19 activate
-# Afterwards, tapping it again or Esc key anywhere will get us back to default shortcuts.
 default < f19 ; active
-active, focus, grid, swap, move, resize, toggle < f19 ; default
+
+#
+# Reset level1
+#
+active, focus, grid, swap, move, resize, toggle < f19    ; default
+active, focus, grid, swap, move, resize, toggle < f18    ; shorts
 active, focus, grid, swap, move, resize, toggle < escape ; default
-focus_window, focus_space, focus_display, focus_app < f19 ; default
+
+#
+# Reset level2
+#
+focus_window, focus_space, focus_display, focus_app < f19    ; default
+focus_window, focus_space, focus_display, focus_app < f18    ; shorts
 focus_window, focus_space, focus_display, focus_app < escape ; default
-swap_window, swap_space, swap_display < f19 ; default
-swap_window, swap_space, swap_display < escape ; default
-move_window, move_space, move_display < f19 ; default
-move_window, move_space, move_display < escape ; default
-toggle_window, toggle_space, toggle_display < f19 ; default
-toggle_window, toggle_space, toggle_display < escape ; default
+
+swap_window, swap_space < f19     ; default
+swap_window, swap_space < f18     ; shorts
+swap_window, swap_space < escape  ; default
+
+move_window, move_space < f19     ; default
+move_window, move_space < f18     ; shorts
+move_window, move_space < escape  ; default
+
+toggle_window, toggle_space < f19    ; default
+toggle_window, toggle_space < f18    ; shorts
+toggle_window, toggle_space < escape ; default
+
 
 # F18 shortcut
-# Afterwards, tapping it again or Esc key anywhere will get us back to default shortcuts.
 default < f18 ; shorts
-shorts < f18 ; default
-shorts < escape ; default
-shorts < r ; restart
-shorts < a ; launch
-shorts < y ; yabai
-restart < escape ; default
+
+#
+# Reset level 1
+#
+shorts, yabai  < f18    ; default
+shorts, yabai  < escape ; default
+shorts, yabai  < f19    ; active
+
+# Modes
+shorts  < y ; yabai
+shorts  < f ; focus      # Duplicated for convenience
+shorts  < a ; focus_app  # Duplicated for convenience
+
 
 # Shortcuts
 shorts < shift - j : yabai -m window --focus stack.next; skhd -k 'escape'
@@ -212,45 +101,38 @@ shorts < shift - 0    : yabai -m space --focus s10; skhd -k 'escape'
 
 # Yabai Layouts
 yabai < s : sh "$HOME/.bin/save-layout.sh"
+yabai < l : sh "$HOME/.bin/load-layout.sh"
 
-# Active
-active < f ; focus             # green
-active < g ; grid              # orange
-active < s ; swap              # red
-active < m ; move              # yellow
-active < r ; resize            # cyan
-active < t ; toggle            # purple
+# Active Commands
+active < f ; focus
+active < g ; grid
+active < s ; swap
+active < m ; move
+active < r ; resize
+active < t ; toggle
+
 focus < w  ; focus_window
 focus < s  ; focus_space
 focus < d  ; focus_display
 focus < a  ; focus_app
+
 swap < w   ; swap_window
 swap < s   ; swap_space
-swap < d   ; swap_display
+
 move < w   ; move_window
 move < s   ; move_space
-move < d   ; move_display
+
 toggle < w ; toggle_window
 toggle < s ; toggle_space
-toggle < d ; toggle_display
+
 grid < w   ; grid
 grid < s   ; default
 grid < d   ; default
+
 resize < w ; resize
 resize < s ; default
 resize < d ; default
 
-# Launch
-# cmd - return : open "$HOME/Applications/Home Manager Apps/kitty.app"; skhd -k 'escape'
-
-# launch < k : open "$HOME/Applications/Home Manager Apps/kitty.app"; skhd -k 'escape'
-# launch < e : open "$HOME/Applications/Home Manager Apps/Emacs.app"; skhd -k 'escape'
-# launch < v : open "$HOME/Applications/Home Manager Apps/Visual Studio Code.app"; skhd -k 'escape'
-# launch < q : open "/Applications/qutebrowser.app"; skhd -k 'escape'
-# launch < s : open "/Applications/Safari.app"; skhd -k 'escape'
-# launch < c : open "/Applications/Chromium.app"; skhd -k 'escape'
-# launch < f : open "/Applications/Firefox.app"; skhd -k 'escape'
-#
 # focus apps
 focus_app < e    : yabai -m space --focus s1; skhd -k 'escape' #emacs
 focus_app < v    : yabai -m space --focus s2; skhd -k 'escape' #vscode
@@ -268,8 +150,6 @@ focus_window < l    : yabai -m window --focus east; skhd -k 'escape'
 focus_window < r    : yabai -m window --focus recent; skhd -k 'escape'
 focus_window < p    : yabai -m window --focus prev; skhd -k 'escape'
 focus_window < n    : yabai -m window --focus next; skhd -k 'escape'
-focus_window < 0x2B : yabai -m window --focus prev; skhd -k 'escape'
-focus_window < 0x2F : yabai -m window --focus next; skhd -k 'escape'
 focus_window < m    : yabai -m window --focus largest; skhd -k 'escape'
 
 # focus spaces
@@ -277,11 +157,6 @@ focus_space < h    : yabai -m space --focus prev; skhd -k 'escape'
 focus_space < j    : yabai -m space --focus next; skhd -k 'escape'
 focus_space < k    : yabai -m space --focus prev; skhd -k 'escape'
 focus_space < l    : yabai -m space --focus next; skhd -k 'escape'
-focus_space < 0x2A : yabai -m space --focus recent; skhd -k 'escape'
-focus_space < 0x21 : yabai -m space --focus prev; skhd -k 'escape'
-focus_space < 0x1E : yabai -m space --focus next; skhd -k 'escape'
-focus_space < 0x2B : yabai -m window --focus prev; skhd -k 'escape'
-focus_space < 0x2F : yabai -m window --focus next; skhd -k 'escape'
 focus_space < 1    : yabai -m space --focus s1; skhd -k 'escape'
 focus_space < 2    : yabai -m space --focus s2; skhd -k 'escape'
 focus_space < 3    : yabai -m space --focus s3; skhd -k 'escape'
@@ -294,125 +169,85 @@ focus_space < 9    : yabai -m space --focus s9; skhd -k 'escape'
 focus_space < 0    : yabai -m space --focus s10; skhd -k 'escape'
 
 # focus display
-focus_display < h    : yabai -m display --focus prev; skhd -k 'escape'
-focus_display < j    : yabai -m display --focus next; skhd -k 'escape'
-focus_display < k    : yabai -m display --focus prev; skhd -k 'escape'
-focus_display < l    : yabai -m display --focus next; skhd -k 'escape'
-focus_display < 0x2A : yabai -m display --focus recent; skhd -k 'escape'
-focus_display < 0x21 : yabai -m display --focus prev; skhd -k 'escape'
-focus_display < 0x1E : yabai -m display --focus next; skhd -k 'escape'
-focus_display < 0x2B : yabai -m window --focus prev; skhd -k 'escape'
-focus_display < 0x2F : yabai -m window --focus next; skhd -k 'escape'
-focus_display < 1    : ~/.bin/focus-display.sh 0; skhd -k 'escape'
-focus_display < 2    : ~/.bin/focus-display.sh 1; skhd -k 'escape'
-focus_display < 3    : ~/.bin/focus-display.sh 2; skhd -k 'escape'
-focus_display < 4    : ~/.bin/focus-display.sh 3; skhd -k 'escape'
-focus_display < 5    : ~/.bin/focus-display.sh 4; skhd -k 'escape'
-focus_display < 6    : ~/.bin/focus-display.sh 5; skhd -k 'escape'
-focus_display < 7    : ~/.bin/focus-display.sh 6; skhd -k 'escape'
-focus_display < 8    : ~/.bin/focus-display.sh 7; skhd -k 'escape'
-focus_display < 9    : ~/.bin/focus-display.sh 8; skhd -k 'escape'
-focus_display < 0    : ~/.bin/focus-display.sh 9; skhd -k 'escape'
+focus_display < h    : yabai -m display --focus prev ; skhd -k 'escape'
+focus_display < j    : yabai -m display --focus next ; skhd -k 'escape'
+focus_display < k    : yabai -m display --focus prev ; skhd -k 'escape'
+focus_display < l    : yabai -m display --focus next ; skhd -k 'escape'
+focus_display < 1    : ~/.bin/focus-display.sh 0     ; skhd -k 'escape'
+focus_display < 2    : ~/.bin/focus-display.sh 1     ; skhd -k 'escape'
+focus_display < 3    : ~/.bin/focus-display.sh 2     ; skhd -k 'escape'
+focus_display < 4    : ~/.bin/focus-display.sh 3     ; skhd -k 'escape'
 
 # common functionality for swap/move
-move_window, swap_window < x    : yabai -m space --mirror x-axis; skhd -k 'escape'
-move_window, swap_window < y    : yabai -m space --mirror y-axis; skhd -k 'escape'
-move_window, swap_window < 0x2B : yabai -m space --rotate 270; skhd -k 'escape'
-move_window, swap_window < 0x2F : yabai -m space --rotate 90; skhd -k 'escape'
+move_window, swap_window < x    : yabai -m space --mirror x-axis ; skhd -k 'escape'
+move_window, swap_window < y    : yabai -m space --mirror y-axis ; skhd -k 'escape'
+move_window, swap_window < 0x2B : yabai -m space --rotate 270    ; skhd -k 'escape'
+move_window, swap_window < 0x2F : yabai -m space --rotate 90     ; skhd -k 'escape'
 
 # move windows
-move_window < h    : yabai -m window --warp west; skhd -k 'escape'
-move_window < j    : yabai -m window --warp south; skhd -k 'escape'
-move_window < k    : yabai -m window --warp north; skhd -k 'escape'
-move_window < l    : yabai -m window --warp east; skhd -k 'escape'
-move_window < 0x2A : yabai -m window --warp recent; skhd -k 'escape'
-move_window < 0x21 : yabai -m window --warp prev; skhd -k 'escape'
-move_window < 0x1E : yabai -m window --warp next; skhd -k 'escape'
-move_window < m    : yabai -m window --warp largest; skhd -k 'escape'
+move_window < h    : yabai -m window --warp west    ; skhd -k 'escape'
+move_window < j    : yabai -m window --warp south   ; skhd -k 'escape'
+move_window < k    : yabai -m window --warp north   ; skhd -k 'escape'
+move_window < l    : yabai -m window --warp east    ; skhd -k 'escape'
+move_window < 0x2A : yabai -m window --warp recent  ; skhd -k 'escape'
+move_window < 0x21 : yabai -m window --warp prev    ; skhd -k 'escape'
+move_window < 0x1E : yabai -m window --warp next    ; skhd -k 'escape'
+move_window < m    : yabai -m window --warp largest ; skhd -k 'escape'
 
 # move windows to spaces
-move_window < shift - h    : yabai -m window --space prev; yabai -m space --focus prev; skhd -k 'escape'
-move_window < shift - j    : yabai -m window --space next; yabai -m space --focus next; skhd -k 'escape'
-move_window < shift - k    : yabai -m window --space prev; yabai -m space --focus prev; skhd -k 'escape'
-move_window < shift - l    : yabai -m window --space next; yabai -m space --focus next; skhd -k 'escape'
-move_window < shift - 0x2A : yabai -m window --space recent; yabai -m space --focus recent; skhd -k 'escape'
-move_window < shift - 0x21 : yabai -m window --space prev; yabai -m space --focus prev; skhd -k 'escape'
-move_window < shift - 0x1E : yabai -m window --space next; yabai -m space --focus next; skhd -k 'escape'
-move_window < shift - 0x2B : yabai -m window --space prev; yabai -m space --focus prev; skhd -k 'escape'
-move_window < shift - 0x2F : yabai -m window --space next; yabai -m space --focus next; skhd -k 'escape'
-move_window < 1            : yabai -m window --space s1; yabai -m space --focus s1; skhd -k 'escape'
-move_window < 2            : yabai -m window --space s2; yabai -m space --focus s2; skhd -k 'escape'
-move_window < 3            : yabai -m window --space s3; yabai -m space --focus s3; skhd -k 'escape'
-move_window < 4            : yabai -m window --space s4; yabai -m space --focus s4; skhd -k 'escape'
-move_window < 5            : yabai -m window --space s5; yabai -m space --focus s5; skhd -k 'escape'
-move_window < 6            : yabai -m window --space s6; yabai -m space --focus s6; skhd -k 'escape'
-move_window < 7            : yabai -m window --space s7; yabai -m space --focus s7; skhd -k 'escape'
-move_window < 8            : yabai -m window --space s8; yabai -m space --focus s8; skhd -k 'escape'
-move_window < 9            : yabai -m window --space s9; yabai -m space --focus s9; skhd -k 'escape'
-move_window < 0            : yabai -m window --space s10; yabai -m space --focus s10; skhd -k 'escape'
-move_window < shift - 1    : yabai -m window --space s1; yabai -m space --focus s1; skhd -k 'escape'
-move_window < shift - 2    : yabai -m window --space s2; yabai -m space --focus s2; skhd -k 'escape'
-move_window < shift - 3    : yabai -m window --space s3; yabai -m space --focus s3; skhd -k 'escape'
-move_window < shift - 4    : yabai -m window --space s4; yabai -m space --focus s4; skhd -k 'escape'
-move_window < shift - 5    : yabai -m window --space s5; yabai -m space --focus s5; skhd -k 'escape'
-move_window < shift - 6    : yabai -m window --space s6; yabai -m space --focus s6; skhd -k 'escape'
-move_window < shift - 7    : yabai -m window --space s7; yabai -m space --focus s7; skhd -k 'escape'
-move_window < shift - 8    : yabai -m window --space s8; yabai -m space --focus s8; skhd -k 'escape'
-move_window < shift - 9    : yabai -m window --space s9; yabai -m space --focus s9; skhd -k 'escape'
-move_window < shift - 0    : yabai -m window --space s10; yabai -m space --focus s10; skhd -k 'escape'
+move_window < h: yabai -m window --space prev ; yabai -m space --focus prev ; skhd -k 'escape'
+move_window < j: yabai -m window --space next ; yabai -m space --focus next ; skhd -k 'escape'
+move_window < k: yabai -m window --space prev ; yabai -m space --focus prev ; skhd -k 'escape'
+move_window < l: yabai -m window --space next ; yabai -m space --focus next ; skhd -k 'escape'
+move_window < 1: yabai -m window --space s1   ; yabai -m space --focus s1   ; skhd -k 'escape'
+move_window < 2: yabai -m window --space s2   ; yabai -m space --focus s2   ; skhd -k 'escape'
+move_window < 3: yabai -m window --space s3   ; yabai -m space --focus s3   ; skhd -k 'escape'
+move_window < 4: yabai -m window --space s4   ; yabai -m space --focus s4   ; skhd -k 'escape'
+move_window < 5: yabai -m window --space s5   ; yabai -m space --focus s5   ; skhd -k 'escape'
+move_window < 6: yabai -m window --space s6   ; yabai -m space --focus s6   ; skhd -k 'escape'
+move_window < 7: yabai -m window --space s7   ; yabai -m space --focus s7   ; skhd -k 'escape'
+move_window < 8: yabai -m window --space s8   ; yabai -m space --focus s8   ; skhd -k 'escape'
+move_window < 9: yabai -m window --space s9   ; yabai -m space --focus s9   ; skhd -k 'escape'
+move_window < 0: yabai -m window --space s10  ; yabai -m space --focus s10  ; skhd -k 'escape'
 
 # move windows to display
-move_window < cmd - h    : yabai -m window --display prev; yabai -m display --focus prev; skhd -k 'escape'
-move_window < cmd - j    : yabai -m window --display next; yabai -m display --focus next; skhd -k 'escape'
-move_window < cmd - k    : yabai -m window --display prev; yabai -m display --focus prev; skhd -k 'escape'
-move_window < cmd - l    : yabai -m window --display next; yabai -m display --focus next; skhd -k 'escape'
-move_window < cmd - 0x2A : yabai -m window --display recent; yabai -m display --focus recent; skhd -k 'escape'
-move_window < cmd - 0x21 : yabai -m window --display prev; yabai -m display --focus prev; skhd -k 'escape'
-move_window < cmd - 0x1E : yabai -m window --display next; yabai -m display --focus next; skhd -k 'escape'
-move_window < cmd - 0x2B : yabai -m window --display prev; yabai -m display --focus prev; skhd -k 'escape'
-move_window < cmd - 0x2F : yabai -m window --display next; yabai -m display --focus next; skhd -k 'escape'
-move_window < cmd - 1    : ~/.bin/move-window-to-display.sh 0; skhd -k 'escape'
-move_window < cmd - 2    : ~/.bin/move-window-to-display.sh 1; skhd -k 'escape'
-move_window < cmd - 3    : ~/.bin/move-window-to-display.sh 2; skhd -k 'escape'
-move_window < cmd - 4    : ~/.bin/move-window-to-display.sh 3; skhd -k 'escape'
-move_window < cmd - 5    : ~/.bin/move-window-to-display.sh 4; skhd -k 'escape'
-move_window < cmd - 6    : ~/.bin/move-window-to-display.sh 5; skhd -k 'escape'
-move_window < cmd - 7    : ~/.bin/move-window-to-display.sh 6; skhd -k 'escape'
-move_window < cmd - 8    : ~/.bin/move-window-to-display.sh 7; skhd -k 'escape'
-move_window < cmd - 9    : ~/.bin/move-window-to-display.sh 8; skhd -k 'escape'
-move_window < cmd - 0    : ~/.bin/move-window-to-display.sh 9; skhd -k 'escape'
+move_window < cmd - h    : yabai -m window --display prev     ; yabai -m display --focus prev ; skhd -k 'escape'
+move_window < cmd - j    : yabai -m window --display next     ; yabai -m display --focus next ; skhd -k 'escape'
+move_window < cmd - k    : yabai -m window --display prev     ; yabai -m display --focus prev ; skhd -k 'escape'
+move_window < cmd - l    : yabai -m window --display next     ; yabai -m display --focus next ; skhd -k 'escape'
+
+move_window < cmd - 1    : ~/.bin/move-window-to-display.sh 0 ; skhd -k 'escape'
+move_window < cmd - 2    : ~/.bin/move-window-to-display.sh 1 ; skhd -k 'escape'
+move_window < cmd - 3    : ~/.bin/move-window-to-display.sh 2 ; skhd -k 'escape'
+move_window < cmd - 4    : ~/.bin/move-window-to-display.sh 3 ; skhd -k 'escape'
+move_window < cmd - 5    : ~/.bin/move-window-to-display.sh 4 ; skhd -k 'escape'
+move_window < cmd - 6    : ~/.bin/move-window-to-display.sh 5 ; skhd -k 'escape'
+move_window < cmd - 7    : ~/.bin/move-window-to-display.sh 6 ; skhd -k 'escape'
+move_window < cmd - 8    : ~/.bin/move-window-to-display.sh 7 ; skhd -k 'escape'
+move_window < cmd - 9    : ~/.bin/move-window-to-display.sh 8 ; skhd -k 'escape'
+move_window < cmd - 0    : ~/.bin/move-window-to-display.sh 9 ; skhd -k 'escape'
 
 # move spaces
-move_space < h    : yabai -m space --move prev; skhd -k 'escape'
-move_space < j    : yabai -m space --move next; skhd -k 'escape'
-move_space < k    : yabai -m space --move prev; skhd -k 'escape'
-move_space < l    : yabai -m space --move next; skhd -k 'escape'
-move_space < 0x2A : yabai -m space --move recent; skhd -k 'escape'
-move_space < 0x21 : yabai -m space --move prev; skhd -k 'escape'
-move_space < 0x1E : yabai -m space --move next; skhd -k 'escape'
-move_space < 0x2B : yabai -m space --move prev; skhd -k 'escape'
-move_space < 0x2F : yabai -m space --move next; skhd -k 'escape'
-move_space < 1    : yabai -m space --move s1; skhd -k 'escape'
-move_space < 2    : yabai -m space --move s2; skhd -k 'escape'
-move_space < 3    : yabai -m space --move s3; skhd -k 'escape'
-move_space < 4    : yabai -m space --move s4; skhd -k 'escape'
-move_space < 5    : yabai -m space --move s5; skhd -k 'escape'
-move_space < 6    : yabai -m space --move s6; skhd -k 'escape'
-move_space < 7    : yabai -m space --move s7; skhd -k 'escape'
-move_space < 8    : yabai -m space --move s8; skhd -k 'escape'
-move_space < 9    : yabai -m space --move s9; skhd -k 'escape'
-move_space < 0    : yabai -m space --move s10; skhd -k 'escape'
+move_space < h    : yabai -m space --move prev ; skhd -k 'escape'
+move_space < j    : yabai -m space --move next ; skhd -k 'escape'
+move_space < k    : yabai -m space --move prev ; skhd -k 'escape'
+move_space < l    : yabai -m space --move next ; skhd -k 'escape'
+move_space < 1    : yabai -m space --move s1   ; skhd -k 'escape'
+move_space < 2    : yabai -m space --move s2   ; skhd -k 'escape'
+move_space < 3    : yabai -m space --move s3   ; skhd -k 'escape'
+move_space < 4    : yabai -m space --move s4   ; skhd -k 'escape'
+move_space < 5    : yabai -m space --move s5   ; skhd -k 'escape'
+move_space < 6    : yabai -m space --move s6   ; skhd -k 'escape'
+move_space < 7    : yabai -m space --move s7   ; skhd -k 'escape'
+move_space < 8    : yabai -m space --move s8   ; skhd -k 'escape'
+move_space < 9    : yabai -m space --move s9   ; skhd -k 'escape'
+move_space < 0    : yabai -m space --move s10  ; skhd -k 'escape'
 
 # move spaces to display
 move_space < shift - h    : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
 move_space < shift - j    : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
 move_space < shift - k    : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
 move_space < shift - l    : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
-move_space < shift - 0x2A : yabai -m space --display recent; yabai -m display --focus recent; skhd -k 'escape'
-move_space < shift - 0x21 : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
-move_space < shift - 0x1E : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
-move_space < shift - 0x2B : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
-move_space < shift - 0x2F : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
 move_space < shift - 1    : ~/.bin/move-space-to-display.sh 0; skhd -k 'escape'
 move_space < shift - 2    : ~/.bin/move-space-to-display.sh 1; skhd -k 'escape'
 move_space < shift - 3    : ~/.bin/move-space-to-display.sh 2; skhd -k 'escape'
@@ -425,87 +260,67 @@ move_space < shift - 9    : ~/.bin/move-space-to-display.sh 8; skhd -k 'escape'
 move_space < shift - 0    : ~/.bin/move-space-to-display.sh 9; skhd -k 'escape'
 
 # swap windows
-swap_window < h            : yabai -m window --swap west; skhd -k 'escape'
-swap_window < j            : yabai -m window --swap south; skhd -k 'escape'
-swap_window < k            : yabai -m window --swap north; skhd -k 'escape'
-swap_window < l            : yabai -m window --swap east; skhd -k 'escape'
-swap_window < 0x2A         : yabai -m window --swap recent; skhd -k 'escape'
-swap_window < 0x21         : yabai -m window --swap prev; skhd -k 'escape'
-swap_window < 0x1E         : yabai -m window --swap next; skhd -k 'escape'
-swap_window < m            : yabai -m window --swap largest; skhd -k 'escape'
-swap_window < 1            : yabai -m window --space s1; yabai -m space --focus s1; skhd -k 'escape'
-swap_window < 2            : yabai -m window --space s2; yabai -m space --focus s2; skhd -k 'escape'
-swap_window < 3            : yabai -m window --space s3; yabai -m space --focus s3; skhd -k 'escape'
-swap_window < 4            : yabai -m window --space s4; yabai -m space --focus s4; skhd -k 'escape'
-swap_window < 5            : yabai -m window --space s5; yabai -m space --focus s5; skhd -k 'escape'
-swap_window < 6            : yabai -m window --space s6; yabai -m space --focus s6; skhd -k 'escape'
-swap_window < 7            : yabai -m window --space s7; yabai -m space --focus s7; skhd -k 'escape'
-swap_window < 8            : yabai -m window --space s8; yabai -m space --focus s8; skhd -k 'escape'
-swap_window < 9            : yabai -m window --space s9; yabai -m space --focus s9; skhd -k 'escape'
-swap_window < 0            : yabai -m window --space s10; yabai -m space --focus s10; skhd -k 'escape'
-swap_window < shift - 1    : yabai -m window --space s1; yabai -m space --focus s1; skhd -k 'escape'
-swap_window < shift - 2    : yabai -m window --space s2; yabai -m space --focus s2; skhd -k 'escape'
-swap_window < shift - 3    : yabai -m window --space s3; yabai -m space --focus s3; skhd -k 'escape'
-swap_window < shift - 4    : yabai -m window --space s4; yabai -m space --focus s4; skhd -k 'escape'
-swap_window < shift - 5    : yabai -m window --space s5; yabai -m space --focus s5; skhd -k 'escape'
-swap_window < shift - 6    : yabai -m window --space s6; yabai -m space --focus s6; skhd -k 'escape'
-swap_window < shift - 7    : yabai -m window --space s7; yabai -m space --focus s7; skhd -k 'escape'
-swap_window < shift - 8    : yabai -m window --space s8; yabai -m space --focus s8; skhd -k 'escape'
-swap_window < shift - 9    : yabai -m window --space s9; yabai -m space --focus s9; skhd -k 'escape'
-swap_window < shift - 0    : yabai -m window --space s10; yabai -m space --focus s10; skhd -k 'escape'
+swap_window < h            : yabai -m window --swap west        ; skhd -k 'escape'
+swap_window < j            : yabai -m window --swap south       ; skhd -k 'escape'
+swap_window < k            : yabai -m window --swap north       ; skhd -k 'escape'
+swap_window < l            : yabai -m window --swap east        ; skhd -k 'escape'
+swap_window < m            : yabai -m window --swap largest     ; skhd -k 'escape'
+
+swap_window < 1: yabai -m window --space s1  ; yabai -m space --focus s1  ;  skhd -k 'escape'
+swap_window < 2: yabai -m window --space s2  ; yabai -m space --focus s2  ;  skhd -k 'escape'
+swap_window < 3: yabai -m window --space s3  ; yabai -m space --focus s3  ;  skhd -k 'escape'
+swap_window < 4: yabai -m window --space s4  ; yabai -m space --focus s4  ;  skhd -k 'escape'
+swap_window < 5: yabai -m window --space s5  ; yabai -m space --focus s5  ;  skhd -k 'escape'
+swap_window < 6: yabai -m window --space s6  ; yabai -m space --focus s6  ;  skhd -k 'escape'
+swap_window < 7: yabai -m window --space s7  ; yabai -m space --focus s7  ;  skhd -k 'escape'
+swap_window < 8: yabai -m window --space s8  ; yabai -m space --focus s8  ;  skhd -k 'escape'
+swap_window < 9: yabai -m window --space s9  ; yabai -m space --focus s9  ;  skhd -k 'escape'
+swap_window < 0: yabai -m window --space s10 ; yabai -m space --focus s10 ; skhd -k 'escape'
+
 
 # swap spaces
-swap_space < h    : yabai -m space --swap prev; skhd -k 'escape'
-swap_space < j    : yabai -m space --swap next; skhd -k 'escape'
-swap_space < k    : yabai -m space --swap prev; skhd -k 'escape'
-swap_space < l    : yabai -m space --swap next; skhd -k 'escape'
-swap_space < 0x2A : yabai -m space --swap recent; skhd -k 'escape'
-swap_space < 0x21 : yabai -m space --swap prev; skhd -k 'escape'
-swap_space < 0x1E : yabai -m space --swap next; skhd -k 'escape'
-swap_space < 0x2B : yabai -m space --swap prev; skhd -k 'escape'
-swap_space < 0x2F : yabai -m space --swap next; skhd -k 'escape'
-swap_space < 1    : yabai -m space --swap s1; skhd -k 'escape'
-swap_space < 2    : yabai -m space --swap s2; skhd -k 'escape'
-swap_space < 3    : yabai -m space --swap s3; skhd -k 'escape'
-swap_space < 4    : yabai -m space --swap s4; skhd -k 'escape'
-swap_space < 5    : yabai -m space --swap s5; skhd -k 'escape'
-swap_space < 6    : yabai -m space --swap s6; skhd -k 'escape'
-swap_space < 7    : yabai -m space --swap s7; skhd -k 'escape'
-swap_space < 8    : yabai -m space --swap s8; skhd -k 'escape'
-swap_space < 9    : yabai -m space --swap s9; skhd -k 'escape'
-swap_space < 0    : yabai -m space --swap s10; skhd -k 'escape'
+swap_space < h    : yabai -m space --swap prev ; skhd -k 'escape'
+swap_space < j    : yabai -m space --swap next ; skhd -k 'escape'
+swap_space < k    : yabai -m space --swap prev ; skhd -k 'escape'
+swap_space < l    : yabai -m space --swap next ; skhd -k 'escape'
+swap_space < 1    : yabai -m space --swap s1   ; skhd -k 'escape'
+swap_space < 2    : yabai -m space --swap s2   ; skhd -k 'escape'
+swap_space < 3    : yabai -m space --swap s3   ; skhd -k 'escape'
+swap_space < 4    : yabai -m space --swap s4   ; skhd -k 'escape'
+swap_space < 5    : yabai -m space --swap s5   ; skhd -k 'escape'
+swap_space < 6    : yabai -m space --swap s6   ; skhd -k 'escape'
+swap_space < 7    : yabai -m space --swap s7   ; skhd -k 'escape'
+swap_space < 8    : yabai -m space --swap s8   ; skhd -k 'escape'
+swap_space < 9    : yabai -m space --swap s9   ; skhd -k 'escape'
+swap_space < 0    : yabai -m space --swap s10  ; skhd -k 'escape'
 
 # swap spaces to display
-swap_space < shift - h    : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
-swap_space < shift - j    : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
-swap_space < shift - k    : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
-swap_space < shift - l    : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
-swap_space < shift - 0x2A : yabai -m space --display recent; yabai -m display --focus recent; skhd -k 'escape'
-swap_space < shift - 0x21 : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
-swap_space < shift - 0x1E : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
-swap_space < shift - 0x2B : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
-swap_space < shift - 0x2F : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
-swap_space < shift - 1    : ~/.bin/swap-space-to-display.sh 0; skhd -k 'escape'
-swap_space < shift - 2    : ~/.bin/swap-space-to-display.sh 1; skhd -k 'escape'
-swap_space < shift - 3    : ~/.bin/swap-space-to-display.sh 2; skhd -k 'escape'
-swap_space < shift - 4    : ~/.bin/swap-space-to-display.sh 3; skhd -k 'escape'
-swap_space < shift - 5    : ~/.bin/swap-space-to-display.sh 4; skhd -k 'escape'
-swap_space < shift - 6    : ~/.bin/swap-space-to-display.sh 5; skhd -k 'escape'
-swap_space < shift - 7    : ~/.bin/swap-space-to-display.sh 6; skhd -k 'escape'
-swap_space < shift - 8    : ~/.bin/swap-space-to-display.sh 7; skhd -k 'escape'
-swap_space < shift - 9    : ~/.bin/swap-space-to-display.sh 8; skhd -k 'escape'
-swap_space < shift - 0    : ~/.bin/swap-space-to-display.sh 9; skhd -k 'escape'
+swap_space < h    : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
+swap_space < j    : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
+swap_space < k    : yabai -m space --display prev; yabai -m display --focus prev; skhd -k 'escape'
+swap_space < l    : yabai -m space --display next; yabai -m display --focus next; skhd -k 'escape'
+
+swap_space < 1    : ~/.bin/swap-space-to-display.sh 0; skhd -k 'escape'
+swap_space < 2    : ~/.bin/swap-space-to-display.sh 1; skhd -k 'escape'
+swap_space < 3    : ~/.bin/swap-space-to-display.sh 2; skhd -k 'escape'
+swap_space < 4    : ~/.bin/swap-space-to-display.sh 3; skhd -k 'escape'
+swap_space < 5    : ~/.bin/swap-space-to-display.sh 4; skhd -k 'escape'
+swap_space < 6    : ~/.bin/swap-space-to-display.sh 5; skhd -k 'escape'
+swap_space < 7    : ~/.bin/swap-space-to-display.sh 6; skhd -k 'escape'
+swap_space < 8    : ~/.bin/swap-space-to-display.sh 7; skhd -k 'escape'
+swap_space < 9    : ~/.bin/swap-space-to-display.sh 8; skhd -k 'escape'
+swap_space < 0    : ~/.bin/swap-space-to-display.sh 9; skhd -k 'escape'
 
 # grid windows - make non-managed/floating window occupy a certain position
-grid < h       : yabai -m window --grid 1:2:0:0:1:1; skhd -k 'escape'
-grid < j       : yabai -m window --grid 2:1:0:1:1:1; skhd -k 'escape'
-grid < k       : yabai -m window --grid 2:1:0:0:1:1; skhd -k 'escape'
-grid < l       : yabai -m window --grid 1:2:1:0:1:1; skhd -k 'escape'
-grid < m       : yabai -m window --grid 1:1:0:0:1:1; skhd -k 'escape'
-grid < alt - h : yabai -m window --grid 2:2:0:0:1:1; skhd -k 'escape'
-grid < alt - j : yabai -m window --grid 2:2:0:1:1:1; skhd -k 'escape'
-grid < alt - k : yabai -m window --grid 2:2:1:0:1:1; skhd -k 'escape'
-grid < alt - l : yabai -m window --grid 2:2:1:1:1:1; skhd -k 'escape'
+grid < h       : yabai -m window --grid 1:2:0:0:1:1 ; skhd -k 'escape'
+grid < j       : yabai -m window --grid 2:1:0:1:1:1 ; skhd -k 'escape'
+grid < k       : yabai -m window --grid 2:1:0:0:1:1 ; skhd -k 'escape'
+grid < l       : yabai -m window --grid 1:2:1:0:1:1 ; skhd -k 'escape'
+grid < m       : yabai -m window --grid 1:1:0:0:1:1 ; skhd -k 'escape'
+grid < alt - h : yabai -m window --grid 2:2:0:0:1:1 ; skhd -k 'escape'
+grid < alt - j : yabai -m window --grid 2:2:0:1:1:1 ; skhd -k 'escape'
+grid < alt - k : yabai -m window --grid 2:2:1:0:1:1 ; skhd -k 'escape'
+grid < alt - l : yabai -m window --grid 2:2:1:1:1:1 ; skhd -k 'escape'
 # toggle window to make it float and center - alias for F19-rm
 grid < alt - m : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2; skhd -k 'escape'
 
@@ -518,6 +333,8 @@ resize < alt - h : yabai -m window --resize left:20:0
 resize < alt - j : yabai -m window --resize bottom:0:-20
 resize < alt - k : yabai -m window --resize top:0:20
 resize < alt - l : yabai -m window --resize right:-20:0
+
+
 resize < 0x18    : yabai -m space --balance; skhd -k 'escape'
 # maximize window -> alias for F19-gm and F19-twm or better fn-m
 resize < m       : yabai -m window --grid 1:1:0:0:1:1; skhd -k 'escape'
@@ -525,21 +342,24 @@ resize < m       : yabai -m window --grid 1:1:0:0:1:1; skhd -k 'escape'
 resize < c       : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2; skhd -k 'escape'
 
 # toggle window or space attributes
-toggle_window < f       : yabai -m window --toggle float; skhd -k 'escape'
-toggle_window < s       : yabai -m window --toggle sticky; skhd -k 'escape'
-toggle_window < t       : yabai -m window --toggle topmost; skhd -k 'escape'
-toggle_window < b       : yabai -m window --toggle border; skhd -k 'escape'
-toggle_window < i       : yabai -m window --toggle split; skhd -k 'escape'
-toggle_window < p       : yabai -m window --toggle pip; skhd -k 'escape'
-toggle_window < z       : yabai -m window --toggle zoom-parent; skhd -k 'escape'
-toggle_window < m       : yabai -m window --toggle zoom-fullscreen; skhd -k 'escape'
-toggle_window < shift-m : yabai -m window --toggle native-fullscreen; skhd -k 'escape'
-toggle_window < q       : yabai -m window --close; skhd -k 'escape'
-toggle_space  < o       : yabai -m space --toggle padding; yabai -m space --toggle gap; skhd -k 'escape'
-toggle_space  < 0x18    : yabai -m space --balance; skhd -k 'escape'
-toggle_space  < b       : yabai -m space --layout bsp; skhd -k 'escape'
-toggle_space  < f       : yabai -m space --layout float; skhd -k 'escape'
-toggle_space  < s       : yabai -m space --layout stack; skhd -k 'escape'
-toggle_space  < d       : yabai -m space --toggle show-desktop; skhd -k 'escape'
+toggle_window < f       : yabai -m window --toggle float             ; skhd -k 'escape'
+toggle_window < s       : yabai -m window --toggle sticky            ; skhd -k 'escape'
+toggle_window < t       : yabai -m window --toggle topmost           ; skhd -k 'escape'
+toggle_window < b       : yabai -m window --toggle border            ; skhd -k 'escape'
+toggle_window < i       : yabai -m window --toggle split             ; skhd -k 'escape'
+toggle_window < p       : yabai -m window --toggle pip               ; skhd -k 'escape'
+toggle_window < z       : yabai -m window --toggle zoom-parent       ; skhd -k 'escape'
+toggle_window < m       : yabai -m window --toggle zoom-fullscreen   ; skhd -k 'escape'
+toggle_window < shift-m : yabai -m window --toggle native-fullscreen ; skhd -k 'escape'
+toggle_window < q       : yabai -m window --close                    ; skhd -k 'escape'
 # toggle window to make it float and center
 toggle_window < c       : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2; skhd -k 'escape'
+
+
+
+toggle_space  < o       : yabai -m space --toggle padding; yabai -m space --toggle gap; skhd -k 'escape'
+toggle_space  < 0x18    : yabai -m space --balance                                    ; skhd -k 'escape'
+toggle_space  < b       : yabai -m space --layout bsp                                 ; skhd -k 'escape'
+toggle_space  < f       : yabai -m space --layout float                               ; skhd -k 'escape'
+toggle_space  < s       : yabai -m space --layout stack                               ; skhd -k 'escape'
+toggle_space  < d       : yabai -m space --toggle show-desktop                        ; skhd -k 'escape'

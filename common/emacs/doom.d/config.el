@@ -15,16 +15,22 @@
       doom-serif-font (font-spec :family "PragmataPro Mono Liga" :size 20 :weight 'bold)
 )
 
+(setq confirm-kill-emacs nil
+
+ )
+
 (after! doom-modeline
       doom-modeline-enable-word-count t
       doom-modeline-continuous-word-count-modes '(mardown-mode gfm-mode org-mode text-mode)
   )
 
 
+
 (after! org
         (org-babel-do-load-languages 'org-babel-load-languages
                                 '((jq . t)))
   )
+
 
 
 (provide 'config)

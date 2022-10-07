@@ -203,13 +203,16 @@
        (mu4e +org +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
-
+a
        :app
        calendar
        ;;emms
        ;;everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
+
+       :nav
+       tabularize
 
        :config
        ;;literate
