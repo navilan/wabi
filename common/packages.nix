@@ -27,6 +27,7 @@
     nixfmt
     keychain
     neofetch
+    rename
 
     coreutils-full
     gnutar

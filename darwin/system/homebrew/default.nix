@@ -14,6 +14,7 @@
       "sketchybar"
       "svim"
       "yabai" # tiling window manager
+      "detox"
     ];
     casks = [
       "adobe-creative-cloud"
