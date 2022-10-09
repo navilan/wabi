@@ -131,13 +131,13 @@ resize < s ; default
 resize < d ; default
 
 # focus apps
-focus_app < e    : yabai -m space --focus s1; skhd -k 'escape'
-focus_app < v    : yabai -m space --focus s2; skhd -k 'escape'
-focus_app < f    : yabai -m space --focus s3; skhd -k 'escape'
-focus_app < s    : yabai -m space --focus s4; skhd -k 'escape'
-focus_app < c    : yabai -m space --focus s5; skhd -k 'escape'
-focus_app < k    : yabai -m space --focus s6; skhd -k 'escape'
-focus_app < q    : yabai -m space --focus s7; skhd -k 'escape'
+#
+focus_app < e   : yabai -m query --windows | jq '. | map(select(.app | startswith("Emacs")))    | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < v   : yabai -m query --windows | jq '. | map(select(.app | startswith("VSCodium"))) | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < f   : yabai -m query --windows | jq '. | map(select(.app | startswith("Firefox")))  | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < c   : yabai -m query --windows | jq '. | map(select(.app | startswith("Chromium"))) | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < s   : yabai -m query --windows | jq '. | map(select(.app | startswith("Safari")))   | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < k   : yabai -m query --windows | jq '. | map(select(.app | startswith("kitty")))    | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
 
 # focus windows
 focus_window < h    : yabai -m window --focus west; skhd -k 'escape'
@@ -354,9 +354,9 @@ toggle_window < c       : yabai -m window --toggle float; yabai -m window --grid
 
 
 
-toggle_space  < o       : yabai -m space --toggle padding; yabai -m space --toggle gap; skhd -k 'escape'
-toggle_space  < 0x18    : yabai -m space --balance                                    ; skhd -k 'escape'
-toggle_space  < b       : yabai -m space --layout bsp                                 ; skhd -k 'escape'
-toggle_space  < f       : yabai -m space --layout float                               ; skhd -k 'escape'
-toggle_space  < s       : yabai -m space --layout stack                               ; skhd -k 'escape'
-toggle_space  < d       : yabai -m space --toggle show-desktop                        ; skhd -k 'escape'
+toggle_space  < o       : yabai -m space --toggle padding      ; yabai -m space --toggle gap                ; skhd -k 'escape'
+toggle_space  < 0x18    : yabai -m space --balance             ; skhd -k 'escape'
+toggle_space  < b       : yabai -m space --layout bsp          ; "sketchybar --trigger space_layout_changed" ; skhd -k 'escape'
+toggle_space  < f       : yabai -m space --layout float        ; "sketchybar --trigger space_layout_changed" ; skhd -k 'escape'
+toggle_space  < s       : yabai -m space --layout stack        ; "sketchybar --trigger space_layout_changed" ; skhd -k 'escape'
+toggle_space  < d       : yabai -m space --toggle show-desktop ; skhd -k 'escape'

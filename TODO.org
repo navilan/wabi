@@ -6,17 +6,20 @@
 Turns out I forgot to uncomment an emacs include.
 ** DONE Font management (Git Crypt / Rsync.net)
 Use ~requireFile~ for now.
-** TODO Wallpaper management
-** TODO UTM Window resize for tall screens
-** TODO Dotfiles Documentation
-** TODO Evil + vterm
-** TODO Remove homebrew dependency
+** HOLD Wallpaper management
+** HOLD UTM Window resize for tall screens
+** HOLD Dotfiles Documentation
+** HOLD Evil + vterm
+** HOLD Remove homebrew dependency
+** TODO Firefox
+- [ ] Cleanup extensions
+- [ ] Better Tabs
 ** TODO Hide title bar in apps
  - [x] Kitty: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/kitty/kitty.conf#L25
  - [x] Emacs: (add-to-list 'default-frame-alist '(undecorated . t))
  - [x] VSCode: "customizeUI.titleBar": "frameless"
  - [x] qutebrowser: https://github.com/qutebrowser/qutebrowser/issues/6438
- - [ ] Firefox: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/firefox/stealthfox-fork/userChrome.css#L162
+ - [x] Firefox: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/firefox/stealthfox-fork/userChrome.css#L162
  - [ ] Chromium: ???
 ** TODO qutebrowser configuration
     - Theming
@@ -25,6 +28,7 @@ Use ~requireFile~ for now.
     - Passwords
     - Form filling
 * Features
+** TODO Catapucchin everywhere
 ** TODO Sketchy Bar
 - [ ] Spaces
 - [ ] Current Window Title + Icon

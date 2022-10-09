@@ -28,148 +28,152 @@
 
 # Shorts (Quick access menu)
 # BG: Purple
+#
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 
+
+WTITLE=$(yabai -m query --windows --window | jq -r '.title' | cut -c 1-50)
 if which spacebar >/dev/null; then
   case "$1" in
     highlight_default) # default
-      spacebar -m config background_color 0x1a1b2699
-      spacebar -m config foreground_color 0xa9b1d6eb
-      spacebar -m config center_shell     off
-      spacebar -m config title            on
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="$WTITLE"                                                                                                 \
+            ICON=" " BGC=$ACTIVE_BORDER_COLOR
       ;;
     highlight_active)
-      spacebar -m config background_color 0xff4499f0
-      spacebar -m config foreground_color 0x88282a36
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "(f)ocus|(g)rid|(s)wap|(m)ove|(r)esize|(t)oggle"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(f)ocus | (g)rid | (s)wap | (m)ove | (r)esize | (t)oggle"                                                \
+            ICON="A"                                                                                                      \
+            BGC="0xa0ff44cc"
       ;;
     highlight_shorts)
-      spacebar -m config background_color 0x004787f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "(r)estart|(a)app|(y)abai|(f)ocus|fw(hjkl+wsd)|fd(#)|fs(S#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(r)estart | (a)app | (y)abai | (f)ocus | fw(hjkl+wsd) | fd(#) | fs(S#)"                                  \
+            ICON="S"                                                                                                      \
+            BGC="0xa000ccff"
       ;;
     highlight_yabai)
-      spacebar -m config background_color 0x004787f0
-      spacebar -m config foreground_color 0x88282a36
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "(s)ave layout|(l)oad layout"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(s)ave layout | (l)oad layout"                                                                           \
+            ICON="Y"                                                                                                      \
+            BGC="0xa044ff87"
       ;;
     highlight_focus)
-      spacebar -m config background_color 0x00ffd2f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "focus (w)indow|(s)pace|(d)isplay|(a)pp"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(w)indow | (s)pace | (d)isplay | (a)pp"                                                                  \
+            ICON="F"                                                                                                      \
+            BGC="0xa000ffd2"
       ;;
     highlight_grid)
-      spacebar -m config background_color 0xdadef4f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "grid (hjkl)+alt"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjkl)+alt"                                                                                              \
+            ICON="G"                                                                                                      \
+            BGC="0xa0dadef4"
       ;;
     highlight_swap)
-      spacebar -m config background_color 0xa4aed6f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "swap (w)indow|(s)pace|(d)isplay"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(w)indow | (s)pace | (d)isplay"                                                                          \
+            ICON="S"                                                                                                      \
+            BGC="0xa0a4aed6"
       ;;
     highlight_move)
-      spacebar -m config background_color 0x6a6fb1f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "move (w)indow|(s)pace|(d)isplay"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(w)indow | (s)pace | (d)isplay"                                                                          \
+            ICON="M"                                                                                                      \
+            BGC="0xa06a6fb1"
       ;;
     highlight_resize)
-      spacebar -m config background_color 0x000000f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "resize (hjkl)+alt|balance(=)|(m)ax|(c)enter"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjkl)+alt | balance(=) | (m)ax | (c)enter"                                                              \
+            ICON="R"                                                                                                      \
+            BGC="0xa0000000"
       ;;
     highlight_toggle)
-      spacebar -m config background_color 0x8590c5f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "toggle (w)indow|(s)pace"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(w)indow | (s)pace"                                                                                      \
+            ICON="T"                                                                                                      \
+            BGC="0xa08590c5"
       ;;
     highlight_focus_window)
-      spacebar -m config background_color 0x00ffd2f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "focusW (hjklpnrm)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjklpnrm)"                                                                                              \
+            ICON="W"                                                                                                      \
+            BGC="0xa000ffd2"
       ;;
     highlight_focus_space)
-      spacebar -m config background_color 0x00ffd2f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "focusS (hjkl)|space(#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjkl) | space(#)"                                                                                       \
+            ICON="S"                                                                                                      \
+            BGC="0xa000ffd2"
       ;;
     highlight_focus_display)
-      spacebar -m config background_color 0x00ffd2f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "focusD (hjkl)|display(#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjkl) | display(#)"                                                                                     \
+            ICON="D"                                                                                                      \
+            BGC="0xa000ffd2"
       ;;
     highlight_focus_app)
-      spacebar -m config background_color 0x00ffd2f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "focusA (e)macs|(v)scode|(s)afari|(c)hrome|(f)irefox|(q)uteb|(k)itty"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(e)macs | (v)scode | (s)afari | (c)hrome | (f)irefox | (k)itty"                                          \
+            ICON="A"                                                                                                      \
+            BGC="0xa000ffd2"
       ;;
     highlight_move_window)
-      spacebar -m config background_color 0x6a6fb1f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "moveW space(hjkl#)|display(Chjkl#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjkl#) | display(Chjkl#)"                                                                               \
+            ICON="W"                                                                                                      \
+            BGC="0xa06a6fb1"
       ;;
     highlight_move_space)
-      spacebar -m config background_color 0x6a6fb1f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "moveS display(hjkl#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="display(hjkl#)"                                                                                          \
+            ICON="W"                                                                                                      \
+            BGC="0xa06a6fb1"
       ;;
     highlight_swap_window)
-      spacebar -m config background_color 0xa4aed6f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "swapW space(hjkl#)|display(Chjkl#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(hjkl#) | display(Chjkl#)"                                                                               \
+            ICON="W"                                                                                                      \
+            BGC="0xa0a4aed6"
       ;;
     highlight_swap_space)
-      spacebar -m config background_color 0xa4aed6f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "swapS display(hjkl#)"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="display(hjkl#)"                                                                                          \
+            ICON="W"                                                                                                      \
+            BGC="0xa0a4aed6"
       ;;
     highlight_toggle_window)
-      spacebar -m config background_color 0x8590c5f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "toggleW (f)loat|(s)ticky|(t)op|(b)order|spl(i)t|(p)ip|(z)oom|(m)ax|full(Sm)|(q)uit|(c)enter"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="(f)loat | (s)ticky | (t)op | (b)order | spl(i)t | (p)ip | (z)oom | (m)ax | full(Sm) | (q)uit | (c)enter" \
+            ICON="W"                                                                                                      \
+            BGC="0xa08590c5"
       ;;
     highlight_toggle_space)
-      spacebar -m config background_color 0x8590c5f0
-      spacebar -m config foreground_color 0x88eff0eb
-      spacebar -m config title            off
-      spacebar -m config center_shell     on
-      spacebar -m config center_shell_command 'echo "toggleS gap(o)|balance(=)|(b)sp|(f)loat|(s)tack|(d)esktop"'
+      sketchybar --trigger                                                                                                \
+            message_changed                                                                                               \
+            MSG="toggleS gap(o) | balance(=) | (b)sp | (f)loat | (s)tack | (d)esktop"                                     \
+            ICON="W"                                                                                                      \
+            BGC="0xa08590c5"
       ;;
   esac
 fi

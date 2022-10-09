@@ -15,59 +15,52 @@ sh "$HOME/.bin/spacer.sh"
 # LAYOUT                                                                #
 #########################################################################
 
-yabai -m config                          \
-  # Use bspwm like binary splits
-  layout            bsp                  \
-  # do not equalize size of children and parents
-  auto_balance      off                  \
-  # make the new split slightly smaller than the parent
-  split_ratio       0.4                  \
-  # split to right and down
-  window_placement  second_child         \
-  # floating windows are always on top
-  window_topmost    off                  \
-  # padding between screen edges and windows
-  top_padding       8                    \
-  bottom_padding    8                    \
-  left_padding      8                    \
-  right_padding     8                    \
-  # padding between different windows
-  window_gap        8                    \
-  #########################################################################
-  # MOUSE SUPPORT                                                         #
-  #########################################################################
-  # set mouse interaction modifier key
-  mouse_modifier      fn                 \
-  # make focus and mouse follow each other
-  mouse_follows_focus on                 \
-  focus_follows_mouse off                \
-  # move and resize windows using mouse
-  mouse_action1       move               \
-  mouse_action2       resize             \
-  mouse_drop_action   swap               \
-  #########################################################################
-  # WINDOWS APPEARANCE                                                    #
-  #########################################################################
-  # show shadows for floating windows only
-  window_shadow               float      \
-  # render all unfocus windows with 90% opacity
-  window_opacity on                      \
-  active_window_opacity       1.0        \
-  normal_window_opacity       0.60       \
-  # borders
-  window_border               on         \
-  window_border_width         2          \
-  window_border_radius        11         \
-  active_window_border_color  0xffe1e3e4 \
-  normal_window_border_color  0xff2a2f38 \
-  insert_feedback_color       0xff9dd274
-
-# external bar
-if which spacebar >/dev/null; then
-  SPACEBAR_HEIGHT=$(spacebar -m config height)
-  yabai -m config external_bar all:"$SPACEBAR_HEIGHT":0
-fi
-
+# Use bspwm like binary splits
+yabai -m config layout            bsp
+# do not equalize size of children and parents
+yabai -m config auto_balance      off
+# make the new split slightly smaller than the parent
+yabai -m config split_ratio       0.4
+# split to right and down
+yabai -m config window_placement  second_child
+# floating windows are always on top
+yabai -m config window_topmost    off
+# padding between screen edges and windows
+yabai -m config top_padding       8
+yabai -m config bottom_padding    8
+yabai -m config left_padding      8
+yabai -m config right_padding     8
+# padding between different windows
+yabai -m config window_gap        8
+#########################################################################
+# MOUSE SUPPORT                                                         #
+#########################################################################
+# set mouse interaction modifier key
+yabai -m config mouse_modifier      fn
+# make focus and mouse follow each other
+yabai -m config mouse_follows_focus on
+yabai -m config focus_follows_mouse off
+# move and resize windows using mouse
+yabai -m config mouse_action1       move
+yabai -m config mouse_action2       resize
+yabai -m config mouse_drop_action   swap
+#########################################################################
+# WINDOWS APPEARANCE                                                    #
+#########################################################################
+# show shadows for floating windows only
+yabai -m config window_shadow               float
+# render all unfocus windows with 90% opacity
+yabai -m config window_opacity on
+yabai -m config active_window_opacity       1.0
+yabai -m config normal_window_opacity       0.80
+# borders
+yabai -m config window_border               on
+yabai -m config window_border_width         2
+yabai -m config window_border_radius        11
+yabai -m config active_window_border_color  0x38bb9af7
+yabai -m config normal_window_border_color  0x381a1b26
+yabai -m config insert_feedback_color       0x38f7768e
+yabai -m config external_bar all:48:0
 
 
 # WINDOW RULES
@@ -77,11 +70,9 @@ yabai -m rule --add app="Emacs"       space=s1
 yabai -m rule --add app="Code"        space=s2
 yabai -m rule --add app="VSCodium"    space=s2
 yabai -m rule --add app="Firefox"     space=s3
-yabai -m rule --add app="Safari"      space=s4
-yabai -m rule --add app="Chromium"    space=s5
+yabai -m rule --add app="Chromium"    space=s4
+yabai -m rule --add app="Safari"      space=s5
 yabai -m rule --add app="kitty"       space=s6
-yabai -m rule --add app="qutebrowser" space=s7
-
 
 # Floats
 yabai -m rule --add app="Finder" manage=off
@@ -113,8 +104,13 @@ yabai -m rule --add app="^Preview$" manage=off
 
 yabai -m signal --add event=display_added action="~/.bin/load-layout.sh && ~/.bin/spacer.sh"
 yabai -m signal --add event=display_removed action="~/.bin/load-layout.sh && ~/.bin/spacer.sh"
-yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+yabai -m signal --add event=window_title_changed action="~/.bin/skhd_yabai.sh highlight_default"
+yabai -m signal --add event=window_focused action="~/.bin/skhd_yabai.sh highlight_default && sketchybar --trigger window_focus"
+yabai -m signal --add event=window_created action="~/.bin/skhd_yabai.sh highlight_default && sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="~/.bin/skhd_yabai.sh highlight_default && sketchybar --trigger windows_on_spaces && (yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse)"
+
 
 
 # Update spaces if needed

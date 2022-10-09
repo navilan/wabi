@@ -1,3 +1,3 @@
 { config, pkgs, lib, ... }: {
-  imports = [ ./adblock ./scripts ./skhd ./spacebar ./sketchybar ./yabai ];
+  imports = [ ./adblock ./scripts ./skhd ./sketchybar ./yabai ];
 }

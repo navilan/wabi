@@ -13,11 +13,11 @@
       "skhd" # keybinding manager
       "sketchybar"
       "svim"
-      "spacebar" # macos bar alternative
       "yabai" # tiling window manager
     ];
     casks = [
       "adobe-creative-cloud"
+      "sf-symbols"
       "alfred"
       "firefox"
       "chromium"

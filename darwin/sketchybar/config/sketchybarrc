@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+#github:FlexKratz/dotfiles
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
@@ -6,7 +7,7 @@ source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
 
-FONT="PragmataPro Liga" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
 
 PADDINGS=3 # All paddings use this value (icon, label, background)
@@ -16,8 +17,13 @@ POPUP_CORNER_RADIUS=11
 
 SHADOW=on
 
+HELPER=git.felix.helper
+# Start the helper process
+killall helper
+$HOME/.config/sketchybar/helper/helper $HELPER &
+
 # Setting up the general bar appearance and default values
-sketchybar --bar     height=39                                         \
+sketchybar --bar     height=48                                         \
                      color=$BAR_COLOR                                  \
                      shadow=$SHADOW                                    \
                      position=top                                      \
@@ -25,26 +31,26 @@ sketchybar --bar     height=39                                         \
                      padding_right=$((10 - $PADDINGS))                 \
                      padding_left=18                                   \
                      corner_radius=9                                   \
-                     y_offset=10                                       \
-                     margin=10                                         \
+                     y_offset=0                                        \
+                     margin=0                                          \
                      blur_radius=20                                    \
                      notch_width=0                                     \
                                                                        \
            --default updates=when_shown                                \
-                     icon.font="$FONT:Bold:14.0"                       \
-                     icon.color=$ICON_COLOR                            \
+                     icon.font="$FONT:Bold:20.0"                       \
+                     icon.color=$ACTIVE_ITEM_FOREGROUND                \
                      icon.padding_left=$PADDINGS                       \
                      icon.padding_right=$PADDINGS                      \
-                     label.font="$FONT:Regular:13.0"                   \
-                     label.color=$LABEL_COLOR                          \
+                     label.font="$FONT:Semibold:18.0"                  \
+                     label.color=$ACTIVE_ITEM_FOREGROUND               \
                      label.padding_left=$PADDINGS                      \
                      label.padding_right=$PADDINGS                     \
                      background.padding_right=$PADDINGS                \
                      background.padding_left=$PADDINGS                 \
                      popup.background.border_width=2                   \
                      popup.background.corner_radius=11                 \
-                     popup.background.border_color=$POPUP_BORDER_COLOR \
-                     popup.background.color=$POPUP_BACKGROUND_COLOR    \
+                     popup.background.border_color=$ACTIVE_BORDER_COLOR \
+                     popup.background.color=$TAB_BAR_BACKGROUND    \
                      popup.background.shadow.drawing=$SHADOW
 
 # Left
@@ -53,14 +59,21 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # Center
-# source "$ITEM_DIR/spotify.sh"
+source "$ITEM_DIR/message.sh"
 
 # Right
-# source "$ITEM_DIR/github.sh"
-# source "$ITEM_DIR/calendar.sh"
-# source "$ITEM_DIR/cpu.sh"
+#
+# Add Time / Date
+source "$ITEM_DIR/calendar.sh"
+
+# Use spotifyd to add music
+source "$ITEM_DIR/wifi.sh"
+
+# Input Method
+source "$ITEM_DIR/input.sh"
 
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
+sh "$HOME"/.bin/skhd_yabai.sh highlight_default
 
 echo "sketchybar configuation loaded.."

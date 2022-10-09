@@ -47,7 +47,7 @@ let
     "browser.search.region" = "US";
     "browser.search.suggest.enabled" = false;
     "browser.send_pings" = false;
-    "browser.startup.homepage" = "https://duckduckgo.com";
+    "browser.startup.homepage" = "https://web.tabliss.io";
 
     # 0 = Normal; 1 = Compact; 2 = Touch
     "browser.uidensity" = 1;
@@ -128,28 +128,16 @@ in {
         };
       };
     extensions = with firefox-addons; [
-      a11ycss
-      add-custom-search-engine
       bukubrow
       copy-selection-as-markdown
       darkreader
       display-_anchors
-      firefox-color
       multi-account-containers
-      octolinker
-      old-reddit-redirect
-      org-capture
-      privacy-badger
-      react-devtools
-      reddit-enhancement-suite
-      refined-github
-      single-file
-      tab-session-manager
-      tabliss
       temporary-containers
+      org-capture
+      single-file
       tridactyl
       ublock-origin
-      theme-nord-polar-night
 
       ##: }}
     ];

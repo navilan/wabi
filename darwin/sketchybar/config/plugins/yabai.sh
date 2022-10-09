@@ -8,29 +8,44 @@ window_state() {
   CURRENT=$(echo "$WINDOW" | jq '.["stack-index"]')
 
   args=()
+  icon=""
+
+  yabai_mode=$(yabai -m query --spaces --space | jq -r .type)
+  case "$yabai_mode" in
+      bsp)
+      icon="$YABAI_BSP "
+      ;;
+      stack)
+      icon="$YABAI_STACK "
+      ;;
+      float)
+      icon="$YABAI_FLOAT "
+      ;;
+  esac
+
+
   if [[ $CURRENT -gt 0 ]]; then
     LAST=$(yabai -m query --windows --window stack.last | jq '.["stack-index"]')
-    args+=(--set $NAME icon=$YABAI_STACK icon.color=$RED label.drawing=on label=$(printf "[%s/%s]" "$CURRENT" "$LAST"))
-    yabai -m config active_window_border_color $RED > /dev/null 2>&1 &
-
-  else 
+    icon+=$YABAI_STACK
+    args+=(--set $NAME icon=$icon icon.color=$WHITE label.drawing=on label=$(printf "[%s/%s]" "$CURRENT" "$LAST"))
+  else
     args+=(--set $NAME label.drawing=off)
     case "$(echo "$WINDOW" | jq '.["is-floating"]')" in
       "false")
         if [ "$(echo "$WINDOW" | jq '.["has-fullscreen-zoom"]')" = "true" ]; then
-          args+=(--set $NAME icon=$YABAI_FULLSCREEN_ZOOM icon.color=$GREEN)
-          yabai -m config active_window_border_color $GREEN > /dev/null 2>&1 &
+          icon+=$YABAI_FULLSCREEN_ZOOM
+          args+=(--set $NAME icon=$icon icon.color=$WHITE)
         elif [ "$(echo "$WINDOW" | jq '.["has-parent-zoom"]')" = "true" ]; then
-          args+=(--set $NAME icon=$YABAI_PARENT_ZOOM icon.color=$BLUE)
-          yabai -m config active_window_border_color $BLUE > /dev/null 2>&1 &
+          icon+=$YABAI_PARENT_ZOOM
+          args+=(--set $NAME icon=$icon icon.color=$WHITE)
         else
-          args+=(--set $NAME icon=$YABAI_GRID icon.color=0xfff0c6c6)
-          yabai -m config active_window_border_color $WHITE > /dev/null 2>&1 &
+          icon+=$YABAI_GRID
+          args+=(--set $NAME icon=$icon icon.color=$WHITE)
         fi
         ;;
       "true")
-        args+=(--set $NAME icon=$YABAI_FLOAT icon.color=$MAGENTA)
-        yabai -m config active_window_border_color $MAGENTA > /dev/null 2>&1 &
+          icon+=$YABAI_FLOAT
+          args+=(--set $NAME icon=$icon icon.color=$WHITE)
         ;;
     esac
   fi
@@ -38,7 +53,9 @@ window_state() {
   sketchybar -m "${args[@]}"
 }
 
+
 windows_on_spaces () {
+
   DISPLAY_INFO="$(yabai -m query --displays)"
   CURRENT_SPACES="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
 
