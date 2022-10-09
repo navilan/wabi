@@ -29,12 +29,12 @@
 # Shorts (Quick access menu)
 # BG: Purple
 #
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "${HOME}/.config/sketchybar/colors.sh" # Loads all defined colors
 
 
 
 WTITLE=$(yabai -m query --windows --window | jq -r '.title' | cut -c 1-50)
-if which spacebar >/dev/null; then
+if which sketchybar >/dev/null; then
   case "$1" in
     highlight_default) # default
       sketchybar --trigger                                                                                                \

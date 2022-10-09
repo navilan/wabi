@@ -18,7 +18,7 @@ do
                               background.padding_right=-8                     \
                               background.height=40                            \
                               background.corner_radius=11                     \
-                              background.color=$ACTIVE_ITEM_FOREGROUND        \
+                              background.color=$BLACK1                        \
                               background.drawing=on                           \
                               label.font="sketchybar-app-font:Regular:16.0"   \
                               label.background.height=32                      \
