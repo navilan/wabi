@@ -13,16 +13,10 @@ do
                               icon.padding_right=22                           \
                               label.padding_right=33                          \
                               icon.highlight_color=$GREY                      \
-                              icon.color=$FG                                  \
-                              background.padding_left=-8                      \
-                              background.padding_right=-8                     \
-                              background.height=40                            \
-                              background.corner_radius=11                     \
-                              background.color=$BLACK1                        \
-                              background.drawing=on                           \
+                              icon.color=$BLACK                                  \
                               label.font="sketchybar-app-font:Regular:16.0"   \
-                              label.background.height=32                      \
-                              label.background.color=$BLACK1                  \
+                              label.background.height=26                      \
+                              label.background.color=$BG0                  \
                               label.background.drawing=on                     \
                               label.background.color=$INACTIVE_TAB_BACKGROUND \
                               label.color=$WHITE                              \
@@ -33,11 +27,15 @@ do
                               click_script="$SPACE_CLICK_SCRIPT"
 done
 
-sketchybar   --add item       separator left                                  \
-             --set separator  icon=                                           \
-                              icon.font="PragmataPro:Bold:16.0"               \
-                              background.padding_left=26                      \
-                              background.padding_right=15                     \
-                              label.drawing=off                               \
-                              icon.highlight_color=$ACTIVE_ITEM_FOREGROUND    \
-                              icon.color=$INACTIVE_ITEM_FOREGROUND
+ND=$(yabai -m query --displays | jq 'length')
+while [ $ND -gt 0 ]
+do
+     DSPCS=$(yabai -m query --spaces | jq --argjson d $ND -r '.[] | select(.display == $d) | "space.\(.index)"' | xargs echo)
+     sketchybar --add bracket spaces.$ND ${DSPCS} \
+                --set spaces.$ND \
+                    background.color=$PITCH \
+                    associated_display=$ND \
+                    background.height=38 \
+                    background.corner_radius=11
+     ND=$(("$ND"-1))
+done

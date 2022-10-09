@@ -27,25 +27,25 @@ window_state() {
   if [[ $CURRENT -gt 0 ]]; then
     LAST=$(yabai -m query --windows --window stack.last | jq '.["stack-index"]')
     icon+=$YABAI_STACK
-    args+=(--set $NAME icon=$icon icon.color=$WHITE label.drawing=on label=$(printf "[%s/%s]" "$CURRENT" "$LAST"))
+    args+=(--set $NAME icon=$icon label.drawing=on label=$(printf "[%s/%s]" "$CURRENT" "$LAST"))
   else
     args+=(--set $NAME label.drawing=off)
     case "$(echo "$WINDOW" | jq '.["is-floating"]')" in
       "false")
         if [ "$(echo "$WINDOW" | jq '.["has-fullscreen-zoom"]')" = "true" ]; then
           icon+=$YABAI_FULLSCREEN_ZOOM
-          args+=(--set $NAME icon=$icon icon.color=$WHITE)
+          args+=(--set $NAME icon=$icon)
         elif [ "$(echo "$WINDOW" | jq '.["has-parent-zoom"]')" = "true" ]; then
           icon+=$YABAI_PARENT_ZOOM
-          args+=(--set $NAME icon=$icon icon.color=$WHITE)
+          args+=(--set $NAME icon=$icon)
         else
           icon+=$YABAI_GRID
-          args+=(--set $NAME icon=$icon icon.color=$WHITE)
+          args+=(--set $NAME icon=$icon)
         fi
         ;;
       "true")
           icon+=$YABAI_FLOAT
-          args+=(--set $NAME icon=$icon icon.color=$WHITE)
+          args+=(--set $NAME icon=$icon)
         ;;
     esac
   fi
