@@ -52,14 +52,14 @@ yabai -m config window_shadow               float
 # render all unfocus windows with 90% opacity
 yabai -m config window_opacity on
 yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.80
+yabai -m config normal_window_opacity       0.60
 # borders
 yabai -m config window_border               on
-yabai -m config window_border_width         2
+yabai -m config window_border_width         4
 yabai -m config window_border_radius        11
-yabai -m config active_window_border_color  0x38bb9af7
-yabai -m config normal_window_border_color  0x381a1b26
-yabai -m config insert_feedback_color       0x38f7768e
+yabai -m config active_window_border_color  0xa0bb9af7
+yabai -m config normal_window_border_color  0xa01a1b26
+yabai -m config insert_feedback_color       0xa0f7768e
 yabai -m config external_bar all:48:0
 
 

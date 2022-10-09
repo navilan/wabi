@@ -17,19 +17,24 @@ sketchybar --add item wifi right                        \
                       background.height=26              \
                       background.corner_radius=11       \
                       update_freq=5                     \
-                      popup.background.color=$BLACK     \
+                      popup.horizontal=on               \
+                      popup.background.color=$PITCH     \
                       popup.background.corner_radius=5  \
+                      popup.align=right                 \
                       click_script="$POPUP_CLICK_SCRIPT"\
                       update_freq=10                    \
                                                         \
            --add item  wifi.ssid popup.wifi             \
            --set       wifi.ssid label="$SSID"          \
+                         label.color="$FG"              \
                          click_script="$POPUP_OFF"      \
                                                         \
            --add item wifi.speed popup.wifi             \
            --set      wifi.speed label=$SPD             \
+                         label.color="$FG"              \
                          click_script="$POPUP_OFF"      \
                                                         \
            --add item wifi.ip popup.wifi                \
            --set      wifi.ip label=$IP_LBL             \
+                         label.color="$FG"              \
                          click_script="$POPUP_OFF"      \

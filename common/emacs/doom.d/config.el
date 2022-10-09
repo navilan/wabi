@@ -28,6 +28,8 @@
 
  )
 
+(setq ebuku-buku-path (concat "/etc/profiles/per-user/" (getenv "USER") "/bin/buku"))
+
 (after! doom-modeline
       doom-modeline-enable-word-count t
       doom-modeline-continuous-word-count-modes '(mardown-mode gfm-mode org-mode text-mode)

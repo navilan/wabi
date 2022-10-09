@@ -11,13 +11,13 @@ CURR_TX="$(echo "$CURRENT_WIFI" | grep -o "lastTxRate: .*" | sed 's/^lastTxRate:
 IP="$(~/.bin/get-ip)"
 
 if [ "$SSID" = "" ]; then
-  sketchybar --set $NAME icon=$OFFLINE icon.color=$BG \
-             --set $NAME.ssid  label="Offline" label.color=$BG \
-             --set $NAME.speed label="0 MBPS" label.color=$BG \
+  sketchybar --set $NAME icon=$OFFLINE icon.color=$BLACK \
+             --set $NAME.ssid  label="Offline" label.color=$BLACK \
+             --set $NAME.speed label="0 MBPS" label.color=$BLACK \
              --set $NAME.ip    label="-" label.color=$BG
 else
   sketchybar --set $NAME icon=$ONLINE icon.color=$GREY \
-             --set $NAME.ssid  label="$SSID" label.color=$FG \
-             --set $NAME.speed label="${CURR_TX} MBPS" label.color=$FG \
-             --set $NAME.ip    label="$IP" label.color=$FG
+             --set $NAME.ssid  label="$SSID" label.color=$BG \
+             --set $NAME.speed label="${CURR_TX} MBPS" label.color=$BG \
+             --set $NAME.ip    label="$IP" label.color=$BG
 fi

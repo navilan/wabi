@@ -40,14 +40,14 @@ if which sketchybar >/dev/null; then
       sketchybar --trigger                                                                                                \
             message_changed                                                                                               \
             MSG="$WTITLE"                                                                                                 \
-            ICON=" " BGC=$BLACK FGC=$WHITE
+            ICON=" " BGC=$PITCH FGC=$BG
       ;;
     highlight_active)
       sketchybar --trigger                                                                                                \
             message_changed                                                                                               \
             MSG="(f)ocus | (g)rid | (s)wap | (m)ove | (r)esize | (t)oggle"                                                \
             ICON="A"                                                                                                      \
-            BGC="0xa0ff44cc"
+            BGC="0xa0ccccff" FGC=$ACTIVE_ITEM_BACKGROUND
       ;;
     highlight_shorts)
       sketchybar --trigger                                                                                                \

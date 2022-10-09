@@ -50,7 +50,6 @@ let
 in {
   imports = [
     ../../common/system.nix
-    ../../common/spotifyd/system.nix
     ../../darwin/system
   ];
   environment = {

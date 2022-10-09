@@ -66,12 +66,15 @@ source "$ITEM_DIR/message.sh"
 # Add Time / Date
 source "$ITEM_DIR/calendar.sh"
 
-# Use spotifyd to add music
+
 source "$ITEM_DIR/wifi.sh"
 
 # Input Method
 source "$ITEM_DIR/input.sh"
 
+# SPT status
+#
+source "$ITEM_DIR/music.sh"
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
 sh "$HOME"/.bin/skhd_yabai.sh highlight_default

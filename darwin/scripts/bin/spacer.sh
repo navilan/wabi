@@ -46,4 +46,3 @@ yabai -m space 8  --layout bsp
 
 CDIR=$(dirname -- "$( readlink -f -- "$0"; )"; );
 sh "$CDIR/balancer.sh"
-sh "$CDIR/balancer.sh"
