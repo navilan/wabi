@@ -5,6 +5,7 @@
 
 
 window_state() {
+
   WINDOW=$(yabai -m query --windows --window)
   CURRENT=$(echo "$WINDOW" | jq '.["stack-index"]')
 
@@ -76,6 +77,7 @@ windows_on_spaces () {
   done <<< "$CURRENT_SPACES"
 
   sketchybar -m "${args[@]}"
+
 }
 
 mouse_clicked() {

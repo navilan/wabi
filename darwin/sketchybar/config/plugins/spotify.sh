@@ -42,11 +42,12 @@ shuffle ()
 update ()
 {
   PLAYING=1
-  if [ "$(echo "$INFO" | jq -r '.["Player State"]')" = "Playing" ]; then
+  INF=$(echo "$INFO" | iconv -f utf-8 -t utf-8 -c)
+  if [ "$(echo "$INF" | jq -r '.["Player State"]')" = "Playing" ]; then
     PLAYING=0
-    TRACK="$(echo "$INFO" | jq -r .Name | sed 's/\(.\{25\}\).*/\1.../')"
-    ARTIST="$(echo "$INFO" | jq -r .Artist | sed 's/\(.\{25\}\).*/\1.../')"
-    ALBUM="$(echo "$INFO" | jq -r .Album | sed 's/\(.\{25\}\).*/\1.../')"
+    TRACK="$(echo  "$INF"  | jq -r .Name   | cut -c 1-25)"
+    ARTIST="$(echo "$INF"  | jq -r .Artist | cut -c 1-25)"
+    ALBUM="$(echo  "$INF"  | jq -r .Album  | cut -c 1-25)"
     SHUFFLE=$(osascript -e 'tell application "Spotify" to get shuffling')
     REPEAT=$(osascript -e 'tell application "Spotify" to get repeating')
     COVER=$(osascript -e 'tell application "Spotify" to get artwork url of current track')

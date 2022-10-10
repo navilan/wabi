@@ -25,7 +25,7 @@
         (:eval
          (let ((project-name (projectile-project-name)))
            (unless (string= "-" project-name)
-             (format (if (buffer-modified-p)  " %s*" " %s") project-name))))))
+             (format (if (buffer-modified-p)  " * %s" " | %s") project-name))))))
 
 (when (window-system)
   ;; SF Mono: https://medium.com/@deepak.gulati/using-sf-mono-in-emacs-6712c45b2a6d

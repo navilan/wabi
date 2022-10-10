@@ -1,20 +1,37 @@
 session_name: 'wm'
+start_directory: ./
 windows:
 - options:
     automatic-rename: 'off'
-  layout: even-horizontal
+    main-pane-width: '50%'
+  layout: main-vertical
   panes:
+  - focus: 'true'
+    name: tweak
   - name: bar
     shell_command: sketchybar
   - name: yabai
     shell_command: yabai -c ~/.config/yabai/yabairc
   - name: skhd
     shell_command: skhd -c ~/.config/skhd/skhdrc
-  start_directory: /Users/navilan/.nixpkgs
-  window_name: wm
+  window_name: dash
+
+
 - options:
     automatic-rename: 'off'
+  layout: even-horizontal
   panes:
   - focus: 'true'
-  start_directory: /Users/navilan/.nixpkgs
+    shell_command: ranger
+  - focus: 'true'
   window_name: cfg
+
+- options:
+    automatic-rename: 'off'
+  layout: tile
+  panes:
+  - start_directory: "$HOME/.emacs.d"
+  - start_directory: "$HOME/.doom.d"
+  - start_directory: "$HOME/tools"
+  - start_directory: "$HOME/.config"
+  window_name: tools

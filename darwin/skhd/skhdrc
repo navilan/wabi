@@ -196,7 +196,7 @@ move_window < shift - l: yabai -m window --warp east    ; skhd -k 'escape'
 move_window < shift - r: yabai -m window --warp recent  ; skhd -k 'escape'
 move_window < shift - p: yabai -m window --warp prev    ; skhd -k 'escape'
 move_window < shift - n: yabai -m window --warp next    ; skhd -k 'escape'
-move_window < shfit - m: yabai -m window --warp largest ; skhd -k 'escape'
+move_window < shift - m: yabai -m window --warp largest ; skhd -k 'escape'
 
 # move windows to spaces
 move_window < h: yabai -m window --space prev ; yabai -m space --focus prev ; skhd -k 'escape'
