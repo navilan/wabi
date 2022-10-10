@@ -51,8 +51,8 @@ yabai -m config mouse_drop_action   swap
 yabai -m config window_shadow               float
 # render all unfocus windows with 90% opacity
 yabai -m config window_opacity on
-yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.60
+yabai -m config active_window_opacity       1.00
+yabai -m config normal_window_opacity       0.80
 # borders
 yabai -m config window_border               on
 yabai -m config window_border_width         4
@@ -60,7 +60,7 @@ yabai -m config window_border_radius        11
 yabai -m config active_window_border_color  0xa0bb9af7
 yabai -m config normal_window_border_color  0xa01a1b26
 yabai -m config insert_feedback_color       0xa0f7768e
-yabai -m config external_bar all:48:0
+yabai -m config external_bar all:40:0
 
 
 # WINDOW RULES
@@ -73,6 +73,7 @@ yabai -m rule --add app="Firefox"     space=s3
 yabai -m rule --add app="Chromium"    space=s4
 yabai -m rule --add app="Safari"      space=s5
 yabai -m rule --add app="kitty"       space=s6
+yabai -m rule --add app="Spotify"     space=s7
 
 # Floats
 yabai -m rule --add app="Finder" manage=off

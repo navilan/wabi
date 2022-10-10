@@ -28,6 +28,7 @@
     keychain
     neofetch
     rename
+    pinentry-emacs
 
     coreutils-full
     gnutar

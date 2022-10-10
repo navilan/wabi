@@ -6,7 +6,7 @@
 Turns out I forgot to uncomment an emacs include.
 ** DONE Font management (Git Crypt / Rsync.net)
 Use ~requireFile~ for now.
-** HOLD Wallpaper management
+** DONE Wallpaper management
 ** HOLD UTM Window resize for tall screens
 ** HOLD Dotfiles Documentation
 ** HOLD Evil + vterm
@@ -14,28 +14,32 @@ Use ~requireFile~ for now.
 ** TODO Firefox
 - [ ] Cleanup extensions
 - [ ] Better Tabs
-** TODO Hide title bar in apps
+** WAIT Hide title bar in apps
  - [x] Kitty: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/kitty/kitty.conf#L25
  - [x] Emacs: (add-to-list 'default-frame-alist '(undecorated . t))
  - [x] VSCode: "customizeUI.titleBar": "frameless"
  - [x] qutebrowser: https://github.com/qutebrowser/qutebrowser/issues/6438
  - [x] Firefox: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/firefox/stealthfox-fork/userChrome.css#L162
  - [ ] Chromium: ???
-** TODO qutebrowser configuration
+** HOLD qutebrowser configuration
+    Doesn't work well with Yabai yet. Sticking to firefox + Tridactyl for now
+
     - Theming
     - Font size
     - User styles
     - Passwords
     - Form filling
 * Features
+** TODO Integrate Pass
+** TODO Mbsync + MU + MU4E
 ** TODO Catapucchin everywhere
-** TODO Sketchy Bar
-- [ ] Spaces
-- [ ] Current Window Title + Icon
-- [ ] Spotify Status
-- [ ] Network Status(Speed?) + IP
-- [ ] Calendar + Clock
-- [ ] Messages
+** DONE Sketchy Bar
+- [x] Spaces
+- [x] Current Window Title + Icon
+- [x] Spotify Status
+- [x] Network Status(Speed?) + IP
+- [x] Calendar + Clock
+- [x] Messages
 ** TODO Yabai + Emacs:  https://gist.github.com/ethan-leba/760054f36a2f7c144c6b06ab6458fae6
 ** TODO Tmux + Emacs:  https://gist.github.com/mislav/5189704
 ** HOLD deploy-rs integration

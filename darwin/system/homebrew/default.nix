@@ -36,6 +36,7 @@
       "vlc"
       "zoom"
       "qutebrowser"
+      "spotify"
 
     ];
     taps = [

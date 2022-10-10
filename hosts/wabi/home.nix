@@ -57,6 +57,15 @@ in {
     zoxide.enable = true;
     jq.enable = true;
 
+    browserpass =  {
+      enable = true;
+      browsers = [ "firefox" "chromium" ];
+    };
+
+    password-store = {
+      enable = true;
+    };
+
     lsd = {
       enable = true;
       enableAliases = true;

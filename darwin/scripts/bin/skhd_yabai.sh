@@ -34,13 +34,15 @@ source "${HOME}/.config/sketchybar/colors.sh" # Loads all defined colors
 
 
 WTITLE=$(yabai -m query --windows --window | jq -r '.title' | cut -c 1-50)
+APP=$(yabai -m query --windows --window | jq -r '.app')
+APP_ICON="$($HOME/.config/sketchybar/plugins/icon_map.sh "$APP")"
 if which sketchybar >/dev/null; then
   case "$1" in
     highlight_default) # default
       sketchybar --trigger                                                                                                \
             message_changed                                                                                               \
             MSG="$WTITLE"                                                                                                 \
-            ICON=" " BGC=$PITCH FGC=$BG
+            ICON=$APP_ICON BGC=$PITCH FGC=$BG
       ;;
     highlight_active)
       sketchybar --trigger                                                                                                \

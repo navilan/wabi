@@ -14,6 +14,18 @@
       doom-unicode-font (font-spec :family "PragmataPro Mono Liga")
       doom-serif-font (font-spec :family "PragmataPro Mono Liga" :size 20 :weight 'bold)
 )
+(setq frame-title-format
+      '(""
+        (:eval
+         (if (s-contains-p org-roam-directory (or buffer-file-name ""))
+             (replace-regexp-in-string
+              ".*/[0-9]*-?" "☰ "
+              (subst-char-in-string ?_ ?  buffer-file-name))
+           "%b"))
+        (:eval
+         (let ((project-name (projectile-project-name)))
+           (unless (string= "-" project-name)
+             (format (if (buffer-modified-p)  " %s*" " %s") project-name))))))
 
 (when (window-system)
   ;; SF Mono: https://medium.com/@deepak.gulati/using-sf-mono-in-emacs-6712c45b2a6d
@@ -42,7 +54,20 @@
                                 '((jq . t)))
   )
 
+(use-package! exec-path-from-shell
+  :when IS-MAC
+  :init
+  (setq exec-path-from-shell-warn-duration-millis 2000)
+  (setq exec-path-from-shell-arguments '("-l"))
+  ;; (setq exec-path-from-shell-debug t)
+  (exec-path-from-shell-initialize))
+
+
 (add-to-list 'default-frame-alist '(undecorated . t))
+
+(require 'epa-file)
+(custom-set-variables '(epg-gpg-program "/etc/profiles/per-user/${USER}/bin/gpg2"))
+(epa-file-enable)
 
 
 

@@ -5,6 +5,7 @@
 (package! org-preview-html)
 (package! jq-mode)
 (package! ebuku)
+(package! exec-path-from-shell)
 
 
 (provide 'packages)

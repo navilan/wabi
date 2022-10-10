@@ -129,6 +129,7 @@ in {
       };
     extensions = with firefox-addons; [
       bukubrow
+      browserpass
       copy-selection-as-markdown
       darkreader
       display-_anchors
