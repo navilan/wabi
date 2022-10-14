@@ -57,8 +57,6 @@ let
     "browser.urlbar.suggest.calculator" = true;
     "browser.urlbar.suggest.history" = true;
 
-
-
     "extensions.pocket.enabled" = false;
 
     # Allow extensions to run on Mozilla domains.
@@ -92,11 +90,19 @@ let
     "services.sync.engineStatusChanged.prefs" = true;
     "signon.rememberSignons" = false;
 
+    # Notifications
+    "permissions.default.desktop-notification" = 2;
+
     # https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-context-properties
     "svg.context-properties.content.enabled" = true;
 
     # Enable custom stylesheets.
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+    "layers.acceleration.force-enabled" = true;
+    "gfx.webrender.all" = true;
+
+    # Behavior
+    "browser.tabs.closeWindowWithLastTab" = false;
   };
 
   styles = {
@@ -128,17 +134,23 @@ in {
         };
       };
     extensions = with firefox-addons; [
-      bukubrow
       browserpass
+      bukubrow
+      bypass-paywalls-clean
       copy-selection-as-markdown
       darkreader
+      df-youtube
       display-_anchors
+      edit-with-emacs
       multi-account-containers
-      temporary-containers
       org-capture
       single-file
+      stylus
+      tabliss
+      temporary-containers
       tridactyl
       ublock-origin
+      unpaywall
 
       ##: }}
     ];

@@ -121,7 +121,7 @@
     --uc-border-radius: 0;
 
     /* dynamic url bar width settings */
-    --uc-urlbar-width: clamp(200px, 40vw, 500px);
+    --uc-urlbar-width: clamp(200px, 40vw, 800px);
 
     /* dynamic tab width settings */
     --uc-active-tab-width:   clamp(100px, 20vw, 300px);
@@ -138,6 +138,13 @@
 
 }
 
+
+    #urlbar-container {
+        min-width: 20px !important;
+        width: 20px !important;
+        visibility: hidden;
+    }
+
     /*---+---+---+---+---+---+---+
      | B | U | T | T | O | N | S |
      +---+---+---+---+---+---+---*/
@@ -147,6 +154,9 @@
 
      /* bookmark icon */
      #star-button{ display: none !important; }
+
+     /* reload icon */
+     #stop-reload-button{ display: none !important; }
 
      /* zoom indicator */
      #urlbar-zoom-button { display: none !important; }
@@ -161,6 +171,14 @@
 
         list-style-image: none !important;
 
+     }
+
+     .webextension-browser-action image {
+        filter: grayscale(1) !important;
+     }
+     #_testpilot-containers-browser-action,
+     #ublock0_raymondhill_net-browser-action {
+         display: none !important;
      }
 
      #PanelUI-menu-button .toolbarbutton-icon { width: 1px !important; }
