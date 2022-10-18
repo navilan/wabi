@@ -5,7 +5,11 @@ let
   inherit (pkgs.nur.repos.rycee) firefox-addons;
   readFile = builtins.readFile;
   hostName = builtins.getEnv "HOSTNAME";
-  wabi = import ./wabi.nix;
+  extra = let
+    pkgsWithXpiBuilder = pkgs // {
+      inherit (pkgs.nur.repos.rycee.firefox-addons) buildFirefoxXpiAddon;
+    };
+  in pkgs.lib.callPackageWith pkgsWithXpiBuilder ./addons.nix { };
 
   disableTelemetry = {
     "browser.newtabpage.activity-stream.feeds.telemetry" = false;
@@ -146,13 +150,13 @@ in {
       org-capture
       single-file
       stylus
-      tabliss
       temporary-containers
       tridactyl
       ublock-origin
       unpaywall
+      extra.downthemall
+      extra.svelte-devtools
 
-      ##: }}
     ];
 
     profiles.wabi = {
@@ -161,12 +165,12 @@ in {
       settings = defaultSettings;
 
       userChrome = ''
-        ${styles.wabi.userChrome}
-      '';
+          ${styles.wabi.userChrome}
+        # '';
 
       userContent = ''
-        ${styles.wabi.userContent}
-      '';
+          ${styles.wabi.userContent}
+        # '';
     };
   };
 }

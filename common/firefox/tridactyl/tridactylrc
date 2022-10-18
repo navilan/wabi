@@ -47,6 +47,8 @@ command discardall jsb browser.tabs.query({}).then(ts => browser.tabs.discard(ts
 " Misc settings
 "
 
+set newtab https://web.tabliss.io/
+
 " Hinting mode
 set hintfiltermode vimperator-reflow
 set hintnames short

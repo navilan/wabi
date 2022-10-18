@@ -1,10 +1,4 @@
-{ config, pkgs, lib, ... }:
-{
-  imports = [
-    ./git
-    ./tmux
-    ./vim
-    ./zsh
-    ./firefox
-  ];
+{ config, pkgs, lib, ... }: {
+
+  imports = [ ./git ./tmux ./vim ./zsh ./firefox ];
 }
