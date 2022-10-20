@@ -144,7 +144,8 @@ focus_app < f   : yabai -m query --windows | jq '. | map(select(.app | startswit
 focus_app < c   : yabai -m query --windows | jq '. | map(select(.app | startswith("Chromium"))) | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
 focus_app < s   : yabai -m query --windows | jq '. | map(select(.app | startswith("Safari")))   | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
 focus_app < k   : yabai -m query --windows | jq '. | map(select(.app | startswith("kitty")))    | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
-focus_app < m   : yabai -m query --windows | jq '. | map(select(.app | startswith("Spotify")))  | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < m   : yabai -m query --windows | jq '. | map(select(.app | startswith("Messages")))  | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
+focus_app < y   : yabai -m query --windows | jq '. | map(select(.app | startswith("Spotify")))  | .[0].id' | xargs -n 1 yabai -m window --focus ; skhd -k 'escape'
 
 # focus windows
 focus_window < h    : yabai -m window --focus west    ; skhd -k 'escape'

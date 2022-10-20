@@ -1,4 +1,5 @@
 async function set_addons_as_active() {
+
     Components.utils.import("resource://gre/modules/addons/XPIDatabase.jsm");
     Components.utils.import("resource://gre/modules/AddonManager.jsm");
     let addons = await XPIDatabase.getAddonList(a => true);
@@ -15,12 +16,6 @@ async function set_addons_as_active() {
         AddonManagerPrivate.callAddonListeners("onPropertyChanged",
                                                 addon.wrapper,
                                                 ["signedState"]);
-        addon.active = true;
-        AddonManagerPrivate.callAddonListeners("onPropertyChanged",
-                                                addon.wrapper,
-                                                ["active"]);
-        await XPIDatabase.updateAddonDisabledState(addon);
-    }
     XPIDatabase.saveChanges();
 }
 
