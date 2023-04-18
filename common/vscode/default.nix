@@ -19,7 +19,7 @@ in {
       extensions = import ./extensions.nix {
         inherit config;
         inherit pkgs;
-        installClosed = true;
+        installClosed = false;
       };
     };
   };

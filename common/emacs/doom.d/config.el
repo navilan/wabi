@@ -52,6 +52,7 @@
 (after! org
         (org-babel-do-load-languages 'org-babel-load-languages
                                 '((jq . t)))
+        (setq org-agenda-files '("~/org" "~/work"))
   )
 
 (use-package! exec-path-from-shell
@@ -68,6 +69,10 @@
 (require 'epa-file)
 (custom-set-variables '(epg-gpg-program "/etc/profiles/per-user/${USER}/bin/gpg2"))
 (epa-file-enable)
+
+;; mastodon
+(setq mastodon-instance-url "https://mastodon.social"
+      mastodon-active-user "navilan")
 
 
 

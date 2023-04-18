@@ -1,4 +1,4 @@
 { inputs, config, pkgs, lib, ... }: {
-  imports = [ ./kitty ./emacs ./vscodium ./qutebrowser ];
+  imports = [ ./kitty ./emacs ./vscode ./qutebrowser ];
 
 }

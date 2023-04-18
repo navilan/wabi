@@ -129,6 +129,21 @@ in {
       # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/networking/browsers/firefox/wrapper.nix
     else
       pkgs.firefox-wayland.override {
+        extraPolicies = {
+          DisableFirefoxStudies = true;
+          DisablePocket = true;
+          DisableTelemetry = true;
+          DisableFirefoxAccounts = true;
+          FirefoxHome = {
+            Pocket = false;
+            Snippets = false;
+          };
+          OfferToSaveLogins = false;
+          UserMessaging = {
+            SkipOnboarding = true;
+            ExtensionRecommendations = false;
+          };
+        };
         cfg = {
           # Gnome shell native connector
           enableGnomeExtensions =
@@ -137,31 +152,30 @@ in {
           enableTridactylNative = true;
         };
       };
-    extensions = with firefox-addons; [
-      browserpass
-      bukubrow
-      bypass-paywalls-clean
-      copy-selection-as-markdown
-      darkreader
-      df-youtube
-      display-_anchors
-      edit-with-emacs
-      multi-account-containers
-      org-capture
-      single-file
-      stylus
-      temporary-containers
-      tridactyl
-      ublock-origin
-      unpaywall
-      extra.downthemall
-      extra.svelte-devtools
-
-    ];
 
     profiles.wabi = {
       id = 0;
 
+      extensions = with firefox-addons; [
+        browserpass
+        bukubrow
+        copy-selection-as-markdown
+        darkreader
+        df-youtube
+        display-_anchors
+        multi-account-containers
+        org-capture
+        single-file
+        stylus
+        temporary-containers
+        tridactyl
+        ublock-origin
+        unpaywall
+        extra.downthemall
+        extra.svelte-devtools
+        i-dont-care-about-cookies
+        leechblock-ng
+      ];
       settings = defaultSettings;
 
       userChrome = ''

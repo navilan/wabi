@@ -13,6 +13,7 @@
     gitAndTools.delta
     wget
     curl
+    cloc
     thefuck
     sshfs
     gh
@@ -29,6 +30,8 @@
     neofetch
     rename
     pinentry-emacs
+    jless
+    gdal
 
     coreutils-full
     gnutar

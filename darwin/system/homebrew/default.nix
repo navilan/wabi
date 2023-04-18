@@ -7,6 +7,7 @@
       cleanup = "zap"; # "zap" removes manually installed brews and casks
     };
     brews = [
+      "qmk"
       "libomp" # OpenMP
       "libusb"
       "qemu"
@@ -15,6 +16,9 @@
       "svim"
       "yabai" # tiling window manager
       "detox"
+      "poetry"
+      "stripe/stripe-cli/stripe"
+      "telnet"
     ];
     casks = [
       "adobe-creative-cloud"
@@ -22,10 +26,10 @@
       "alfred"
       "firefox"
       "chromium"
+      "vivaldi"
       "jetbrains-toolbox"
       "kensingtonworks"
       "macfuse"
-      "mactex"
       "meld"
       "microsoft-excel"
       "microsoft-word"
@@ -37,7 +41,7 @@
       "zoom"
       "qutebrowser"
       "spotify"
-
+      "obs"
     ];
     taps = [
       "cmacrae/formulae" # spacebar
@@ -50,6 +54,7 @@
       "homebrew/services"
       "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchy bar
+      "qmk/qmk"
     ];
 
     extraConfig = ''
@@ -59,6 +64,7 @@
       Vimari = 1480933944;
       AdGuard = 1440147259;
       Tamperish = 1516885392;
+      IcoonFly = 556381974;
     };
   };
 }

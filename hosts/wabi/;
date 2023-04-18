@@ -10,9 +10,15 @@
   {
     name = "wally";
     version = "v2.0.0";
-    url =
-      "https://github.com/zsa/wally/releases/download/2.1.0-osx/wally-osx-2.1.0.dmg";
+    url = "https://github.com/zsa/wally/releases/download/2.1.0-osx/wally-osx-2.1.0.dmg";
     location = "Wally";
+    sha256 = "sha256-I/J3B0SAC6KvLzPKopfGYhpmEMSZmtDTz3ZzpQYMKkQ=";
+  }
+  {
+    name = "mmhmm";
+    version = "v2.0.0";
+    url = "https://updates.mmhmm.app/mac/hybrid/beta/mmhmm.pkg";
+    location = "mmhmm";
     sha256 = "sha256-I/J3B0SAC6KvLzPKopfGYhpmEMSZmtDTz3ZzpQYMKkQ=";
   }
 ]

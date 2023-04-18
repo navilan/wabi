@@ -114,9 +114,6 @@
       # overrides
       cat = "bat";
       ssh = "TERM=screen ssh";
-      python = "python3";
-      pip = "python3 -m pip";
-      venv = "python3 -m venv";
       j = "z";
 
       # utilities

@@ -2,7 +2,7 @@
 let commonPkgs = import ../../common/packages.nix { inherit pkgs; };
 in {
   imports =
-    [ ../../common ../../common/kitty ../../common/vscode ../../common/emacs ];
+    [ ../../common ../../common/kitty ./common/vscode ../../common/emacs ];
 
   home = {
     stateVersion = "22.05";

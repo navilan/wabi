@@ -168,6 +168,18 @@
     version = "2.0.2";
   }
   {
+    name = "python";
+    publisher = "ms-python";
+    sha256 = "sha256-QCMFa4gIEZe9LI3LT47I+Qi29LTI2umXSirnLctpqXI=";
+    version = "2023.7.11011538";
+  }
+  {
+    name = "vscode-pylance";
+    publisher = "ms-python";
+    sha256 = "sha256-s7SMvSoe4BHGZlS9Q4eLvLTAzC60merP2CoVu2zgK/g=";
+    version = "2023.4.21";
+  }
+  {
     name = "vscode-python-typehint";
     publisher = "njqdev";
     sha256 = "Iwp/1Lze7g0atBQfH/pSxdKyHvpYaJhR2ahhXopUKxM=";
@@ -202,5 +214,17 @@
     publisher = "hilleer";
     sha256 = "sha256-IQgxDeFP6p8SPfruRmUQJoXpEEOWBmQhONWYok5sL1U=";
     version = "1.11.0";
+  }
+  {
+    name = "astro-vscode";
+    publisher = "astro-build";
+    sha256 = "sha256-fMeEeYCZuORhZRds0A8HjHPncK0+SQbV0+f/zU5AIg4=";
+    version = "0.29.1";
+  }
+  {
+    name = "copilot";
+    publisher = "Github";
+    sha256 = "sha256-v4/A7/sJ1Sa71s+nTsNXVDroSxvTt9oOGT/2I1B0z9k=";
+    version = "1.82.15";
   }
 ]

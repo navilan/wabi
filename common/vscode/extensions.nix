@@ -53,6 +53,10 @@
   bradlc.vscode-tailwindcss
   dbaeumer.vscode-eslint
   esbenp.prettier-vscode
+  kamikillerto.vscode-colorize
+
+  #
+  #
 
 ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
 (import ./marketplace-exts.nix)

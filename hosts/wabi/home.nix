@@ -3,11 +3,13 @@ let
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
     swiProlog
+    flavours
 
     jdk11
-    python39
+    python3
 
     rustup
+    azure-cli
 
     nodejs
     yarn
@@ -20,6 +22,8 @@ let
     libusb1
     qrencode
     kitty
+    wrangler
+    toot
 
     (callPackage ../../common/wally-cli { })
 
@@ -57,14 +61,12 @@ in {
     zoxide.enable = true;
     jq.enable = true;
 
-    browserpass =  {
+    browserpass = {
       enable = true;
       browsers = [ "firefox" "chromium" ];
     };
 
-    password-store = {
-      enable = true;
-    };
+    password-store = { enable = true; };
 
     lsd = {
       enable = true;

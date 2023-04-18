@@ -1,13 +1,14 @@
-{ config, pkgs, lib, ... }: 
+{ config, pkgs, lib, ... }:
 let
   p = import ../../lib/platforms.nix { inherit config pkgs; };
   configPath = p.whenDarwinOrElse "Library/Application Support" ".config";
-in
-{
+in {
 
   home = {
     file = {
-      "${configPath}/VSCodium/User/settings.json" = { source = ../vscode/settings.json; };
+      "${configPath}/VSCodium/User/settings.json" = {
+        source = ../vscode/settings.json;
+      };
       "${configPath}/VSCodium/User/keybindings.json" = {
         source = ../vscode/keybindings.json;
       };

@@ -12,8 +12,8 @@ Use ~requireFile~ for now.
 ** HOLD Evil + vterm
 ** HOLD Remove homebrew dependency
 ** TODO Firefox
-- [ ] Cleanup extensions
-- [ ] Better Tabs
+- [x] Cleanup extensions
+- [x] Better Tabs
 ** WAIT Hide title bar in apps
  - [x] Kitty: https://github.com/typkrft/Dots/blob/b8d51c3cb1c12b358fb4e7a032a79634abf40a66/kitty/kitty.conf#L25
  - [x] Emacs: (add-to-list 'default-frame-alist '(undecorated . t))
@@ -30,7 +30,7 @@ Use ~requireFile~ for now.
     - Passwords
     - Form filling
 * Features
-** TODO Integrate Pass
+** DONE Integrate Pass
 ** TODO Mbsync + MU + MU4E
 ** TODO Catapucchin everywhere
 ** DONE Sketchy Bar

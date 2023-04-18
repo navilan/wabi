@@ -47,6 +47,7 @@ command discardall jsb browser.tabs.query({}).then(ts => browser.tabs.discard(ts
 " Misc settings
 "
 
+set modeindicator false
 set newtab https://web.tabliss.io/
 
 " Hinting mode
@@ -74,9 +75,19 @@ blacklistadd https://mail.google.com/mail
 " Mosquito nets won't make themselves
 autocmd DocStart ^http(s?)://www.amazon.com js tri.excmds.urlmodify("-t", "www", "smile")
 
-" Isolate Facebook in its own container
-" set auconcreatecontainer true
-" autocontain facebook\.com facebook
+set auconcreatecontainer true
+autocontain facebook\.com facebook
+autocontain godaddy\.com godaddy
+autocontain twitter\.com twitter
+autocontain runbox\.com runbox
+autocontain zoho\.com zoho
+autocontain namecheap\.com nc
+autocontain axisbank\.com axis
+autocontain icicibank.com icici
+autocontain amazon.in amazon
+autocontain cloudflare.com amazon
+autocontain cloudflare.com cloudflare
+autocontain github.com github
 
 " Load my preferred color scheme.
 colors base16-tokyo-night
