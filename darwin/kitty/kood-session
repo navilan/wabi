@@ -1,0 +1,4 @@
+launch --title yabai --cwd "~/wabi" sh -c ls
+launch --title kood-service --cwd "~/work/kood/code/koodpad" sh -c ls
+launch --title kood-app --cwd "~/work/kood/code/koodpad" sh -c ls
+launch --title kood-web --cwd "~/work/kood/code/koodpad" sh -c ls

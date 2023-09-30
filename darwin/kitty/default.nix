@@ -1,10 +1,8 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+
+let p = import ../../lib/platforms.nix { inherit config pkgs; };
+in {
   home.file = {
-    ".config/kitty/session-kood" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./session-kood;
-    };
-    ".config/kitty/session-yabai" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./session-yabai;
-    };
+    ".config/kitty/kood" = { source = p.mkSource ./kood-session; };
   };
 }

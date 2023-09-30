@@ -1,3 +1,0 @@
-new_os_window
-cd ~/wabi
-launch tmuxp load .tmuxp.yaml
