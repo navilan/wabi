@@ -52,7 +52,7 @@ yabai -m config window_shadow               float
 # render all unfocus windows with 90% opacity
 yabai -m config window_opacity on
 yabai -m config active_window_opacity       1.00
-yabai -m config normal_window_opacity       0.70
+yabai -m config normal_window_opacity       0.95
 # borders
 yabai -m config window_border               on
 yabai -m config window_border_width         4
@@ -66,13 +66,19 @@ yabai -m config external_bar all:40:0
 # WINDOW RULES
 #
 #
+yabai -m rule --add app="Mail"                 space=s1
 yabai -m rule --add app="Emacs"                space=s1
 yabai -m rule --add app="Code"                 space=s2
+yabai -m rule --add app="Visual Studio Code"   space=s2
 yabai -m rule --add app="VSCodium"             space=s2
 yabai -m rule --add app="Adobe Illustrator"    space=s3
+yabai -m rule --add app="Keynote"              space=s3
 yabai -m rule --add app="DataGrip"             space=s3
+yabai -m rule --add app="Rive"                 space=s3
 yabai -m rule --add app="Firefox"              space=s4
 yabai -m rule --add app="Chromium"             space=s5
+yabai -m rule --add app="Chrome"               space=s5
+yabai -m rule --add app="Google Chrome"        space=s5
 yabai -m rule --add app="Vivaldi"              space=s5
 yabai -m rule --add app="Safari"               space=s6
 yabai -m rule --add app="kitty"                space=s7
@@ -82,6 +88,7 @@ yabai -m rule --add app="Messages"             space=s9
 # Floats
 yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="The Unarchiver" manage=off
 yabai -m rule --add app="Calculator" manage=off
 yabai -m rule --add app="Alfred Preferences" manage=off
@@ -106,8 +113,8 @@ yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 
 
-yabai -m signal --add event=display_added action="~/.bin/load-layout.sh && ~/.bin/spacer.sh"
-yabai -m signal --add event=display_removed action="~/.bin/load-layout.sh && ~/.bin/spacer.sh"
+# yabai -m signal --add event=display_added action="~/.bin/load-layout.sh && ~/.bin/spacer.sh"
+# yabai -m signal --add event=display_removed action="~/.bin/load-layout.sh && ~/.bin/spacer.sh"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 
 yabai -m signal --add event=window_title_changed action="~/.bin/skhd_yabai.sh highlight_default"
@@ -118,8 +125,8 @@ yabai -m signal --add event=window_destroyed action="~/.bin/skhd_yabai.sh highli
 
 
 # Update spaces if needed
-sh "$HOME/.bin/spacer.sh"
-sh "$HOME/.bin/wp.sh"
+# sh "$HOME/.bin/spacer.sh"
+# sh "$HOME/.bin/wp.sh"
 
 
 echo "yabai configuration loaded.."

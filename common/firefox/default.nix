@@ -168,7 +168,7 @@ in {
         single-file
         stylus
         temporary-containers
-        tridactyl
+        # tridactyl
         ublock-origin
         unpaywall
         extra.downthemall

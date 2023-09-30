@@ -7,10 +7,10 @@
       cleanup = "zap"; # "zap" removes manually installed brews and casks
     };
     brews = [
-      "qmk"
+      # "qmk"
       "libomp" # OpenMP
       "libusb"
-      "qemu"
+      # "qemu"
       "skhd" # keybinding manager
       "sketchybar"
       "svim"
@@ -19,6 +19,9 @@
       "poetry"
       "stripe/stripe-cli/stripe"
       "telnet"
+      "wrangler"
+      "azure-cli"
+      "azure-functions-core-tools@4"
     ];
     casks = [
       "adobe-creative-cloud"
@@ -39,6 +42,7 @@
       "utm"
       "vlc"
       "zoom"
+      "slack"
       "qutebrowser"
       "spotify"
       "obs"
@@ -55,6 +59,7 @@
       "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchy bar
       "qmk/qmk"
+      "azure/functions"
     ];
 
     extraConfig = ''

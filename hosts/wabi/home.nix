@@ -9,7 +9,6 @@ let
     python3
 
     rustup
-    azure-cli
 
     nodejs
     yarn
@@ -22,7 +21,6 @@ let
     libusb1
     qrencode
     kitty
-    wrangler
     toot
 
     (callPackage ../../common/wally-cli { })

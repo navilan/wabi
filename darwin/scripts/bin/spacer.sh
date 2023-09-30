@@ -32,9 +32,9 @@ yabai -m space 8  --label s8
 yabai -m space 9  --label s9
 
 
-yabai -m space 1  --layout bsp
-yabai -m space 2  --layout bsp
-yabai -m space 3  --layout bsp
+yabai -m space 1  --layout stack
+yabai -m space 2  --layout stack
+yabai -m space 3  --layout stack
 yabai -m space 4  --layout bsp
 yabai -m space 5  --layout bsp
 yabai -m space 6  --layout bsp
