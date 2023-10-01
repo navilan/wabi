@@ -38,7 +38,7 @@ yabai -m space 3  --layout stack
 yabai -m space 4  --layout bsp
 yabai -m space 5  --layout bsp
 yabai -m space 6  --layout bsp
-yabai -m space 7  --layout bsp
+yabai -m space 7  --layout stack
 yabai -m space 8  --layout bsp
 yabai -m space 9  --layout bsp
 # Unused right now

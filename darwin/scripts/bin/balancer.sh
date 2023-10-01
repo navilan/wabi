@@ -70,19 +70,20 @@ for label in "${!label_to_display[@]}"; do
   display=${label_to_display[$label]}
 
 
+  echo "Trying to focus on space $label and moving it to display $display"
+
   yabai -m space --focus $label &> /dev/null
   yabai -m space --focus $label &> /dev/null
   yabai -m space --focus $label &> /dev/null
 
 
-  # echo "Trying to focus on space $label and moving it to display $display"
 
   yabai -m query --spaces | jq -e --arg lbl "$label" --arg d "$display" '.[] | select(."has-focus" == true) | .label == $lbl and .display != $d' > /dev/null
 
   # If jq returns true (both conditions met), execute the yabai commands
   if [ $? -eq 0 ]; then
-    # echo "Focusing on space $label and moving it to display $display"
-    yabai -m space --display $display &> /dev/null
+    echo "Focusing on space $label and moving it to display $display"
+    yabai -m space --focus $label &> /dev/null ; yabai -m space --display $display &> /dev/null
   fi
 
 
