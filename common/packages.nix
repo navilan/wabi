@@ -32,7 +32,7 @@
     pinentry-emacs
     jless
     gdal
-
+    php
     coreutils-full
     gnutar
     gnused

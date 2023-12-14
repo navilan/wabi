@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "PragmataPro Mono Liga, Dank Mono, Menlo, Courier New, monospace",
+  "editor.fontFamily": "Monaspace Krypton, PragmataPro Mono Liga, Dank Mono, Menlo, Courier New, monospace",
   "editor.fontSize": 16,
   "editor.minimap.enabled": false,
   "workbench.activityBar.visible": false,
@@ -26,11 +26,11 @@
     "titleBar.activeBackground": "#242631",
     "sideBar.background": "#242631"
   },
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontSize": 20,
-  "terminal.integrated.fontFamily": "PragmataPro Mono Liga, Dank Mono, monospace",
-  "workbench.sideBar.location": "left",
+  "terminal.integrated.fontFamily": "Monaspace Krypton, PragmataPro Mono Liga, Dank Mono, monospace",
+  "workbench.sideBar.location": "right",
   "eslint.codeActionsOnSave.mode": "problems",
   "eslint.alwaysShowStatus": true,
   "eslint.lintTask.enable": true,
