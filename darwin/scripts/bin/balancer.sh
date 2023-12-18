@@ -14,8 +14,8 @@ if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d1; D4=$d1; D5=$d1; echo "Balancing
 if [ "$ND" -eq 4 ]; then D1=$d1; D2=$d2; D3=$d3; D4=$d4; D5=$d4; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
 
 
-echo "$d1, $d2, $d3, $d4, $d5"
-echo "$D1, $D2, $D3, $D4, $D5"
+echo "$d1, $d2, $d3, $d4, $d5", $ND
+echo "$D1, $D2, $D3, $D4, $D5", $ND
 
 # yabai -m space --focus s10 && yabai -m space --display $D3 # Unused
 # echo "Moving space s9"
