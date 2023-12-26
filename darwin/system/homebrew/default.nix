@@ -46,6 +46,7 @@
       "qutebrowser"
       "spotify"
       "obs"
+      "visual-studio-code-insiders"
     ];
     taps = [
       "cmacrae/formulae" # spacebar
