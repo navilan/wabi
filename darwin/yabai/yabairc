@@ -70,6 +70,7 @@ yabai -m rule --add app="Mail"                 space=s1
 yabai -m rule --add app="Emacs"                space=s1
 yabai -m rule --add app="Code"                 space=s2
 yabai -m rule --add app="Visual Studio Code"   space=s2
+yabai -m rule --add app="Visual Studio Code - Insiders"   space=s2
 yabai -m rule --add app="VSCodium"             space=s2
 yabai -m rule --add app="Adobe Illustrator"    space=s3
 yabai -m rule --add app="Keynote"              space=s3
