@@ -132,3 +132,4 @@ yabai -m signal --add event=window_destroyed action="~/.bin/skhd_yabai.sh highli
 
 echo "yabai configuration loaded.."
 
+# https://whereby.com/teensdream-plasticshub
