@@ -49,13 +49,12 @@
       "visual-studio-code-insiders"
     ];
     taps = [
+      "osx-cross/avr"
       "cmacrae/formulae" # spacebar
       "d12frosted/emacs-plus"
       "homebrew/bundle"
-      "homebrew/cask"
       "homebrew/cask-drivers"
       "homebrew/cask-versions"
-      "homebrew/core"
       "homebrew/services"
       "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchy bar
