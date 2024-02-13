@@ -10,7 +10,7 @@ let
 
     rustup
 
-    nodejs_20
+    nodejs
     yarn
 
     portaudio
