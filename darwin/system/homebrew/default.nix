@@ -31,7 +31,6 @@
       "chromium"
       "vivaldi"
       "jetbrains-toolbox"
-      "kensingtonworks"
       "macfuse"
       "meld"
       "microsoft-excel"
