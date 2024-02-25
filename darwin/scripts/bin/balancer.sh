@@ -59,12 +59,12 @@ declare -A label_to_display
 label_to_display["s1"]="$D2"
 label_to_display["s2"]="$D2"
 label_to_display["s3"]="$D2"
-label_to_display["s4"]="$D1"
-label_to_display["s5"]="$D1"
-label_to_display["s6"]="$D1"
-label_to_display["s7"]="$D3"
-label_to_display["s8"]="$D4"
-label_to_display["s9"]="$D1"
+label_to_display["s4"]="$D3"
+label_to_display["s5"]="$D3"
+label_to_display["s6"]="$D3"
+label_to_display["s7"]="$D1"
+label_to_display["s8"]="$D1"
+label_to_display["s9"]="$D3"
 
 # Loop through the labels
 for label in "${!label_to_display[@]}"; do
