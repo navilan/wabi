@@ -72,7 +72,7 @@ yabai -m rule --add app="Code"                 space=s2
 yabai -m rule --add app="Visual Studio Code"   space=s2
 yabai -m rule --add app="Visual Studio Code - Insiders"   space=s2
 yabai -m rule --add app="Rider"                space=s3
-yabai -m rule --add app="Unity"                space=s4
+yabai -m rule --add app="Unity"                space=s9
 yabai -m rule --add app="VSCodium"             space=s2
 yabai -m rule --add app="Adobe Illustrator"    space=s3
 yabai -m rule --add app="Keynote"              space=s3
@@ -87,10 +87,10 @@ yabai -m rule --add app="Safari"               space=s6
 yabai -m rule --add app="kitty"                space=s7
 yabai -m rule --add app="Terminal"             space=s7
 yabai -m rule --add app="Spotify"              space=s8
-yabai -m rule --add app="Messages"             space=s9
 
 # Floats
 yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="System Preferences" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="The Unarchiver" manage=off

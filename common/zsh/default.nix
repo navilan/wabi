@@ -88,6 +88,10 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
+      DOTNET_ROOT="/usr/local/share/dotnet"
+      DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT='1'
+      PATH="/usr/local/share/dotnet:$HOME/.dotnet/tools:$PATH"
+
       # direnv
       eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
     '';

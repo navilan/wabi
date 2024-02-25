@@ -22,7 +22,6 @@
       "wrangler"
       "azure-cli"
       "azure-functions-core-tools@4"
-      "dotnet"
     ];
     casks = [
       "adobe-creative-cloud"

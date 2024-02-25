@@ -40,7 +40,12 @@ in {
     stateVersion = "22.05";
 
     packages = commonPkgs.packages ++ wabiPkgs;
-    sessionPath = [ "$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];
+    sessionPath = [
+      "$HOME/go/bin"
+      "$HOME/.local/bin"
+      "$HOME/.cargo/bin"
+      "$HOME/.ddotnet/tools"
+    ];
     sessionVariables = {
       TERMINFO_DIRS =
         "${pkgs.kitty.terminfo.outPath}/share/terminfo:$TERMINFO_DIRS";

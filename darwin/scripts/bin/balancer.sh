@@ -64,7 +64,7 @@ label_to_display["s5"]="$D1"
 label_to_display["s6"]="$D1"
 label_to_display["s7"]="$D3"
 label_to_display["s8"]="$D4"
-label_to_display["s9"]="$D5"
+label_to_display["s9"]="$D1"
 
 # Loop through the labels
 for label in "${!label_to_display[@]}"; do
