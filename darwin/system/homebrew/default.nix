@@ -22,6 +22,7 @@
       "wrangler"
       "azure-cli"
       "azure-functions-core-tools@4"
+      "fastlane"
     ];
     casks = [
       "adobe-creative-cloud"
