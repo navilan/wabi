@@ -41,5 +41,6 @@
     findutils
     gawk
     starship
+    ffmpeg
   ];
 }

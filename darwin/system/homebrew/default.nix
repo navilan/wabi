@@ -49,6 +49,7 @@
       "visual-studio-code-insiders"
     ];
     taps = [
+      "homebrew/cask"
       "osx-cross/avr"
       "cmacrae/formulae" # spacebar
       "d12frosted/emacs-plus"
