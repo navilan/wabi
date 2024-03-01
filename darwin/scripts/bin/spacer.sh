@@ -33,16 +33,16 @@ yabai -m space 9  --label s9
 yabai -m space 10  --label s0
 
 
-yabai -m space 1  --layout stack
-yabai -m space 2  --layout stack
-yabai -m space 3  --layout stack
-yabai -m space 4  --layout bsp
-yabai -m space 5  --layout bsp
-yabai -m space 6  --layout stack
-yabai -m space 7  --layout bsp
-yabai -m space 8  --layout bsp
-yabai -m space 9  --layout bsp
-yabai -m space 10  --layout bsp
+yabai -m space s1  --layout stack
+yabai -m space s2  --layout stack
+yabai -m space s3  --layout stack
+yabai -m space s4  --layout bsp
+yabai -m space s5  --layout bsp
+yabai -m space s6  --layout stack
+yabai -m space s7  --layout bsp
+yabai -m space s8  --layout bsp
+yabai -m space s9  --layout bsp
+yabai -m space s0  --layout bsp
 # Unused right now
 # yabai -m space 10  --label s10
 
