@@ -3,7 +3,7 @@
 # Balance spaces
 ND=$(yabai -m query --displays | jq 'length')
 # yabai create spaces
-NUM_SPACES=9
+NUM_SPACES=10
 SS=$(yabai -m query --spaces | jq 'length')
 NS=$(("$NUM_SPACES"-"$SS"))
 echo "Spaces $SS difference $NS"
