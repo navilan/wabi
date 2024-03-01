@@ -9,7 +9,9 @@ d4=$(sh $CDIR/display-index.sh 3)
 
 if [ "$ND" -eq 1 ]; then D1=$d1; D2=$d1; D3=$d1; D4=$d1; D5=$d1; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
 if [ "$ND" -eq 2 ]; then D1=$d1; D2=$d2; D3=$d1; D4=$d1; D5=$d2; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
-if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d1; D4=$d1; D5=$d1; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
+# Mac to the left
+# if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d1; D4=$d1; D5=$d1; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
+if [ "$ND" -eq 3 ]; then D1=$d1; D2=$d2; D3=$d3; D4=$d3; D5=$d3; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
 # iPad on the right
 if [ "$ND" -eq 4 ]; then D1=$d1; D2=$d2; D3=$d3; D4=$d4; D5=$d4; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
 
