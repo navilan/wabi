@@ -78,6 +78,7 @@ yabai -m rule --add app="Rider"                space=s2
 
 yabai -m rule --add app="Keynote"              space=s3
 yabai -m rule --add app="Unity"                space=s3
+yabai -m rule --add app="Xcode"                space=s3
 yabai -m rule --add app="Rive"                 space=s3
 
 
