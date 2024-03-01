@@ -83,20 +83,19 @@ yabai -m rule --add app="Rive"                 space=s3
 
 
 yabai -m rule --add app="Google Chrome"        space=s4
+yabai -m rule --add app="Vivaldi"              space=s4
 yabai -m rule --add app="Chromium"             space=s4
 yabai -m rule --add app="Chrome"               space=s4
 
 yabai -m rule --add app="Firefox"              space=s5
+yabai -m rule --add app="Safari"               space=s5
 
 yabai -m rule --add app="Adobe Illustrator"    space=s6
 yabai -m rule --add app="DataGrip"             space=s6
-yabai -m rule --add app="kitty"                space=s6
-yabai -m rule --add app="Terminal"             space=s6
 
+yabai -m rule --add app="kitty"                space=s7
+yabai -m rule --add app="Terminal"             space=s7
 yabai -m rule --add app="Spotify"              space=s8
-
-yabai -m rule --add app="Vivaldi"              space=s9
-yabai -m rule --add app="Safari"               space=s10
 
 # Floats
 yabai -m rule --add app="Finder" manage=off
