@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-SPACE_ICONS=(_ 1 2 3 4 5 6 7 8 9)
+SPACE_ICONS=(_ 1 2 3 4 5 6 7 8 9 0)
 
-sid=9
+sid=10
 while [ $sid -gt 0 ]
 do
   sketchybar --add space      space.$sid right                                \
