@@ -15,7 +15,7 @@
       "sketchybar"
       "svim"
       "yabai" # tiling window manager
-      "detox"
+      # "detox"
       "poetry"
       "stripe/stripe-cli/stripe"
       "telnet"
@@ -49,7 +49,7 @@
       "visual-studio-code-insiders"
     ];
     taps = [
-      "homebrew/cask"
+      # "homebrew/cask"
       # "osx-cross/avr"
       "cmacrae/formulae" # spacebar
       "d12frosted/emacs-plus"
