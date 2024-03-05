@@ -8,8 +8,8 @@
     };
     brews = [
       # "qmk"
-      "libomp" # OpenMP
-      "libusb"
+      # "libomp" # OpenMP
+      # "libusb"
       # "qemu"
       "skhd" # keybinding manager
       "sketchybar"
@@ -39,7 +39,7 @@
       "the-unarchiver"
       "tunnelblick"
       "unity-hub"
-      "utm"
+      # "utm"
       "vlc"
       "zoom"
       "slack"
