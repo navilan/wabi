@@ -50,7 +50,7 @@
     ];
     taps = [
       "homebrew/cask"
-      "osx-cross/avr"
+      # "osx-cross/avr"
       "cmacrae/formulae" # spacebar
       "d12frosted/emacs-plus"
       "homebrew/bundle"
@@ -59,7 +59,7 @@
       "homebrew/services"
       "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchy bar
-      "qmk/qmk"
+      # "qmk/qmk"
       "azure/functions"
     ];
 
