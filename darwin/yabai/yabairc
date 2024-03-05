@@ -75,32 +75,36 @@ yabai -m rule --add app="Visual Studio Code"   space=s2
 yabai -m rule --add app="Visual Studio Code - Insiders"   space=s2
 yabai -m rule --add app="Rider"                space=s2
 
-
-yabai -m rule --add app="Keynote"              space=s3
-yabai -m rule --add app="Unity"                space=s3
-yabai -m rule --add app="Xcode"                space=s3
-yabai -m rule --add app="Rive"                 space=s3
+yabai -m rule --add app="Firefox"              space=s3
 
 
+yabai -m rule --add app="Adobe Illustrator"    space=s4
+yabai -m rule --add app="DataGrip"             space=s4
 
-yabai -m rule --add app="Google Chrome"        space=s4
-yabai -m rule --add app="Chrome"               space=s4
+yabai -m rule --add app="Vivaldi"              space=s5
 
-yabai -m rule --add app="Firefox"              space=s5
+yabai -m rule --add app="Keynote"              space=s6
+yabai -m rule --add app="Unity"                space=s6
+yabai -m rule --add app="Xcode"                space=s6
+yabai -m rule --add app="Rive"                 space=s6
 
-yabai -m rule --add app="Adobe Illustrator"    space=s6
-yabai -m rule --add app="DataGrip"             space=s6
 
 
-yabai -m rule --add app="Chromium"             space=s7
-yabai -m rule --add app="Safari"               space=s7
+yabai -m rule --add app="Google Chrome"        space=s7
+yabai -m rule --add app="Chrome"               space=s7
 
-yabai -m rule --add app="Spotify"              space=s8
 
-yabai -m rule --add app="Vivaldi"              space=s9
 
-yabai -m rule --add app="kitty"                space=s10
-yabai -m rule --add app="Terminal"             space=s10
+
+yabai -m rule --add app="Chromium"             space=s8
+yabai -m rule --add app="Safari"               space=s8
+
+yabai -m rule --add app="kitty"                space=s9
+yabai -m rule --add app="Terminal"             space=s9
+
+yabai -m rule --add app="Spotify"              space=s10
+
+
 
 # Floats
 yabai -m rule --add app="Finder" manage=off
