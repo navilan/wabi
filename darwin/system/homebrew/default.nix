@@ -39,6 +39,7 @@
       "the-unarchiver"
       "tunnelblick"
       "unity-hub"
+      "android-studio"
       # "utm"
       "vlc"
       "zoom"
