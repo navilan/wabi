@@ -23,6 +23,7 @@
       "azure-cli"
       "azure-functions-core-tools@4"
       "fastlane"
+      "nvm"
     ];
     casks = [
       "adobe-creative-cloud"

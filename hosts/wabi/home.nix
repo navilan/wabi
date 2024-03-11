@@ -11,7 +11,6 @@ let
     rustup
 
     nodejs
-    nvm
     yarn
 
     portaudio
