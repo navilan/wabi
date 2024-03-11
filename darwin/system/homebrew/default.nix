@@ -24,6 +24,7 @@
       "azure-functions-core-tools@4"
       "fastlane"
       "nvm"
+      "cocoapods"
     ];
     casks = [
       "adobe-creative-cloud"
