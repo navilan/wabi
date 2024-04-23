@@ -7,7 +7,7 @@
       cleanup = "zap"; # "zap" removes manually installed brews and casks
     };
     brews = [
-      # "qmk"
+      "qmk"
       # "libomp" # OpenMP
       # "libusb"
       # "qemu"
@@ -28,6 +28,7 @@
     ];
     casks = [
       "adobe-creative-cloud"
+      "android-platform-tools"
       "sf-symbols"
       "alfred"
       "firefox"
@@ -42,7 +43,7 @@
       "tunnelblick"
       "unity-hub"
       "android-studio"
-      # "utm"
+      "utm"
       "vlc"
       "zoom"
       "slack"
@@ -54,6 +55,7 @@
     taps = [
       # "homebrew/cask"
       # "osx-cross/avr"
+      "osx-cross/arm"
       "cmacrae/formulae" # spacebar
       "d12frosted/emacs-plus"
       "homebrew/bundle"
