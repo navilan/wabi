@@ -150,6 +150,7 @@ yabai -m signal --add event=window_destroyed action="~/.bin/skhd_yabai.sh highli
 # sh "$HOME/.bin/spacer.sh"
 # sh "$HOME/.bin/wp.sh"
 
+yabai -m rule --apply
 
 echo "yabai configuration loaded.."
 

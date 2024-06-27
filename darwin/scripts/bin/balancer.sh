@@ -63,13 +63,13 @@ label_to_display["s1"]="$D1"
 label_to_display["s2"]="$D1"
 label_to_display["s3"]="$D1"
 label_to_display["s4"]="$D1"
-label_to_display["s5"]="$D1"
 
+label_to_display["s5"]="$D2"
 label_to_display["s6"]="$D2"
 label_to_display["s7"]="$D2"
 label_to_display["s8"]="$D2"
 
-label_to_display["s9"]="$D3"
+label_to_display["s9"]="$D4"
 
 label_to_display["s10"]="$D4"
 
