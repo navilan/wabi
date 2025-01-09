@@ -22,6 +22,7 @@ let
     qrencode
     kitty
     toot
+    node2nix
 
     (callPackage ../../common/wally-cli { })
 

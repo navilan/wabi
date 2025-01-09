@@ -81,7 +81,7 @@ in {
     shell = pkgs.zsh;
   };
 
-  nix.configureBuildUsers = true;
+ # nix.configureBuildUsers = false;
 
   security.pam.enableSudoTouchIdAuth = true;
 

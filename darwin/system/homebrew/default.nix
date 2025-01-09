@@ -25,6 +25,8 @@
       "fastlane"
       "nvm"
       "cocoapods"
+      "haskell-stack"
+      "ghcup"
     ];
     casks = [
       "adobe-creative-cloud"
