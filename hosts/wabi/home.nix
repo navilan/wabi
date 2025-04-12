@@ -1,5 +1,6 @@
 { inputs, pkgs, ... }:
 let
+
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
     swiProlog
@@ -70,7 +71,6 @@ in {
       browsers = [ "firefox" "chromium" ];
     };
 
-    password-store = { enable = true; };
 
     lsd = {
       enable = true;
