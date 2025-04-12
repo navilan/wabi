@@ -16,7 +16,7 @@ in {
     vscode = {
       enable = true;
       package = pkgs.vscode;
-      extensions = import ./extensions.nix {
+      profiles.default.extensions = import ./extensions.nix {
         inherit config;
         inherit pkgs;
         installClosed = true;

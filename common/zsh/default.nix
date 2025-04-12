@@ -12,7 +12,7 @@
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     # TODO reenable when issue is fixed
     # https://github.com/NixOS/nix/issues/5445
     enableCompletion = false;

@@ -30,7 +30,7 @@ ssh ${SSH_OPTIONS} -p${NIXPORT} root@${NIXADDR} " \
     mount /dev/disk/by-label/boot /mnt/boot; \
     nixos-generate-config --root /mnt; \
     sed --in-place '/system\.stateVersion = .*/a \
-        nix.package = pkgs.nixUnstable;\n \
+        nix.package = pkgs.nixVersions.latest;\n \
         nix.extraOptions = \"experimental-features = nix-command flakes\";\n \
         services.openssh.enable = true;\n \
         services.openssh.passwordAuthentication = true;\n \

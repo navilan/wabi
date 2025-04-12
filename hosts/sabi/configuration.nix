@@ -72,9 +72,8 @@
   };
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
     settings = { allowed-users = [ "${user}" ]; };
-    # use unstable nix so we can access flakes
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs = true

@@ -3,8 +3,13 @@
 
   nixConfig.extra-experimental-features = "nix-command flakes";
   inputs = {
-    flake-utils = { url = "github:numtide/flake-utils"; };
-    nur = { url = "github:nix-community/NUR"; };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";

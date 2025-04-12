@@ -19,7 +19,7 @@
   nixpkgs.config.allowBroken = true;
 
   nix.allowedUsers = [ "${user}" ];
-  nix.package = pkgs.nixUnstable;
+  nix.package = pkgs.nixVersions.latest;
 
   users.users."${user}" = {
     home = "/Users/${user}";
@@ -32,9 +32,6 @@
     zsh.enable = true;
   };
 
-  services.nix-daemon = {
-    enable = true;
-  };
 
   networking = {
     hostName = "devc";

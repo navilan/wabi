@@ -53,7 +53,6 @@ in {
     ../../darwin/system
   ];
   environment = {
-    loginShell = pkgs.zsh;
     shells = with pkgs; [ zsh ];
     systemPackages = map buildApp fetched ++ [ pkgs.cmake ];
     variables = {
@@ -63,7 +62,7 @@ in {
   };
 
   nixpkgs.overlays = [
-    inputs.nur.overlay
+    inputs.nur.overlays.default
     (final: prev: {
       # This populates a dummy package to satisfy the requirement (From Homebrew)
       firefox-darwin = final.runCommand "firefox-0.0.0" { } "mkdir $out";
@@ -74,7 +73,7 @@ in {
   nixpkgs.config.allowBroken = true;
 
   nix.settings.allowed-users = [ "${user}" ];
-  nix.package = pkgs.nixUnstable;
+  nix.package = pkgs.nixVersions.latest;
 
   users.users."${user}" = {
     home = "/Users/${user}";
@@ -83,11 +82,10 @@ in {
 
  # nix.configureBuildUsers = false;
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   programs = { zsh.enable = true; };
 
-  services.nix-daemon = { enable = true; };
 
   networking = {
     hostName = "wabi";
@@ -95,15 +93,13 @@ in {
   };
 
   fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      # emacs-all-the-icons-fonts
-      nerdfonts
+    packages = with pkgs; [
+
       recursive
       (import ../../darwin/sketchybar/sketchybar-app-font.nix { inherit pkgs; })
-      (import ../../darwin/sketchybar/sf-symbols.nix { inherit pkgs; })
-    ];
+    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
+
 
   system.stateVersion = 4;
 }

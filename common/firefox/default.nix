@@ -126,7 +126,6 @@ in {
     enable = true;
     package = if isDarwin then
       pkgs.firefox-darwin
-      # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/networking/browsers/firefox/wrapper.nix
     else
       pkgs.firefox-wayland.override {
         extraPolicies = {
@@ -156,9 +155,8 @@ in {
     profiles.wabi = {
       id = 0;
 
-      extensions = with firefox-addons; [
+      extensions.packages = with firefox-addons; [
         browserpass
-        bukubrow
         copy-selection-as-markdown
         darkreader
         df-youtube

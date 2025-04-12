@@ -1,17 +1,13 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/master";
     };
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
-    mvt-src = {
-      url = "github:mvt-project/mvt";
-      flake = false;
-    };
   };
-  outputs = { self, nixpkgs, flake-utils, mvt-src }:
+  outputs = { self, nixpkgs, flake-utils}:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -38,33 +34,9 @@
           doCheck = false;
           propagatedBuildInputs = [ NSKeyedUnArchiver biplist pycryptodome ];
         };
-        mvt = with pythonPkgs; buildPythonPackage rec {
-          pname = "mvt";
-          version = "2.1.5";
-          src = fetchPypi {
-            inherit pname version;
-            sha256 = "sha256-kfiv5G6JXOX9Yyvcdc0zWORvKnHcmJBpfw+lnq3a7pk=";
-          };
-          buildInputs = [ flake8 ];
-          doCheck = false;
-          propagatedBuildInputs = [
-            adb-shell
-            simplejson
-            rich iOSbackup
-            requests
-            click
-            libusb1
-            pyyaml
-            appdirs
-            packaging
-            tld
-          ];
-        };
       in {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            mvt
-          ];
+          buildInputs = with pkgs; [ ];
         };
       }
     );

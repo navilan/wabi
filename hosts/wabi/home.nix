@@ -3,7 +3,7 @@ let
 
   commonPkgs = import ../../common/packages.nix { inherit pkgs; };
   wabiPkgs = with pkgs; [
-    swiProlog
+    swi-prolog
     flavours
 
     jdk11
@@ -15,7 +15,6 @@ let
     yarn
 
     portaudio
-    spotify-tui
 
     lima
     gnuplot
@@ -83,7 +82,6 @@ in {
 
     go = {
       enable = true;
-      package = pkgs.go_1_22;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ "github.com/stackitcloud" ];
