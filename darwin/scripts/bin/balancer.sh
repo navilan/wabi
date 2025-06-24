@@ -7,13 +7,21 @@ d2=$(sh $CDIR/display-index.sh 1)
 d3=$(sh $CDIR/display-index.sh 2)
 d4=$(sh $CDIR/display-index.sh 3)
 
-if [ "$ND" -eq 1 ]; then D1=$d1; D2=$d1; D3=$d1; D4=$d1; D5=$d1; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
-if [ "$ND" -eq 2 ]; then D1=$d1; D2=$d2; D3=$d1; D4=$d1; D5=$d2; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
-# Mac to the left
+if [ "$ND" -eq 1 ]; then D1=$d1; D2=$d1; D3=$d1; D4=$d1; D5=$d1;
+  echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]";
+fi
+if [ "$ND" -eq 2 ]; then D1=$d1; D2=$d2; D3=$d1; D4=$d1; D5=$d2;
+  echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]";
+fi
+# Mac to the right, no iPad
 # if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d1; D4=$d1; D5=$d1; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
-if [ "$ND" -eq 3 ]; then D1=$d1; D2=$d2; D3=$d3; D4=$d3; D5=$d3; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
-# iPad on the right
-if [ "$ND" -eq 4 ]; then D1=$d1; D2=$d2; D3=$d3; D4=$d4; D5=$d4; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
+if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d3; D4=$d1; D5=$d1;
+  echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]";
+fi
+# iPad on the left
+if [ "$ND" -eq 4 ]; then D1=$d3; D2=$d4; D3=$d2; D4=$d1; D5=$d1;
+  echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]";
+fi
 
 
 echo "$d1, $d2, $d3, $d4, $d5", $ND
@@ -59,19 +67,18 @@ echo "$D1, $D2, $D3, $D4, $D5", $ND
 
 declare -A label_to_display
 
-label_to_display["s1"]="$D1"
-label_to_display["s2"]="$D1"
-label_to_display["s3"]="$D1"
-label_to_display["s4"]="$D1"
+label_to_display["s1"]="$D1"  # Code
 
-label_to_display["s5"]="$D2"
-label_to_display["s6"]="$D2"
-label_to_display["s7"]="$D2"
-label_to_display["s8"]="$D2"
+label_to_display["s2"]="$D2"  # Safari
+label_to_display["s3"]="$D2"  # Code Companion
+label_to_display["s4"]="$D2"  # AI Companion
+label_to_display["s5"]="$D2"  # Browsers
+label_to_display["s6"]="$D2"  # Design Tools
 
-label_to_display["s9"]="$D4"
+label_to_display["s7"]="$D3"  # Code Terminal
+label_to_display["s8"]="$D3"  # General Terminal
 
-label_to_display["s10"]="$D4"
+label_to_display["s9"]="$D4"  # Mail
 
 # Loop through the labels
 for label in "${!label_to_display[@]}"; do
@@ -90,7 +97,7 @@ for label in "${!label_to_display[@]}"; do
   # If jq returns true (both conditions met), execute the yabai commands
   if [ $? -eq 0 ]; then
     echo "Focusing on space $label and moving it to display $display"
-    yabai -m space --focus $label && yabai -m space --display $display
+    yabai -m space --display $display
   fi
 
 

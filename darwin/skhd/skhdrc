@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 # Check ~/.bin/skhd_yabai.sh for Modal help
 #
 :: default         : ~/.bin/skhd_yabai.sh highlight_default

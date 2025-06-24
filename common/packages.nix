@@ -3,44 +3,45 @@
 {
   packages = with pkgs; [
     bottom
-    fd
-    ripgrep
-    zx
-    git
-    git-lfs
-    ranger
-    shellcheck
-    gitAndTools.delta
-    wget
-    curl
     cloc
-    pay-respects
-    sshfs
-    gh
-    direnv
-    graph-easy
-    duf
-    httpie
-    tmuxp
-    gnupg
-    gnutls
-    ispell
-    nixfmt
-    keychain
-    neofetch
-    rename
-    pinentry-emacs
-    jless
-    gdal
-    php
     coreutils-full
-    gnutar
-    gnused
-    gnugrep
-    gnumake
+    curl
+    direnv
+    duf
+    fd
+    ffmpeg
     findutils
     gawk
+    gdal
+    gh
+    git
+    git-lfs
+    gitAndTools.delta
+    gnugrep
+    gnumake
+    gnupg
+    gnused
+    gnutar
+    gnutls
+    graph-easy
+    httpie
+    ispell
+    jless
+    keychain
+    mirrord
+    neofetch
+    nixfmt-classic
+    pay-respects
+    php
+    pinentry-emacs
+    ranger
+    rename
+    ripgrep
+    shellcheck
+    sshfs
     starship
-    ffmpeg
+    tmuxp
+    wget
+    zx
   ];
 }

@@ -50,9 +50,9 @@ yabai -m config mouse_drop_action   swap
 # show shadows for floating windows only
 yabai -m config window_shadow               float
 # render all unfocus windows with 90% opacity
-yabai -m config window_opacity on
+yabai -m config window_opacity off
 yabai -m config active_window_opacity       1.00
-yabai -m config normal_window_opacity       0.95
+yabai -m config normal_window_opacity       0.98
 # borders
 yabai -m config window_border               on
 yabai -m config window_border_width         4
@@ -66,48 +66,59 @@ yabai -m config external_bar all:40:0
 # WINDOW RULES
 #
 #
-yabai -m rule --add app="Mail"                 space=s1
+
+
+# Code
+yabai -m rule --add app="Visual Studio Code - Insiders"   space=s1
 yabai -m rule --add app="Emacs"                space=s1
+yabai -m rule --add app="VSCodium"             space=s1
+yabai -m rule --add app="Code"                 space=s1
+yabai -m rule --add app="Visual Studio Code"   space=s1
+yabai -m rule --add app="Rider"                space=s1
+yabai -m rule --add app="Docker Desktop"       space=s1
 
-yabai -m rule --add app="VSCodium"             space=s2
-yabai -m rule --add app="Code"                 space=s2
-yabai -m rule --add app="Visual Studio Code"   space=s2
-yabai -m rule --add app="Visual Studio Code - Insiders"   space=s2
-yabai -m rule --add app="Rider"                space=s2
+# Safari
+yabai -m rule --add app="Safari"               space=s2
 
-yabai -m rule --add app="Firefox"              space=s3
+# Code Companions
+yabai -m rule --add app="Chromium"             space=s3
+
+# AI Companion
+yabai -m rule --add app="ChatGPT"              space=s4
+yabai -m rule -add  app="Claude"               space=s4
+yabai -m rule -add  app="LM Studio"            space=s4
 
 
-yabai -m rule --add app="Adobe Illustrator"    space=s4
-yabai -m rule --add app="DataGrip"             space=s4
-
+# Browsers
+yabai -m rule --add app="Firefox"              space=s5
 yabai -m rule --add app="Vivaldi"              space=s5
+yabai -m rule --add app="Google Chrome"        space=s5
+yabai -m rule --add app="Chrome"               space=s5
 
+# Design Tools
+yabai -m rule --add app="Adobe Illustrator"    space=s6
+yabai -m rule --add app="DataGrip"             space=s6
 yabai -m rule --add app="Keynote"              space=s6
 yabai -m rule --add app="Unity"                space=s6
-yabai -m rule --add app="Xcode"                space=s6
 yabai -m rule --add app="Rive"                 space=s6
+yabai -m rule --add app="Xcode"                space=s6
 
+# Terminals
+# Code Terminal
+yabai -m rule --add app="kitty"                space=s7
 
+# General Terminal
+yabai -m rule --add app="Terminal"             space=s8
 
-yabai -m rule --add app="Google Chrome"        space=s7
-yabai -m rule --add app="Chrome"               space=s7
-
-
-
-
-yabai -m rule --add app="Chromium"             space=s8
-yabai -m rule --add app="Safari"               space=s8
-
-yabai -m rule --add app="kitty"                space=s9
-yabai -m rule --add app="Terminal"             space=s9
-
-yabai -m rule --add app="Spotify"              space=s10
+# Mail
+yabai -m rule --add app="Mail"                 space=s9
 
 
 
 # Floats
 yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="Spotify" manage=off
+yabai -m rule --add app="Font Book" manage=off
 yabai -m rule --add app="Unity" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="System Preferences" manage=off

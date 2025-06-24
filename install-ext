@@ -1,4 +1,8 @@
+#!/bin/sh
+
+code-insiders --install-extension andyyaldoo.vscode-json
 code-insiders --install-extension astro-build.astro-vscode
+code-insiders --install-extension aykutsarac.jsoncrack-vscode
 code-insiders --install-extension bbenoist.nix
 code-insiders --install-extension bierner.emojisense
 code-insiders --install-extension bierner.markdown-emoji
@@ -15,6 +19,8 @@ code-insiders --install-extension dotenv.dotenv-vscode
 code-insiders --install-extension dotjoshjohnson.xml
 code-insiders --install-extension eamodio.gitlens
 code-insiders --install-extension editorconfig.editorconfig
+code-insiders --install-extension effectful-tech.effect-vscode
+code-insiders --install-extension eriklynd.json-tools
 code-insiders --install-extension esbenp.prettier-vscode
 code-insiders --install-extension fabiospampinato.vscode-optimize-images
 code-insiders --install-extension firefox-devtools.vscode-firefox-debug
@@ -23,17 +29,22 @@ code-insiders --install-extension github.copilot
 code-insiders --install-extension github.copilot-chat
 code-insiders --install-extension github.vscode-github-actions
 code-insiders --install-extension github.vscode-pull-request-github
+code-insiders --install-extension googlecloudtools
 code-insiders --install-extension graphql.vscode-graphql
 code-insiders --install-extension graphql.vscode-graphql-syntax
 code-insiders --install-extension haskell.haskell
 code-insiders --install-extension humao.rest-client
 code-insiders --install-extension jacobdufault.fuzzy-search
 code-insiders --install-extension jnoortheen.nix-ide
-code-insiders --install-extension joshuapoehls.json-escaper
 code-insiders --install-extension kahole.magit
 code-insiders --install-extension kamikillerto.vscode-colorize
-code-insiders --install-extension ms-azuretools.vscode-azureresourcegroups
-code-insiders --install-extension ms-azuretools.vscode-logicapps
+code-insiders --install-extension maaaashi.skaffold-preview
+code-insiders --install-extension mariusalchimavicius.json-to-ts
+code-insiders --install-extension maxird.jinja-fold
+code-insiders --install-extension ms-azuretools.vscode-containers
+code-insiders --install-extension ms-azuretools.vscode-docker
+code-insiders --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code-insiders --install-extension ms-ossdata.vscode-pgsql
 code-insiders --install-extension ms-python.debugpy
 code-insiders --install-extension ms-python.isort
 code-insiders --install-extension ms-python.python
@@ -45,13 +56,19 @@ code-insiders --install-extension ms-toolsai.vscode-jupyter-cell-tags
 code-insiders --install-extension ms-toolsai.vscode-jupyter-slideshow
 code-insiders --install-extension ms-vscode.atom-keybindings
 code-insiders --install-extension ms-vscode.makefile-tools
+code-insiders --install-extension ms-vscode.vscode-typescript-next
 code-insiders --install-extension naumovs.color-highlight
+code-insiders --install-extension nickdemayo.vscode-json-editor
 code-insiders --install-extension oderwat.indent-rainbow
 code-insiders --install-extension perkovec.emoji
 code-insiders --install-extension pkief.material-icon-theme
 code-insiders --install-extension pomber.git-file-history
+code-insiders --install-extension quicktype.quicktype
 code-insiders --install-extension redhat.vscode-xml
 code-insiders --install-extension redhat.vscode-yaml
+code-insiders --install-extension richie5um2.vscode-sort-json
+code-insiders --install-extension ruben-vibax.jinja-spacer
+code-insiders --install-extension samuelcolvin.jinjahtml
 code-insiders --install-extension streetsidesoftware.code-spell-checker
 code-insiders --install-extension svelte.svelte-vscode
 code-insiders --install-extension tamasfe.even-better-toml

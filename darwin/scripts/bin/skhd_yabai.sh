@@ -146,7 +146,7 @@ if which sketchybar >/dev/null; then
       sketchybar --trigger                                                                                                \
             message_changed                                                                                               \
             MSG="display(hjkl#)"                                                                                          \
-            ICON="W"                                                                                                      \
+            ICON="S"                                                                                                      \
             BGC="0xa06a6fb1" FGC=$ACTIVE_ITEM_BACKGROUND
       ;;
     highlight_swap_window)
@@ -160,7 +160,7 @@ if which sketchybar >/dev/null; then
       sketchybar --trigger                                                                                                \
             message_changed                                                                                               \
             MSG="display(hjkl#)"                                                                                          \
-            ICON="W"                                                                                                      \
+            ICON="S"                                                                                                      \
             BGC="0xa0a4aed6" FGC=$ACTIVE_ITEM_BACKGROUND
       ;;
     highlight_toggle_window)
@@ -174,7 +174,7 @@ if which sketchybar >/dev/null; then
       sketchybar --trigger                                                                                                \
             message_changed                                                                                               \
             MSG="toggleS gap(o) | balance(=) | (b)sp | (f)loat | (s)tack | (d)esktop"                                     \
-            ICON="W"                                                                                                      \
+            ICON="S"                                                                                                      \
             BGC="0xa08590c5" FGC=$ACTIVE_ITEM_BACKGROUND
       ;;
   esac

@@ -456,7 +456,7 @@ nix eval                \
     --no-update-lock-file  \
     --impure                \
     --expr "$sk"             \
-    | nixfmt                  \
+    | nixfmt-classic          \
     > marketplace-exts-sorted.nix
 
 #+END_SRC
@@ -475,7 +475,7 @@ upd=$(cat <<EOF
 EOF
 )
 
-nix eval --impure --expr  "$upd" | nixfmt > marketplace-exts-upd.nix
+nix eval --impure --expr  "$upd" | nixfmt-classic > marketplace-exts-upd.nix
 
 #+END_SRC
 

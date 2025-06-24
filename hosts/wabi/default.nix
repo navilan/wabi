@@ -19,6 +19,7 @@ in {
         home-manager.useGlobalPkgs = true;
         home-manager.extraSpecialArgs = { inherit user inputs; };
         home-manager.users.${user} = import ./home.nix;
+        home-manager.backupFileExtension = "back";
       }
     ];
   };

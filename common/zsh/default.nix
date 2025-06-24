@@ -34,16 +34,14 @@
       share = true;
     };
 
-    initExtraBeforeCompInit = ''
+    initContent = ''
       if [ -f /opt/homebrew/bin/brew ]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
       fi
       eval "$(${pkgs.starship}/bin/starship init zsh)"
       eval "$(${pkgs.pay-respects}/bin/pay-respects --alias)"
       eval `${pkgs.keychain}/bin/keychain --eval --agents ssh --inherit any id_ed25519`
-    '';
 
-    initExtra = ''
       # TODO only because session variables are not getting picked up
       export EDITOR=nvim
       export VISUAL=nvim
@@ -94,6 +92,7 @@
 
       # direnv
       eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
+
     '';
 
     shellAliases = {
@@ -128,6 +127,8 @@
       search = "sudo fd . '/' | grep"; # TODO replace with ripgrep
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
+
+      claude = "~/tools/claude-code/node_modules/@anthropic-ai/claude-code/cli.js";
     };
 
     plugins = [
