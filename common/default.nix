@@ -1,4 +1,4 @@
 { config, pkgs, lib, ... }: {
 
-  imports = [ ./git ./tmux ./vim ./zsh ./firefox ./vscode ./jetbrains ];
+  imports = [ ./git ./tmux ./vim ./zsh  ./vscode ./jetbrains ];
 }

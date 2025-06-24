@@ -30,7 +30,7 @@
     ];
     casks = [
       "adobe-creative-cloud"
-      "android-platform-tools"
+#      "android-platform-tools"
       "sf-symbols"
       "alfred"
       "firefox"
@@ -77,7 +77,7 @@
       Vimari = 1480933944;
       AdGuard = 1440147259;
       Tamperish = 1516885392;
-      IcoonFly = 556381974;
+      IconFly = 556381974;
     };
   };
 }

@@ -7,6 +7,7 @@ code-insiders --install-extension bodil.file-browser
 code-insiders --install-extension bpruitt-goddard.mermaid-markdown-syntax-highlighting
 code-insiders --install-extension bradlc.vscode-tailwindcss
 code-insiders --install-extension brettm12345.nixfmt-vscode
+code-insiders --install-extension calvinjosenhans.deduce-mode
 code-insiders --install-extension cpylua.language-postcss
 code-insiders --install-extension davidanson.vscode-markdownlint
 code-insiders --install-extension dbaeumer.vscode-eslint
@@ -24,9 +25,8 @@ code-insiders --install-extension github.vscode-github-actions
 code-insiders --install-extension github.vscode-pull-request-github
 code-insiders --install-extension graphql.vscode-graphql
 code-insiders --install-extension graphql.vscode-graphql-syntax
+code-insiders --install-extension haskell.haskell
 code-insiders --install-extension humao.rest-client
-code-insiders --install-extension iocave.customize-ui
-code-insiders --install-extension iocave.monkey-patch
 code-insiders --install-extension jacobdufault.fuzzy-search
 code-insiders --install-extension jnoortheen.nix-ide
 code-insiders --install-extension joshuapoehls.json-escaper
@@ -44,7 +44,6 @@ code-insiders --install-extension ms-toolsai.jupyter-renderers
 code-insiders --install-extension ms-toolsai.vscode-jupyter-cell-tags
 code-insiders --install-extension ms-toolsai.vscode-jupyter-slideshow
 code-insiders --install-extension ms-vscode.atom-keybindings
-code-insiders --install-extension ms-vscode.azure-account
 code-insiders --install-extension ms-vscode.makefile-tools
 code-insiders --install-extension naumovs.color-highlight
 code-insiders --install-extension oderwat.indent-rainbow

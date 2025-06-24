@@ -9,6 +9,10 @@ in {
       ./configuration.nix
       ../../darwin/system/applications.nix
 
+      {
+        system.primaryUser = "navilan";
+      }
+
       home-manager
       {
         home-manager.useUserPackages = true;

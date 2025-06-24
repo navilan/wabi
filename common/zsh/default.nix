@@ -39,7 +39,7 @@
         eval "$(/opt/homebrew/bin/brew shellenv)"
       fi
       eval "$(${pkgs.starship}/bin/starship init zsh)"
-      eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
+      eval "$(${pkgs.pay-respects}/bin/pay-respects --alias)"
       eval `${pkgs.keychain}/bin/keychain --eval --agents ssh --inherit any id_ed25519`
     '';
 

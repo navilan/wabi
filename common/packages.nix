@@ -14,7 +14,7 @@
     wget
     curl
     cloc
-    thefuck
+    pay-respects
     sshfs
     gh
     direnv

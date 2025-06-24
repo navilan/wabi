@@ -11,11 +11,12 @@
   # Upstream issue: https://github.com/LnL7/nix-darwin/issues/214
   system.activationScripts.applications.text = lib.mkForce ''
     echo "setting up ~/Applications..." >&2
-      rm -rf ~/Applications/Nix\ Apps
-      mkdir -p ~/Applications/Nix\ Apps
-      for app in $(find ${config.system.build.applications}/Applications -maxdepth 1 -type l); do
-        src="$(/usr/bin/stat -f%Y "$app")"
-        cp -r "$src" ~/Applications/Nix\ Apps
+    rm -rf ~/Applications/Nix\ Apps
+    mkdir -p ~/Applications/Nix\ Apps
+
+    find "${config.system.build.applications}/Applications" -maxdepth 1 -type l | while IFS= read -r app; do
+      src="$(/usr/bin/stat -f%Y "$app")"
+      cp -r "$src" ~/Applications/Nix\ Apps
     done
     '';
 }

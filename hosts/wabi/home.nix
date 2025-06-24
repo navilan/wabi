@@ -73,7 +73,8 @@ in {
 
     lsd = {
       enable = true;
-      enableAliases = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
     };
 
     bat = { enable = true; };
