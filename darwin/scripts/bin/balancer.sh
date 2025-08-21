@@ -15,7 +15,7 @@ if [ "$ND" -eq 2 ]; then D1=$d1; D2=$d2; D3=$d1; D4=$d1; D5=$d2;
 fi
 # Mac to the right, no iPad
 # if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d1; D4=$d1; D5=$d1; echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]"; fi
-if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d3; D4=$d1; D5=$d1;
+if [ "$ND" -eq 3 ]; then D1=$d2; D2=$d3; D3=$d1; D4=$d1; D5=$d1;
   echo "Balancing spaces: displays=$ND [$D1, $D2, $D3, $D4, $D5]";
 fi
 # iPad on the left

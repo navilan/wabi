@@ -54,6 +54,7 @@ code-insiders --install-extension ms-toolsai.jupyter-keymap
 code-insiders --install-extension ms-toolsai.jupyter-renderers
 code-insiders --install-extension ms-toolsai.vscode-jupyter-cell-tags
 code-insiders --install-extension ms-toolsai.vscode-jupyter-slideshow
+code-insiders --install-extension ms-vscode-remote.remote-containers
 code-insiders --install-extension ms-vscode.atom-keybindings
 code-insiders --install-extension ms-vscode.makefile-tools
 code-insiders --install-extension ms-vscode.vscode-typescript-next
@@ -70,6 +71,7 @@ code-insiders --install-extension richie5um2.vscode-sort-json
 code-insiders --install-extension ruben-vibax.jinja-spacer
 code-insiders --install-extension samuelcolvin.jinjahtml
 code-insiders --install-extension streetsidesoftware.code-spell-checker
+code-insiders --install-extension suleymanozkeskin.persistent-terminals
 code-insiders --install-extension svelte.svelte-vscode
 code-insiders --install-extension tamasfe.even-better-toml
 code-insiders --install-extension timonwong.shellcheck
